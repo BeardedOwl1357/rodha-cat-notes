@@ -1,0 +1,341 @@
+% Start writing content here without any preamble
+\section{Introduction}
+This section is for number system notes. 
+
+\section{Types of Numbers}
+\begin{WARNING}{This chapter only deals with real numbers and is not concerned with imaginary numbers}\end{WARNING}
+
+Real numbers are numbers that can be represented on the number line. The number line is a line where one extreme end is denoted by $- \infty$ and the other is defined by $\infty$ where all numbers can be defined. There are two kinds of real numbers
+
+\begin{itemize}
+    \item \textbf{Rational Numbers} 
+    \begin{itemize}
+        \item These numbers are represented as $\displaystyle { \frac{p} {q} }$ where $p$ and $q$ are integers with $q \neq 0$.
+        
+        \item The decimal form of this fraction contains decimals where numbers are recurring in nature. For example, $\displaystyle{ \frac{1}{3} } \, = 0.33333\dots \, or \, 0.\bar{3}$. \textbf{This is called non terminating decimal}
+    \end{itemize}
+
+    \item \textbf{Irrational Numbers} : 
+    \begin{itemize}
+        \item Any real number which is not rational in nature $\implies$ any real number which cannot be represented in the form $\displaystyle{ \frac{p}{q} }$
+
+        \item For example, $\sqrt{2}$, $\sqrt[3]{3}$ etc
+
+        \item The decimal form of these numbers contains decimals which are not recurring in nature. For example, $3.14159265359$ ($\pi$)
+    \end{itemize}
+\end{itemize}
+
+%--------section----------%
+\section{Converting Non Terminating Decimals to Fractions}
+We can convert non terminating decimals like $0.\bar{23}$ to their fractional form. See the below example
+
+\begin{align}
+    x &= 0.2323232323 \dots         \label{ex1:eq1} \\
+    \shortintertext{ Multiply by 100 on both sides } \nonumber \\
+    100x &= 23.23232323 \dots       \label{ex1:eq2} \\ 
+    \shortintertext{ Subtracting \eqref{ex1:eq1} and \eqref{ex1:eq2} } \nonumber \\
+    99x &= 23 \,  \nonumber \\
+    x &= \displaystyle{ \frac{23}{99} } \nonumber
+\end{align}
+
+\vspace{1cm}
+
+Let us take another example of converting $0.\bar{3}$ to a fraction
+\begin{align}
+    x &= 0.33333 \dots \label{ex2:eq1} \\
+    \shortintertext{Multiplying by 10 on both sides} \nonumber \\ 
+    10x &= 3.3333 \dots \label{ex2:eq2} \\
+    \shortintertext{Subtract \eqref{ex2:eq2} and \eqref{ex2:eq1} } \nonumber \\
+    9x &= 3 \nonumber \\
+    x &= \displaystyle{ \frac{3}{9} \implies \frac{1}{3}} \nonumber 
+\end{align}
+
+\vspace{1cm}
+
+If we have to generalise it, we can write it as follows 
+\begin{align*}
+    0.aaaaaaa \ldots &= \displaystyle{ \frac{a}{9} } \\
+    0.abababab \ldots &= \displaystyle{ \frac{ab}{99} } \\
+    0.abcabcabc \ldots &= \displaystyle{ \frac{abc}{999} } \\
+    0.abcdabcdabcd \ldots &= \displaystyle{ \frac{abcd}{9999} }
+\end{align*}
+
+\SampleQuestion{Convert $0.256565656\dots$ to its rational form $\displaystyle{ \frac{p}{q} }$ form} 
+
+To convert this into a fraction number, we will have to make the decimal portion as repeating. To do this, we can multiply the number by 10 and then use that variable to get the fraction
+
+\begin{align}
+    x &= 0.256256256\dots \nonumber \\
+    10x &= 2.56565656\dots \nonumber \\
+    y &= 10x = 2.565656\dots        \label{q1:eq1}
+\end{align}
+
+Now, let us do the steps with $y$ variable
+\begin{align}
+    y &= 2.565656\dots              \label{q1:eq2} \\
+    \shortintertext{Multiply by 100 on both sides} \nonumber \\
+    100y &= 256.565656\dots          \label{q1:eq3} \\
+    \shortintertext{Subtract \eqref{q1:eq3} and \eqref{q1:eq2} } \nonumber \\
+    99y &= 254 \nonumber \\
+    y &= \displaystyle{ \frac{254}{99} } \nonumber \\
+    \shortintertext{ Using \eqref{q1:eq1} to substitute value} \nonumber \\
+    x &= \displaystyle{ \frac{254}{990} \implies \frac{127}{495} } \nonumber    
+\end{align}
+
+\SampleQuestion{ Convert $0.423232323\dots$ to $\displaystyle{ \frac{p}{q} }$ form }
+
+\begin{align}
+x &= 0.423232323\dots \nonumber \\
+\shortintertext{Convert this to a decimal with recurring digits} \nonumber \\
+10x &= 4.232323\dots \label{q2:eq1} \\
+\shortintertext{Let us denote this number with $y$ from now on } \nonumber \\
+y &= 4.232323\dots \label{q2:eq2} \\
+\shortintertext{Multiply by 100 on both sides}
+100y &= 423.232323\dots \label{q2:eq3} \\
+\shortintertext{ Subtracting \eqref{q2:eq3} with \eqref{q2:eq2} }
+99y &= 419 \nonumber \\
+y &= \displaystyle{ \frac{419}{99} } \nonumber \\
+\shortintertext{Using \eqref{q2:eq1}} \nonumber \\
+x &= \displaystyle{ \frac{419}{990} }
+\end{align}
+
+%---------------section-----------------
+\section{Types of Rational Numbers}
+\begin{NOTE}
+    \begin{enumerate}
+        \item Set of all rational numbers is denoted as $\mathbb{R}$
+        \item Set of all \textbf{positive} rational numbers is denoted as $\mathbb{R}^{+}$
+        \item Set of all \textbf{negative} rational numbers is denoted as $\mathbb{R}^{-}$
+    \end{enumerate}
+\end{NOTE}
+
+\begin{itemize}
+    \item \textbf{Integer}
+    \begin{itemize}
+        \item Numbers without any decimals
+        \item Consist of both positive and negative integers
+        \item $0$ is a non-negative as well as a non-positive integer
+        \item For example, $-1,-2,4,100$
+        \item The set of all integers is denoted as $\mathbb{Z}$ and for all positive and negative integers, defined as $\mathbb{Z}^{+}$ and $\mathbb{Z}^{-}$ respectively
+    \end{itemize}
+
+    \item \textbf{Whole Number}
+    \begin{itemize}
+        \item Positive integers including 0 \rm{i.e.} all numbers in the range $\left[ 0, \infty \right)$
+        \item Set of all whole numbers is defined as $\mathbb{W}$
+    \end{itemize}
+
+    \item \textbf{Natural Number}
+    \begin{itemize}
+        \item Positive integers excluding 0 \rm{i.e.} all numbers in the range $\left[ 1, \infty \right)$
+        \item Set of all natural numbers is defined as $\mathbb{N}$
+    \end{itemize}
+
+    \item \textbf{Odd Numbers} : Numbers which can be represented as $(2n) + 1$ where $n \in \mathbb{Z}$
+
+    \item \textbf{Odd Numbers} : Numbers which can be represented as $(2n)$ where $n \in \mathbb{Z}$
+
+\end{itemize}
+
+
+%--------------------------------------
+\section{Sum of Natural Numbers}
+This section deals with sum of different sequences of natural numbers. They are defined as follows
+
+\begin{itemize}
+    \item Sum of $n$ natural numbers : $1 + 2 + 3 + \dots n$ = $\displaystyle{ \frac{n \, (n+1)} {2} }$
+
+    \item Sum of square of $n$ natural numbers : $1^2 + 2^2 + 3^2 + \dots n^2$ = $\displaystyle{ \frac{n \, (n+1) \, (2n+1)}{6} }$
+
+    \item Sum of cube of $n$ natural numbers : $1^3 + 2^3 + 3^3 + \dots n^3$ = $\displaystyle{ \left (\frac{  n \, (n+1) }{2} \right) ^2}$
+
+    \item Sum of $n$ odd numbers : $1 + 3 + 5 + 7 + \dots (2n - 1)$ = $n^2$
+    
+    \item Sum of $n$ even numbers : $2 + 4 + 6 + 8 + \dots 2n$ = $n^2 + n$
+\end{itemize}
+
+\vspace{1cm}
+
+%-------------Theorem--------------------------
+\begin{theorem} Sum of $k$ odd consecutive integers is a multiple of $k$. \end{theorem}
+
+\begin{proof}
+    \begin{align*}
+    \shortintertext{The sum of $k$ odd consecutive integers will be defined as} \\
+    &= (2n+1) + (2n+3) +  (2n+5) + \dots (2n+(2k-1)) \\
+    \shortintertext{Rearranging the terms} \\
+    &= (2n * k) + (1 + 3 + 5 + \dots (2k-1) ) \tag{Th-\thetheorem-1} \label{Th-\thetheorem-1} \\
+    \shortintertext{Take the sum of the arithmetic progression $1 + 3 + 5 + \dots (2k -1 )$ with first term = 1 and common difference = 2} \\
+    &= \displaystyle { \left (\frac{k}{2} * \left[ \, (2 * 1) + ( \, (k - 1) * 2 \,) \right ] \right ) } \\
+    &= k * \displaystyle{ \left[  (\, 2 + 2k - 2 \, )     \right] } \\
+    &= k^2 \tag{Th-\thetheorem-2} \label{Th-\thetheorem-2} \\
+    \shortintertext{Using \eqref{Th-\thetheorem-2} in \eqref{Th-\thetheorem-1} and rearranging} \\
+    &= k * \left ( 2n + k \right )
+    \shortintertext{Based on above, we can see that the text can be divided by $k$. Therefore, our theorem is proved}
+    \end{align*}
+\end{proof}
+
+\SampleQuestion{ Find the sum of the sequence $1 + 3 + 5 +\dots 91$ }
+
+We can see that the sequence is a sequence of odd natural numbers. The formula for this has been defined above however we need to find the value of $n$. An odd number is defined as $2n - 1 \, \forall \, n \, \in \mathbb{N} $. 
+\begin{align*}
+    2n - 1 &= 91 \\
+    2n &= 92 \\
+    n &= 46
+\end{align*}
+
+The sum of the above sequence is $46^2 = 2116$
+
+\SampleQuestion{Find sum of sequence $11^2 + 12^2 + 13^2 + \dots 20^2$}
+
+We can find the sum of sequence using the formulas for sum of $n$ natural numbers. We can first take sum of 20 first natural numbers and then subtract it from sum of first 10 natural numbers
+\begin{align*}
+    (11^2 + 12^2 + 13^2 + \dots 20^2) \, &= \, (1^2 + 2^2 + 3^2 + \dots 20^2) \, - \, (1^2 + 2^2 + 3^2 + \dots + 10^2) \\
+    &= \left ( \displaystyle{ \frac{20 * 21 * 41}{6} }  \right ) - \left ( \displaystyle{ \frac{10 * 11 * 21}{6} }  \right ) \\
+    &= (10 * 7 * 41) - (5 * 11 * 7) \\
+    &= 7 * (410 - 55) \\
+    &= 2485
+\end{align*}
+
+%--------------Section----------------
+\section{Prime Numbers}
+Prime numbers are numbers which have only two factors : $1$ and the number itself. Numbers which are not prime are called \textbf{composite numbers} Some examples are as follows
+
+\begin{itemize}
+    \item 7 : 1,7 $\implies$ Prime
+    \item 10 : 1,2,5,10 $\implies$ Composite 
+    \item 23 : 1,23 $\implies$ Prime
+\end{itemize}
+
+Some notes on Prime Numbers
+\begin{enumerate}
+    \item There are 15 prime numbers between 1 to 50
+    \item There are 25 prime numbers between 1 to 100
+    \item There are 46 prime numbers between 1 to 200
+    \item Largest 2 digit prime number = 97
+    \item Largest 3 digit prime number = 997
+    \item Smallest 4 digit prime number = 1009
+    \begin{itemize}
+        \item 1001 is a multiple of 13
+        \item 1003 is a multiple of 17
+        \item 1007 is a multiple of 19
+    \end{itemize}
+    \item 2 is the only even prime number
+    \item 1 is neither prime nor composite
+    \item First 5 digit prime number = 10007 {ANKI}
+    \begin{itemize}
+        \item 1 has only one factor
+        \item Prime numbers have 2 factors
+        \item Composite numbers have $\geq$ 3 factors
+        \item 1 has only one factor $\implies$ it is neither prime nor composite
+    \end{itemize}
+
+\end{enumerate}
+
+\begin{NOTE}
+    List of prime numbers between 1 to 100 are as follows
+    \begin{itemize}
+        \item Between 1 - 10 : 2,3,5,7
+        \item Between 11 - 20 : 11,13,17,19
+        \item Between 21 - 30 : 23,29
+        \item Between 31 - 40 : 31,37
+        \item Between 41 - 50 : 41,43,47
+        \item Between 51 - 60 : 53,59
+        \item Between 61 - 70 : 61,67
+        \item Between 71 - 80 : 71,73,79
+        \item Between 81 - 90 : 83,89
+        \item Between 91 - 100 : 97
+    \end{itemize}
+\end{NOTE}
+
+%---------------Section--------------------------------
+
+\section{How to Find Whether a Number is Prime or Not}
+We have a few methods to check whether a number is prime or not. They are listed as follows
+\begin{enumerate}
+    \item Except 2 and 3, a prime number is of the form $6k \pm 1$ \textbf{but the reverse is not true} \texttt{i.e.} This means that if a number is prime, it will be of the form $6k \pm 1$ but if a number is form $6k \pm 1$, then it may or may not be a prime
+    \begin{itemize}
+        \item For example, let $k=4$. $6k + 1 = 24 + 1 = 25$
+        \item 25 is not a prime number
+    \end{itemize}
+
+    \item For a prime number $p \geq 5$, the expression $p^2 - 1$ will always be divisible by 24 \label{th_p_sq_24}
+
+    \item Digital Sum of a prime number can never be 3,6 or 9
+    \begin{itemize}
+        \item Digital Sum is defined as adding the digits of a number until we get a single digit number
+        \item For example, for 789, digital sum will be calculated as $7 + 8 + 9 = 24$. Since we haven't arrived to a single digit yet, we will add the digits again $\implies 2 + 4 = 6$
+        \item Thus, 789 is not a prime number
+    \end{itemize}
+    
+    \item For a number , check its divisibility with prime numbers $\leq$ $\lfloor \sqrt{n} \rfloor$. No need to check for composite numbers $\leq$ $\sqrt{n}$ as all composite numbers are a combination of prime numbers. For example, look at the following composite numbers
+    \begin{itemize}
+        \item 6 = 3 * 2
+        \item $150 = 5 * 5 * 2 * 3$ $\implies$ $150 = 2 * 3 * 5^2$
+    \end{itemize}
+\end{enumerate}
+
+\begin{NOTE}
+    \textbf{But why $\sqrt{n}$ ?} \\
+    
+    All factors of a number are either before the square root or after the square root. If a number is a perfect square, the square root will itself be a factor. If we check for divisibility with factors which are before the square root of the number, we will automatically check for factors which are after the square root \\
+
+    For example, let us take 45. The $\lfloor \sqrt{45} \rfloor$ = $6$. Factors are $[1,3,5,9,15,45]$. If we check divisibility by 3, then we are also checking by 15 because if 45 is divisible by 3, then there exists a number (15) which, when multiplied by this factor (3), will give the number back. Similarly, if we check by 9, we will be checking for divisibility by 5 also. \\
+
+    Let us take a perfect square this time, 36. The $\lfloor \sqrt{36} \rfloor$ = $6$. Factors are $[1,2,3,6,12,18,36]$. Since this is a perfect square, the square root of this number (6) will be a factor. All the factors after this square root will have a behavior similar to what we discussed above
+\end{NOTE}
+
+\begin{theorem}
+    For a prime number $p \geq 5$, the expression $p^2 - 1$ will always be divisible by 24 
+\end{theorem}
+
+\begin{proof}
+    \textbf{\href{https://www.enjoymathematics.com/blog/prove-that-p-2-1-is-divisible-by-24}{Refer to Proof 2}}
+    \begin{align*}
+        \shortintertext{Any prime number $\geq$ 5 can be represented as $6n \pm 1$. } \\
+        \shortintertext{The expression $p^2 - 1$ can be expanded as} \\
+        p^2 - 1 &= (p + 1) \, (p-1) \\
+        \shortintertext{Substitute value of $p$ with $6n \pm 1$} \\
+        &= (6n \pm 1 + 1) \, (6n \pm 1 - 1) \tag{Th-\thetheorem-1} \\
+        \shortintertext{We can have two cases depending upon the sign of prime number} \\
+        &= (6n + 2) (6n) \implies 12n \,(3n + 1) \tag{$p=6n + 1$} \\
+        &= (6n) (6n - 2) \implies 12n \,(3n - 1) \tag{$p=6n - 1$} \\
+        \shortintertext{If $n$ is even, then the expression with $p=6n + 1$ will be divisible by 24} \\
+        \shortintertext{If $n$ is odd, then the expression $3n-1$ within the expression derived by using $p=6n + 1$ will be divisible by 2, making everything divisible by 24} \\
+    \end{align*}
+    Hence, we proved that the expression $p^2 - 1$ will be divisible by 24 $\forall$ $p \geq 5$. \\
+    
+\end{proof}
+
+\SampleQuestion{Is $3^{193} + 5$ prime or composite?}
+
+$3^{193}$ will be an odd number. This is because an odd number multiplied by an odd number will be an odd number. Furthermore, if an odd number is added to an odd number, it will yield an even number. \\
+
+In this case, adding $5$ to $3^{193}$ will give an even number. An even number cannot be a prime number (except 2) $\implies$ $3^{193} + 5$ is not a prime number
+
+\SampleQuestion{Is 1000001 prime or composite?}
+\begin{align*}
+    &= 10^6 + 1 \\
+    &= \displaystyle{\left ( 10^2 \right ) ^3 } + 1^3 \\
+    \shortintertext{Refer to Section \ref{algebra-factor-formulae}} \\
+    &= (a + b) \, (a^2 - ab^2 + b^2) \\
+    &= (101) \, (100^2 - 100 * 1^2 + 1^2) \\
+    \shortintertext{Since this number was able to be factorised into two factors which are not $1$ or $1000001$, this is not a prime number}
+\end{align*}
+
+\SampleQuestion{Is $2^{3007} + 1$ prime or composite?}
+Referring to the generalised equation for factorisation in \ref{algebra-factor-formulae}, we can see that this is of the form $a^n + b^n$ with $n = 3007$ (odd number). \\
+
+As such, this will be divisible by $a+b \implies$ 3. \textbf{Therefore, not prime }
+
+\SampleQuestion{Is 973 prime or composite?}
+\begin{align*}
+    \shortintertext{973 can be written as} \\
+    973 &= 1000 - 27 \\
+    &= 10^3 - 3^3 \\
+    \shortintertext{This is of form $a^n - b^n$ with $n$ = odd. Thus, this number will be divisible by $(a-b) \implies 7$.}
+\end{align*}
+
+\textbf{Therefore, not prime}
+  
+

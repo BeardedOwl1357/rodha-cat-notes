@@ -1,0 +1,460 @@
+\section{HCF : Highest Common Factor}
+HCF of two numbers $a,b$ is defined as the largest number $d$ which is a factor of both $a$ and $b$. For example, $HCF(12,30) = 6$ as $12 = 6*2$ and $30 = 6 * 5$. The general method of finding HCF is through Euler's division method. \\ 
+\begin{itemize}
+    \item This method states that for $b > a$, the equation $b = q * a + r, q \in{\mathbb{Z}}, 0 \leq r < b$ exists.
+
+    \item In the algorithm, we substitute $b = a, a = q$ till $r = 0$. 
+\end{itemize}
+ 
+
+\SampleQuestion{Find HCF of 14 and 39}.
+Using euler's method, we will divide 39 and 14. 
+\begin{align*}
+    39 &= 14 * 2 + 11 \tag{$b = 39, a = 14, r = 11$. Put $b = a, a = r$} \\
+    14 &= 11 * 1 + 3 \tag{$b = 14, a = 11, r = 3$. Put $b = a, a = r$} \\
+    11 &= 3 * 3 + 2 \tag{$b = 11, a = 3, r = 2$. Put $b = a, a = r$} \\
+    3 &= 2 * 1 + 1 \tag{$b = 3, a = 2, r = 1$. Put $b = a, a = r$} \\
+    2 &= 1 * 2 + 0 \tag{$b = 2, a = 1, r = 0$. Terminate} \\
+    \implies HCF = 1
+\end{align*}
+
+
+An efficient way of calculating HCF is to use an interesting property of HCF : The HCF between $a$ and $b$ with $b > a$ is that it will \textbf{definitely} be a factor of $b - a$. Let us take an example 
+
+\SampleQuestion{Find HCF of 12 and 42}
+As we stated above, the HCF of 12 and 42 will definitely be a factor of $42 - 12 = 30$. Let us write the factors of 30 and start from the highest factor to see whether it divides both $12$ and $42$. \\
+
+Factors of 30 = $1,2,3,5,6,10,15,30$
+\begin{itemize}
+    \item 30 : 30 does not divide 12.. Rejected
+    \item 30 : 15 does not divide 12.. Rejected
+    \item 30 : 10 does not divide 12.. Rejected
+    \item 30 : 6 divides 12 and 42.. Accepted
+\end{itemize}
+
+Therefore, $HCF(42,12) = 6$
+
+\begin{theorem}
+    $HCF(a,b), b > a$ is definitely a factor of $b-a$
+\end{theorem}
+
+\begin{proof}
+    The proof is as follows
+    \begin{itemize}
+        \item Let us assume that $d$ is the HCF of $b$ and $a \implies b = d * m, a = d *n, (m,n \in \mathbb{Z})$ 
+        \item Now, $b-a = d * (m - n)$. Since $m$ and $n$ are integers, $m - n$ will also be an integer. Let us assume that $k = m -n $
+        \item Now, $b - a = d * k \implies (b-a)$ is divisible by $d$ i.e. HCF of $a$ and $b$
+        \item Now, any factor of $d$ will be a factor of $a$ and $b$ as well because a factor $x$ of $d$ will also divide $a$ and $b$
+    \end{itemize}
+\end{proof}
+
+\subsection{HCF of multiple numbers}
+The general method of finding HCF of multiple numbers is to find HCF of two numbers and then continue finding HCF until all numbers are used. For example, to find $HCF(93,292,496,107,231)$
+
+\begin{enumerate}
+    \item Find $HCF(93,292) = x$
+    \item Find $HCF(x,496) = y$
+    \item Find $HCF(y,107) = z$
+    \item Find $HCF(z,231) = ans$
+\end{enumerate}
+
+An easy way to do this, is to take difference of two shortest terms in the sequence $b,a$ and then find the highest factor of $b - a$ which is common to all terms. We are doing the same thing as above but with reduced steps. So, to find $HCF(93,292,496,107,231)$, we will take two numbers with the smallest difference (107,93) $\implies 14$ and check which factor of 4 will divide all the 4 terms $\implies \text{num} \mod f_{14} = 0, f_{14} = \text{factor of 14}$
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c | c | c ||}
+        \hline
+         \textbf{Factor ($f$)} & $93 \mod f$ & $107 \mod f$ & $231 \mod f$ & $292 \mod f$  & $496 \mod f$ \\
+        \hline
+         \textbf{14} & 9 & 9 & 7 & 12 & 6 \\ 
+        \hline
+         \textbf{7} & 2 & 2 & 0 & 5 & 6 \\ 
+        \hline
+         \textbf{2} & 1 & 1 & 1 & 0 & 0 \\ 
+        \hline
+         \textbf{1} & 0 & 0 & 0 & 0 & 0 \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+1 is the only factor which will divide all the numbers. Therefore, HCF = 1
+
+\subsection{HCF and Co-Primes}
+If there are two numbers $a$ and $b$ with the highest common factor (HCF) as $d$, then if $a = d * n$ and $b = d * m$, then $(n,m)$ must be co-prime. 
+
+\SampleQuestion{HCF of 2 numbers is 18 and the sum of these numbers is 324. How many such pairs of numbers are possible?}
+
+\textbf{Since we are not asked for variables $a,b$, we need to consider unordered solutions.} \\
+
+Let us have two numbers $a,b$ where $a = 18 * m, b = 18 * n$. Since 18 is the HCF, \textbf{$(m,n)$ must be co-prime}. According to the question
+
+\begin{align*}
+    18 * m + 18 * n &= 324 \\
+    m + n &= 18 \\
+\end{align*}
+
+Let us try to guess values of $m$ and $n$
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|| c | c | c ||}
+         \hline
+         $m$ & $n$ & $m$ and $n$ coprime?  \\
+         \hline
+         1 & 17 & Yes \\ 
+         \hline
+         5 & 13 & Yes \\ 
+         \hline
+         7 & 11 & Yes \\ 
+         \hline
+    \end{tabular}
+\end{table}
+
+There are 3 pairs. 
+
+\SampleQuestion{HCF of 2 numbers is 7 and their sum is 1470. How many such pair of numbers are possible?}
+
+According to the question, we have $a = 7 * m, b = 7 * n$ where $m$ and $n$ are co-prime. 
+
+\begin{align*}
+    7 * (m + n) &= 1470 \\
+    m + n &= 210
+\end{align*}
+
+Now, we could find values of $m$ and $n$ through hit-and-trial. However, we can also use the concept of Euler's number. Euler's number, by definition, is the count of numbers that are co-prime to the current number. This is extensively discussed in \textbf{factors} chapter. For now, just understand the following : 
+\begin{itemize}
+    \item If $n = p_1^a * p_2^b * \ldots p_n^z, p_i \text{is prime}$, then $E_n = n * \bigParen{1 - \dfrac{1}{p_1}} * \bigParen{1 - \dfrac{1}{p_2}} * \ldots \bigParen{1 - \dfrac{1}{p_n}}$ 
+    
+    \item Number of pairs of co-prime numbers such that their sum is $n = \dfrac{E_n}{2}$ 
+\end{itemize}
+
+In our case, $n=210$. 
+
+\begin{align*}
+    210 &= 3 * 7 * 10 \\
+    &= 2 * 3 * 5 * 7 \\
+    E_{210} &= 210 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{3}} * \bigParen{1 - \dfrac{1}{5}} * \bigParen{1 - \dfrac{1}{7}} \\
+    &= 105 * \dfrac{2}{3} * \dfrac{4}{5} * \dfrac{6}{7} \\
+    &= 48
+\end{align*}
+
+The number of pairs of co-prime numbers such that sum = 1470 is $\dfrac{48}{2} = 24$
+
+\SampleQuestion{HCF of 2 numbers is 6 and product is 30240. How many such pairs of numbers are possible?}
+
+According to question, $a = 6 * m , b = 6 * n$ where $m,n$ are co-prime to each other. The equation thus becomes
+
+\begin{align*}
+    6 * m * 6 * n &= 30240 \\
+    m * n &= 840
+\end{align*}
+
+(This kind of question is also done in factors. Redoing it for personal learning)... We can factorise 840 as $2^3 * 3 * 5 * 7$. We now need to find values of $m$ and $n$ such that $m * n = 840$ and $m,n$ are co-prime. We can treat $m$ and $n$ as "boxes" in which we need to put factors of 840. We need to put all factors in two boxes and can put a factor in any box
+
+\begin{itemize}
+    \item We can put $2^3$ in any box ($m$ or $n$) : 2 choices
+    \item We can put $3$ in any box ($m$ or $n$) : 2 choices
+    \item We can put $5$ in any box ($m$ or $n$) : 2 choices
+    \item We can put $7$ in any box ($m$ or $n$) : 2 choices
+\end{itemize}
+
+Therefore, total choices are $2 * 2 * 2 * 2 = 16$. However, since we are not concerned about the order, we have $\dfrac{16}{2} = 8$ choices
+
+\begin{EXTRA-LEARNING}
+    For a number $n$ that can be prime factorised in $m$ factors, we can generalise the number of pairs whose product is $n$
+    \begin{itemize}
+        \item Unordered : $2^{m-1}$
+        \item Ordered : $2^m$
+    \end{itemize}
+\end{EXTRA-LEARNING}
+
+\SampleQuestion{Find HCF of $(2^6 - 1, 2^9 - 1)$}
+The $HCF(a,b)$ is a factor of $b-a$. In our case
+\begin{align*}
+    b - a &= 2^9 - 1 - 2^6 + 1 \\
+    &= 2^9 - 2^6 \\
+    &= 2^6 (2^3 - 1)
+\end{align*}
+
+Now, since $2^9 - 1$ and $2^6 - 1$ are odd numbers, we can rule out $2^6$ as HCF as odd numbers can't have an even number as a factor. We will now check for factors of $2^3 - 1 = 7$. Since the numbers are greater, we can use concepts we learned in remainders to see if the remainder of number with factors of 7 is 0 or not \\
+
+\textbf{Finding with 7} \\
+Number = $2^9 - 1$ 
+\begin{align*}
+    \remFrac{2^9 - 1}{7} &= \remFrac{2^9}{7} - \remFrac{1}{7} \\
+    &= \remFrac{(2^3)^3}{7} - (-6) \tag{$1 \mod 7 = 1 = -6$} \\
+    &= 1 + 6 \tag{$2^3 \mod 7 = 1$} \\
+    &= \remFrac{7}{7} = 0
+\end{align*}
+
+Number = $2^6 - 1$ 
+
+\begin{align*}
+    \remFrac{2^6 - 1}{7} &= \remFrac{2^6}{7} - \remFrac{1}{7} \\
+    &= \remFrac{(2^3)^2}{7} - (-6) \tag{$1 \mod 7 = 1 = -6$} \\
+    &= 1 + 6 \tag{$2^3 \mod 7 = 1$} \\
+    &= \remFrac{7}{7} = 0
+\end{align*}
+
+Since both are divisible by 7, $HCF(2^9 - 1, 2^6 - 1) = 7$
+
+\begin{NOTE}
+    There is a general formula for this kind of questions. I could not find a proof that I can understand. 
+    $$HCF(a^m - 1, b^n - 1) = a^{HCF(m,n)} - 1$$
+\end{NOTE}
+
+\SampleQuestion{Find $HCF(3^{192} - 1, 3^{192} + 1)$}
+
+The HCF should be a factor of $3^{192} + 1 - 3^{192} + 1 = 2$. Since both $3^{192} - 1$ and $3^{192} + 1$ are even numbers, their HCF = 2
+
+\begin{EXTRA-LEARNING}
+    \begin{itemize}
+        \item HCF of two consecutive even numbers = 2
+        \item HCF of two consecutive odd numbers = 1
+    \end{itemize}
+\end{EXTRA-LEARNING}
+
+\SampleQuestion{$HCF(7^{59} - 5, 7^{59} + 5)$}
+$HCF(a,b), b \geq a$ will be a factor of $b-a$
+\begin{align*}
+    \text{Factor of} &= 7^{59} + 5 - (7^{59} - 5) \\
+    &= 10 \\
+\end{align*}
+
+Now, factors of 10 are $10,5,2,1$. For a number to be divisibe by 10 or 5, the last digit must be 0 or 5 respectively. The sequence of powers of 7 is as follows
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c ||}
+         \hline
+         Power & Expression & Last Digit  \\
+         \hline
+         1 & $7^1$ & 7 \\ 
+         \hline
+         2 & $7^2$ & 9 \\ 
+         \hline
+         3 & $7^3$ & 3 \\ 
+         \hline
+         4 & $7^4$ & 1 \\ 
+         \hline
+         5 & $7^5$ & 7 \\ 
+         \hline
+    \end{tabular}
+\end{table}
+
+As we can see, the last digit of powers of 7 is cyclic in nature. In this cycle, we never get 0 or 5 as the last digit. Also, last digit - 1 is never 0 or 5 as well, so we can eliminate 10 and 5 as factors. \\
+
+We can see that $7^{59}$ is an odd number. When an odd number is added to / subtracted from an odd number, the result is even. Since the result will be even in our case as well, we can say that HCF = 2 
+
+\subsection{HCF of numbers with repeated digits}
+
+\begin{NOTE}
+    I am not providing proof for this result as to understand its proof, you will need a formal class on Number Theory. Since the purpose of this document is to put info which will allow you to pass the CAT exam (and not learn Number Theory in depth), I will just mention the result 
+\end{NOTE}
+
+For two numbers composed of a digit $x$ repeated $m$ and $n$ times respectively, $HCF(xxx\ldots m\text{ times},xxx\ldots n\text{ times}) = x * 1 \text{ repeated } HCF(m,n) \text{ times}$
+
+\SampleQuestion{Find $HCF(7777,777777)$}
+\begin{itemize}
+    \item In this case, the digit $7$ is repeated $4$ and $6$ times respectively. 
+    \item $HCF(4,6) = 2$
+    \item 1 repeated 2 times = 11
+    \item $HCF(7777,777777) = 7 * 11 = 77$
+\end{itemize}
+
+\section{LCM (Lowest Common Multiple)}
+LCM of two numbers $a,b$ is defined as the value such that $a * n = b * m $ where $n,m$ are the least values that satisfy the above condition. For example
+\begin{itemize}
+    \item 3,4
+    \begin{itemize}
+        \item Common multiples = $12,24,36,48\ldots$
+        \item Least Common Multiple (LCM) = 12
+    \end{itemize}
+    \item 16,32
+    \begin{itemize}
+        \item Common multiples = $32,64,96\ldots$
+        \item Least Common Multiple (LCM) = 32
+    \end{itemize}
+\end{itemize}
+
+\subsection{Calculate LCM through HCF}
+If we recall, HCF of two numbers is the largest number which divides both the numbers. An interesting observation is that after we take HCF common from both the numbers, the remaining numbers are co-prime. For example, $HCF(18,21) = 3, 18 = 3 * 6, 21 = 3 * 7.$ We can see that 6 and 7 are co-prime to each other. \\
+
+We can use the above property to find LCM of two numbers $a,b : LCM(a,b) = HCF(a,b) * a_{co-prime} * b_{co-prime}$.
+
+\SampleQuestion{Find $LCM(12,26)$}
+\begin{itemize}
+    \item $HCF(12,26) = 2$
+    \item $a_{co-prime} = 6, b_{co-prime} = 13$
+    \item $LCM(12,26) = 2 * 6 * 13 = 156$
+\end{itemize}
+
+\subsection{LCM of exponents and prime numbers}
+\begin{itemize}
+    \item $LCM(a^n,a^m), m > n = a^m$. This is because $a^m = a^n * a^{m-n}$
+    \item $LCM(a^n,b^n), a,b \text{ are prime} = a^n * b^m$
+    \item $LCM(a^n, b^m, b^x), a,b \text{ are prime }, x > m = a^n * b^x$. LCM always takes the highest power of a prime base. For example, $LCM(2^4,2^3,5^2,5^4) = 2^4 * 5^4$
+\end{itemize}
+
+\SampleQuestion{$LCM(6^6,8^8,N) = 12^{12}$. Find the maximum values of $N$}
+\begin{itemize}
+    \item We can write $12^{12}$ as $2^{24} * 3^{12}$
+    \item $6^6 = 2^6 * 3^6, 8^8 = 2^{24}$
+    \item $LCM(6^6,8^8) = 2^{24} * 3^6$
+    \item According to question, $LCM(2^{24} * 3^6,N) = 2^{24} * 3^{12}$. Since we are asked to find the \textbf{maximum} value of $N$, we need to use the property that LCM will always take the highest power of prime bases. In that sense, $N_{max} = 2^{24} * 3^{12}$
+\end{itemize}
+
+\SampleQuestion{$LCM(12^{10},64^{9},N) = 24^{18}$. How many values can $N$ take?}
+
+\begin{itemize}
+    \item $24^{18} = 2^{54} * 3^{18}$
+    \item $12^{10} = 2^{20} * 3^{10}$
+    \item $64^9 = 2^{54}$
+    \item $LCM(12^{10},64^9) = 2^{54} * 3^{10}$
+    \item Now, we can use the property that the highest power of a prime base is considered in LCM. If LHS = RHS, then we lack $3^{18}$ in LHS. While finding number of values of $N$, as long as we have $3^{18}$ in $N$, we can take any power of 2 as long as we are not exceeding $2^{54}$
+    \item Therefore, counting from 0, we have 55 values of 2 $\implies N$ can have 55 values 
+\end{itemize}
+
+\SampleQuestion{If $LCM(1,2,3 \ldots 78) = n$, then find $LCM(1,2,3 \ldots 82)$ in terms of $n$}
+
+This is an interesting question. The term $LCM(1,2,3 \ldots 78)$ means the product of highest power of prime factors present. In our case,
+$$
+n = 2^6 * 3^3 * 5^2 * 7^2 * 11 * 13 * \ldots 73
+$$
+
+Now, let us see how the value of $n$ will be calculated when we add new terms
+\begin{table}[]
+    \centering
+    \begin{tabular}{|| c | c | c ||}
+        \hline
+         Expression & Value & Reason \\
+        \hline
+         $LCM(1,2,3 \ldots 79) $ & $79 * n$ & 79 is a prime \\
+        \hline
+         $LCM(1,2,3 \ldots 80) $ & $79 * n$ & $80 = 2^4 * 5$. $n$ already contains $2^6$ so no change \\
+        \hline
+         $LCM(1,2,3 \ldots 81) $ & $3 * 79 * n$ & $81 = 3^4$. $n$ has $3^3$ and in LCM, we always the the highest power \\
+        \hline
+         $LCM(1,2,3 \ldots 82) $ & $3^4 * 79 * n$ & $82 = 2 * 41$. $n$ already has 41 (prime number) so no change \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The final expression is, therefore, $LCM(1,2,3 \ldots 82) = 3 * 79 * n = 237n$
+
+\SampleQuestion{$LCM(1,2,3 \ldots 120) = n$, find $LCM(1,2,3 \ldots 129)$ in terms of $n$}
+
+Instead of creating a table like above, let us do this a little quickly
+\begin{itemize}
+    \item $n = 2^6 * 3^4 * 5^2 * 7 \ldots \text{all prime numbers before 120 with power 1}$
+    \item $121 = 11^2 \implies LCM(1,2,3 \ldots 121) = 11 * n$
+    \item $122 = 2 * 61$. No change in the expression as 61 definitely exists in $n$
+    \item $123 = 3 * 41$ . No change in the expression as 41 definitely exists in $n$
+    \item $124 = 2 * 2 * 31$. No change in the expression as 31 definitely exists in $n$
+    \item $125 = 5^3$. We only have $5^2 \implies 5 * 11 * n$ 
+    \item $126 = 2 * 3 * 3 * 7$, No change
+    \item $127$ is a prime $\implies 127 * 5 * 11 * n$
+    \item $128 = 2^7$. Highest power of 2 in $n$ is $2^6$. Now, we will have $2^7 \implies 2 * 127 * 5 * 11 * n$
+    \item $129 = 3 * 3 * 3 * 7$, No change
+\end{itemize}
+
+The final expression is, therefore, $2 * 127 *  5 * 11 * n \implies 110n * 127$
+
+\section{HCF and LCM}
+There are some properties of HCF and LCM. They are as follows
+\begin{itemize}
+    \item $LCM \geq HCF$
+    \item $LCM = k * HCF$
+    \item $a * b = HCF(a,b) * LCM(a,b)$
+\end{itemize}
+
+\SampleQuestion{$N_1 * N_2 = 240, HCF(N_1,N_2) = 30$. Find LCM}
+According to given question
+\begin{align*}
+    N_1 * N_2 &= 240 \\
+    HCF(N_1,N_2) * LCM(N_1,N_2) &= 240 \\
+    LCM(N_1,N_2) &= \dfrac{240}{30} \\
+    &= 8
+\end{align*}
+
+\hl{THIS IS WRONG ANSWER : $LCM(a,b) \geq HCF(a,b)$. THE DATA IS INCONSISTENT / INCORRECT}
+
+
+\SampleQuestion{$N_1 * N_2 = 144, HCF(N_1,N_2) = 8$. Find $LCM(N_1,N_2)$}
+According to given question
+\begin{align*}
+    N_1 * N_2 &= 144 \\
+    HCF(N_1,N_2) * LCM(N_1,N_2) &= 144 \\
+    LCM(N_1,N_2) &= \dfrac{144}{8} \\
+    &= 18
+\end{align*}
+
+However, \hl{$18 \neq k * 8 \implies$ LCM is not a factor of HCF. INCORRECT / INCONSISTENT DATA}
+
+\SampleQuestion{How many pairs of positive integers of $(x,y)$ exists such that $HCF(x,y) + LCM(x,y) = 119$ ? }
+
+\hl{We need ordered solutions because the questions asks for ordered pair $(x,y)$}
+
+\begin{itemize}
+    \item Let us assume that $HCF(x,y) = h$. This will mean that $x = h * a, y = h * b$ where $a,b$ are co-prime to each other
+    \item Using the above, we can say that $LCM(x,y) = h * a * b$
+\end{itemize}
+
+We can write the equation as 
+\begin{align*}
+    HCF(x,y) + LCM(x,y) &= h + hab \\
+    h + hab &= 119 \\
+    h * (1 + ab) &= 119 \\
+    h * (1 + ab) &= 7 * 17 \tag{Eq 1} \\
+    h * (1 + ab) &= 1 * 119 \tag{Eq 2} \\
+\end{align*}
+
+\textbf{Using Eq 1 $\ldots$ Case 1 : h = 7, (ab+1) = 17}
+\begin{itemize}
+    \item $ab = 16 \implies ab = 2^4$.
+    \item The number of pairs of numbers where product = 16 is $2^1 = 2$
+    \item Since $h = 7$, we can write $(x,y)$ as
+    \begin{enumerate}
+        \item $(x,y) : (7 * 1, 7 * 2^4) = (7,112)$
+        \item $(x,y) : (7 * 2^4, 7 * 1) = (112,7)$
+    \end{enumerate}
+\end{itemize}
+
+\textbf{Using Eq 1 $\ldots$ Case 2 : h = 17, (ab+1) = 7}
+\begin{itemize}
+    \item $ab = 6 \implies ab = 2 * 3$.
+    \item The number of pairs of numbers where product = 6 is $2^2 = 4$
+    \item Since $h = 17$, we can write $(x,y)$ as
+    \begin{enumerate}
+        \item $(x,y) : (17 * 2, 17 * 3) = (34,51)$
+        \item $(x,y) : (17 * 3, 17 * 2) = (51,34)$
+        \item $(x,y) : (17 * 3 * 2, 17 * 1) = (102,17)$
+        \item $(x,y) : (17 * 1, 17 * 2 * 3) = (17,102)$
+    \end{enumerate}
+\end{itemize}
+
+\textbf{Using Eq 2 $\ldots$ Case 3 : h = 119, (ab+1) = 1}
+\begin{itemize}
+    \item $ab = 0$
+    \item If either $a$ or $b$ is 0, then HCF = non-zero value, LCM = 0
+    \item As we know, $LCM \geq HCF$ but in this case, it will not be possible
+    \item Therefore, this case is not possible
+\end{itemize}
+
+\textbf{Using Eq 2 $\ldots$ Case 4 : h = 1, (ab+1) = 119}
+\begin{itemize}
+    \item $ab = 118 \implies a*b = 2 * 59$
+    \item The number of pairs where product = 118 is $2^2 = 4$
+    \item Since $h = 1$, we can write $(x,y)$ as 
+    \begin{enumerate}
+        \item $(x,y) = (1 * 2, 1 * 59) = (2,59)$
+        \item $(x,y) = (1 * 59, 1 * 2) = (59,2)$
+        \item $(x,y) = (1 * 59 * 2, 1) = (118,1)$
+        \item $(x,y) = (1,1 * 59 * 2) = (1,118)$
+    \end{enumerate}
+\end{itemize}
+
+So in total,we have 10 such pairs
+
+
+\href{https://www.youtube.com/watch?v=JyN6EROdhrw&list=PLG4bwc5fquzgmP5BLHrRDwBueer0udDjc&index=38}{Playlist}

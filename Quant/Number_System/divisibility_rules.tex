@@ -1,0 +1,320 @@
+\section{General form of number and common divisibility rules}
+
+Any number of the form $abc$ can be written in base10 as $( 10^2 * a ) + ( 10^1 * b ) + ( 10^0 * c )$. For example, we can write 567 as $500 + 60 + 7$. Similar behavior can be done for any number with any digits. In general, a number $a_1 a_2 a_3 \ldots a_n$ can be written as $(10^{n-1} * a_1) + (10^{n-2} * a_2) + (10^{n-3} * a_3) + \ldots (10^{0} * a_n)$ \\
+
+A summary of divisibility rules can be written as follows. After this table, derivation of each rule will be provided
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c ||}
+         \hline
+         \textbf{Number} & \textbf{Rule} \\
+         \hline
+         $2^n$ or $5^n$ & Find remainder of last $n$ digits of number \\ 
+         $3$ or $9$ & Sum of digits must be divisible by 3 or 9 respectively \\ 
+         $11$ & Sum of digits at odd place - sum of digits at even place must be 0 or multiple of 11 \\ 
+         \hline
+    \end{tabular}
+    \caption{Divisibility Rules}
+\end{table}
+
+For the below subsections, let us take a 6 digit number $abcdef$. We can write it as $(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)$. 
+
+\subsection{Divisibility rules of $2^n$ or $5^n$}
+
+Let us try to find the remainder of this number with $25 = 5^2$
+
+\begin{align*}
+    \remFrac{abcdef}{25} &= \remFrac{(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)}{25} \\
+    &= \remFrac{(10^5 * a)}{25} + \remFrac{(10^4 * b)}{25} + \remFrac{(10^3 * c)}{25} + \remFrac{(10^2 * d)}{25} + \remFrac{(10^1 * e)}{25} + \remFrac{(10^0 * f)}{25} \\
+    &= 0 + 0 + 0 + 0 + \remFrac{(10^1 * e)}{25} + \remFrac{(10^0 * f)}{25} \tag{All numbers $> 10^2$ contain $5^2$} \\
+    &= \remFrac{10e + f}{25} \tag{Equivalent to last 2 digits of number} \\
+\end{align*}
+
+We can see that since $25 = 5^2 \implies n = 2$ and we would need to find $\remFrac{10e + f}{25}$. This is equivalent to finding remainder of last two digits with 25. Similarly, if we were dividing by $4 = 2^2$, we would get a similar result as all powers of 10 $\geq 10^2$ contain $2^2$. \\
+
+Let us test with $8 = 2^3$ (equivalent to $125 = 5^3$)
+
+\begin{align*}
+    \remFrac{abcdef}{8} &= \remFrac{(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)}{8} \\
+    &= \remFrac{(10^5 * a)}{8} + \remFrac{(10^4 * b)}{8} + \remFrac{(10^3 * c)}{8} + \remFrac{(10^2 * d)}{8} + \remFrac{(10^1 * e)}{8} + \remFrac{(10^0 * f)}{8} \\
+    &= 0 + 0 + 0 + \remFrac{(10^2 * d)}{8} + \remFrac{(10^1 * e)}{8} + \remFrac{(10^0 * f)}{8} \tag{All numbers $> 10^3$ contain $2^3$} \\
+    &= \remFrac{100d + 10e + f}{8} \tag{Equivalent to last 3 digits}
+\end{align*}
+
+\subsection{Divisibility rule of 3 or 9}
+
+Let us try to divide by 3
+
+\begin{align*}
+    \remFrac{abcdef}{3} &= \remFrac{(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)}{3} \\
+    &= \remFrac{(10^5 * a)}{3} + \remFrac{(10^4 * b)}{3} + \remFrac{(10^3 * c)}{3} + \remFrac{(10^2 * d)}{3} + \remFrac{(10^1 * e)}{3} + \remFrac{(10^0 * f)}{3} \\
+    &= \remFrac{a + b + c + d + e + f}{3} \tag{$10^n \mod 3 = 1, n \geq 0$} 
+\end{align*}
+
+Let us try to divide by 9
+
+\begin{align*}
+    \remFrac{abcdef}{9} &= \remFrac{(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)}{9} \\
+    &= \remFrac{(10^5 * a)}{9} + \remFrac{(10^4 * b)}{9} + \remFrac{(10^3 * c)}{9} + \remFrac{(10^2 * d)}{9} + \remFrac{(10^1 * e)}{9} + \remFrac{(10^0 * f)}{9} \\
+    &= \remFrac{a + b + c + d + e + f}{9} \tag{$10^n \mod 9 = 1, n \geq 0$} 
+\end{align*}
+
+\subsection{Divisibility rule of 11}
+
+Before we begin with this, we have a peculiar property of 11. When 11 divides $10^n$ where $n$ is even, we get remainder as 1 and when $n$ is odd, we get -1. For example, $\remFrac{100}{11} = 1 $ as $100 = 11 * 9 + 1$. However, for $\remFrac{1000}{11} = -1 = 10$ as $1000 = 11 * 90 + 10$. Thus, we can define the following
+
+\begin{equation*}
+    \remFrac{10^n}{11} = 
+    \begin{cases}
+        1, &\text{When $n$ is even} \\
+        -1,&\text{When $n$ is odd}
+    \end{cases}
+\end{equation*}
+
+We will use the above result to simplify our calculation. Finding $\remFrac{abcde}{11}$
+
+\begin{align*}
+    \remFrac{abcdef}{11} &= \remFrac{(10^5 * a) + (10^4 * b) + (10^3 * c) + (10^2 * d) + (10^1 * e) + (10^0 * f)}{11} \\
+    &= \remFrac{(10^5 * a)}{11} + \remFrac{(10^4 * b)}{11} +\remFrac{(10^3 * c)}{11} + \remFrac{(10^2 * d)}{11} + \remFrac{(10^1 * e)}{11} + \remFrac{(10^0 * f)}{11} \\
+    &=\remFrac{-1 * (a + c + e)}{11} + \remFrac{b + d + f}{11} \\
+    &=\remFrac{(b + d + f) - (a + c + e)}{11}
+\end{align*}
+
+For $\remFrac{(b + d + f) - (a + c + e)}{11}$ to be 0, $(b + d) - (a + c + e)$ must be either 0 or a multiple of 11
+
+\subsection{Practice Questions}
+
+\SampleQuestion{$N$ is a number with 634 digits. It is defined as $N = 1234567 \ldots$ till the number has 634 digits. Find $\remFrac{N}{32}$}
+
+$32 = 2^5 \implies$ we need to find remainder of the last 5 digits only. We now need to find the value of $N$
+
+\begin{itemize}
+    \item The first 9 digits of $N$ are $123456789$
+
+    \item After this, we will get two digits per number until we reach 100 $\implies$ number of digits = $(99 - 10 + 1) * 2 = 180$ digits (There are 90 numbers between 99 and 10 inclusive. Each number has 2 digits). 
+
+    \item Total number of digits till now = $180 + 9 = 189$
+
+    \item Now, from 100 to 999, we will have 3 digits $\implies$ number of digits = $(999 - 100 + 1)*3 = 900*3 = 2700$. This is too much
+
+    \item Remaining digits = $634 - 189 = 445$. The number of 3 digit numbers which will provide the remaining digits is $\dfrac{445}{3} = \dfrac{444}{3} + \dfrac{1}{3} = 148 + \dfrac{1}{3}$. This means that 148 numbers will give all digits and hundred's digit of 149th number will give the last digit.
+
+    \item 148th number in $\inRange{100}{999} = 100 + 148 -1 = 247$. ($-1$ because 100 is included) 
+
+    \item The last few digits of number are written as $2462472 \implies$ last 5 digits = $62472$
+
+    \item Now, we need to check $\remFrac{62472}{32} = 8$
+\end{itemize}
+
+Therefore, remainder = 8
+
+\section{General Methodology of deriving divisibility rules}
+
+The point of this section is to introduce a general methodology for finding divisibility rules. They help in finding remainders of numbers for which we don't have a straightforward rule. 
+
+\begin{NOTE}
+    There is a limitation however. To derive a rule for divisibility rule, the denominator must provide a remainder of 1 or -1 when it divides any power of 10
+\end{NOTE}
+
+The general methodology is that for a denominator $d$, we need to find the value of $x$ for which $\remFrac{10^x}{d} = \pm1$. We will then split the original number in groups (\textbf{start grouping from right}) of $x$ while taking powers of 10 common in the group. Let us derive the divisibility rule for 33
+
+\begin{NOTE}
+    The first group of numbers from right will always have positive sign.
+\end{NOTE}
+
+\subsection{Rule with 33}
+
+Let us assume that the number is $abcdef$. Since we are dividing by 33, let us find the value of $x$ for which $\remFrac{10^x}{33} = \pm1$.
+
+\begin{align*}
+    \remFrac{10^1}{33} &= 10 \\
+    \remFrac{10^2}{33} &= 1 \\
+\end{align*}
+
+Therefore, $x=2$. We now need to split the number $abcdef$ in groups of 2 and take the power of 10 as common
+
+\begin{align*}
+    abcdef &= 10^5a + 10^4b + 10^3c + 10^2d + 10^1e + 10^0f \\
+    &= (10^5a + 10^4b) + (10^3c + 10^2d) + (10^1e + 10^0f) \tag{Grouping from right} \\
+    &= 10^4 * (10^1a + 10^0b) + 10^2 * (10^1c + 10^0d) + (10^1e + 10^0f) \tag{Take powers of 10 common in groups} \\
+    &= 10^4 * (ab) + 10^2 * (cd) + (ef) \tag{$lm$ is equivalent to $10^l + m$}  
+\end{align*}
+
+Now, we need to find $\remFrac{abcdef}{33}$
+
+\begin{align*}
+    \remFrac{abcdef}{33} &= \remFrac{10^4 * (ab) + 10^2 * (cd) + (ef)}{33} \\
+    &= \remFrac{10^4 * (ab)}{33} + \remFrac{10^2 * (cd)}{33} + \remFrac{(ef)}{33} \\
+    &= \remFrac{ab + cd + ef}{33}
+\end{align*}
+
+We, therefore created a rule for checking divisibility rule with 33 : Split the number into groups of two from right and check whether the sum of these groups id divisible by 33 or not.
+
+\subsection{Rule with 7}
+
+We will assume the number to be $abcdefg$ (7 digit number). We will find the value of $x$ for which $\remFrac{10^x}{7} = \pm1$. 
+
+\begin{align*}
+    \remFrac{10^1}{7} &= 3 \\
+    \remFrac{10^2}{7} &= 2 \\
+    \remFrac{10^3}{7} &= 6 = -1
+\end{align*}
+
+Therefore, $x=3$. From the right, we will now split the number $abcdefg$ in groups of 3 and take power of 10 common
+
+\begin{NOTE}
+    Note that $\remFrac{10^3}{7} = -1$ and $\remFrac{10^6}{7} = 1$.
+\end{NOTE}
+
+\begin{align*}
+    abcdefg &= 10^6a + 10^5b + 10^4c + 10^3d + 10^2e + 10^1f + 10^0g \\
+    &= 10^6a + (10^5b + 10^4c + 10^3d) + (10^2e + 10^1f + 10^0g) \tag{Grouping from right} \\
+    &= 10^6a + 10^3 * (10^2b + 10^1c + 10^0d) + 10^0 * (10^2e + 10^1f + 10^0g) \tag{Take powers of 10 common in groups} \\
+    &= 10^6a + 10^3 * (bcd) + 10^0 * (efg) \tag{$lmn$ is $10^2l + 10^1m + n$} \\
+\end{align*}
+
+Now, we will find $\remFrac{abcdefg}{7}$
+
+\begin{align*}
+    \remFrac{abcdefg}{7} &= \remFrac{10^6a + 10^3 * (bcd) + 10^0 * (efg)}{7} \\
+    &= \remFrac{10^6a}{7} + \remFrac{10^3 * bcd}{7} + \remFrac{10^0 efg}{7} \\
+    &= \remFrac{a - bcd + efg}{7}
+\end{align*}
+
+We derived a condition where a number of form $abcdefg$ will be divisible by 7 when $\remFrac{a - bcd + efg}{7} = 0$
+
+\begin{EXTRA-LEARNING}
+    The condition will be similar for 13 as $\remFrac{10^3}{13} = -1$
+\end{EXTRA-LEARNING}
+
+\subsection{Questions}
+\SampleQuestion{For a number $n = 12121212\ldots 100 digits$, Find $\remFrac{n}{33}$}
+
+First, we can see that the number $n$ is a number where the digits $12$ are repeated until the number has 100 digits. We can see that the number of times $12$ will repeat is 50. We have earlier derived a divisibility rule of a number when it is divided by 33 $\implies$ sum of groups of 2 from right, when divided by 33, will give the remainder. 
+
+The groups, in this specific case, will be groups of 12 as only 12 is repeating throughout the number. We will have 50 such groups
+
+\begin{align*}
+    \remFrac{n}{33} &= \remFrac{12 * 50}{33} \\
+    &= \remFrac{600}{33} \\
+    &= 6
+\end{align*}
+
+\SampleQuestion{For a number $n = 345345345 \ldots 200 digits$. Find $\remFrac{n}{7}$}
+
+The number is a number which consists of 345 repeated until we have 200 digits. We can see that the number of times 345 repeats in the number is $\dfrac{200}{3} = 66$. However, the last 2 digit of the number will be $34$. Therefore, the number $n$ will be like $345345\ldots34534534$. 
+
+We had earlier derived a divisibility rule for 7 : Split in groups of 3 from right and then find their sum. Every alternate group will have a positive sign and negative sign. In our case, starting from right, we will make groups 66 of 534, out of which 33 will be positive and 33 will be negative $\implies$ sum = 0. For the leftmost group, we will have 34 (because the first two digits will be written as $10^{199} * 3 + 10^{198} * 4$ and $\remFrac{10^198}{7} = 1$)
+
+\begin{align*}
+    \remFrac{34}{7} &= 6
+\end{align*}
+
+\section{Piggy Backing Divisibility Rules}
+
+We can piggy back divisibility rules to get divisibility rules of factors of denominator. For example, we know that $\dfrac{1000}{7} = -1$. On a similar manner, $\dfrac{1000}{1001} = -1$. We can write as $1001 = 7 * 13 * 11$. For remainder to be -1 when divided by 1000, the factors of the denominator must give the same remainder
+
+\begin{align*}
+    \remFrac{1000}{7} &= -1 \\
+    \remFrac{1000}{11} &= -1 \\
+    \remFrac{1000}{13} &= -1
+\end{align*}
+
+The same divisibility rule which we have for 7 can be used on 11 and 13 as well (though since 11 divides 100 and gives 1 as remainder as well, use the simple rule) \\
+
+On a similar note, we can use the same rule for different factors of denominator. We can see that $\dfrac{1000}{999} = 1$. We can write $999 = 37 * 27$. Therefore, we can see that 37 and 27 will have the same divisibility rule
+
+\SampleQuestion{For a number $n = 741741\ldots 300 digits$. Find $\remFrac{n}{37}$}
+
+First, let us find the value of $n$. We can see that the number is built up by repeating 741 until the number has 300 digits. The groups of 741 in the number are $\dfrac{300}{3} = 100$. Now, let's check divisibility rule for 37. The value of $x$ for which $10^x$ , when divided by 37 will give remainder as $\pm1$ is
+
+\begin{align*}
+    \remFrac{10^1}{37} &= 37 \\
+    \remFrac{10^2}{37} &= 26 \\
+    \remFrac{10^3}{37} &= 1
+\end{align*}
+
+Therefore, $x=3$. Since remainder is 1, we can just split the number in groups of 3 from right ,find sum of groups and then find remainder with 37
+
+\begin{align*}
+    \remFrac{n}{37} &= \remFrac{741 * 100}{37} \\
+    &= \remFrac{74100}{37} \\
+    &= \remFrac{74 + 100}{37} \tag{Split in groups of 3 from right and sum} \\
+    &= \remFrac{174}{37} \\
+    &= 26
+\end{align*}
+
+\SampleQuestion{For a number $n = 301302303\ldots400$, find remainder when $n$ is divided by 13}
+
+For this, we need to know the number of digits. Number of digits can be calculated as $(400 - 301 + 1) * 3 = 300$. Now, let's see the pattern of 13 with different powers of 10
+
+\begin{align*}
+    \remFrac{10^1}{13} &= 10 \\
+    \remFrac{10^2}{13} &= 9 \\
+    \remFrac{10^3}{13} &= -1 \\
+    \remFrac{10^4}{13} &= 3 \\
+    \remFrac{10^5}{13} &= -9 \\
+    \remFrac{10^6}{13} &= 1 
+\end{align*}
+
+We see that for first 3 digits from right, we will have a negative sign and then for 6 digits from right, we will have a positive sign. This is equivalent to having $\dfrac{300}{6} = 50$ groups of 6 where the difference is 1. 
+
+\begin{align*}
+    \remFrac{301302303\ldots400}{6} &= \remFrac{1 * 50}{13} \\
+    &= \remFrac{50}{13} \\
+    &= 11
+\end{align*}
+
+\SampleQuestion{For a number $n = 5555\ldots$ 602 digits, find remainder when $n$ is divided by 21}
+
+Since denominator is not prime, we can use Chinese remainder theorem to split the denominator and find remainder with each factor $\implies \remFrac{n}{3}$ and $\remFrac{n}{7}$. 
+
+Finding $\remFrac{n}{3}$
+
+\begin{align*}
+    \remFrac{n}{3} &= \remFrac{5 * 602}{3} \tag{For 3, remainder is sum of each digit} \\
+    &= \remFrac{5}{3} * \remFrac{602}{3} \\
+    &= \remFrac{2 * 2}{3} \\
+    &= 1
+\end{align*}
+
+Finding remainder with 7. For 7, we know that $\remFrac{10^3}{7} = -1$ and $\remFrac{10^6}{7} = 1$. We can say that from right, every 3 digits will have alternating signs, starting from positive. In $n$, where we have 602 digits, we will have $\dfrac{602}{3} = 200$ groups of 6 where difference will be 0
+
+\begin{align*}
+    \remFrac{n}{7} &= \remFrac{55 + 0}{7} \\
+    &= 6
+\end{align*}
+
+Now, we have a number $n$ which, when divided by 3 will give 1 as a remainder AND when divided by 7, will give 6 as a remainder. We need to find numbers which satisfy this property as well. (Chinese remainder theorem)
+
+\begin{align*}
+    3x + 1 &= 7y + 6 \\
+    x &= \dfrac{7y + 5}{3}
+    x &= 4 \tag{y = 1}
+\end{align*}
+
+Using $x=4$, we can find $3x + 1 = 13$. When 13 is divided by 21, the remainder will be 13.
+
+\SampleQuestion{For a number $n=56475647\ldots$ 300 digits, find remainder when $n$ is divided by 101}
+
+In $n$, we will have $\dfrac{300}{4} = 75$ groups of 5647. Now, let us discover the divisibility rule of 101
+
+\begin{align*}
+    \remFrac{10^1}{101} &= 10 \\
+    \remFrac{10^2}{101} &= -1 \\
+    \remFrac{10^3}{101} &= -10 = 91 \\
+    \remFrac{10^4}{101} &= 1 \\
+\end{align*}
+
+For convenience, we can use the property that $\remFrac{10^4}{101} = 1$. Using this, we can make 75 groups of 4 digits and then find remainder
+
+\begin{align*}
+    \remFrac{n}{101} &= \remFrac{5647 * 75}{101} \\
+    &= \remFrac{5647}{101} * \remFrac{75}{101} \\
+    &= 75 * \remFrac{5647}{101} \\
+    &= \remFrac{75 * 92}{101} \\
+    &= \remFrac{6900}{101} \\
+    &= \remFrac{-69}{101} \tag{Used $100 \mod 101 = 1$} \\
+    &= 32
+\end{align*}

@@ -1,0 +1,69 @@
+\chapter{Quant Formulae and Tips}
+
+\section{Subtracting two numbers} \label{sub-two-nums}
+
+There are some scenarios where we need to count the difference between two numbers. The difference of two numbers $b$ and $a$ where $b \geq a$ by default "excludes" $a$. For example, if we want to know the count of numbers which are in between 2 and 7 where we do not count 2 and count 7, it would be $7 - 2 = 5$. The numbers being $[3,4,5,6,7]$ \\
+
+However, if we want to find the count of numbers which are between 2 and 7 where both 2 and 7 are counted, it would be $ 7 - 2 + 1 = 6$. The numbers being $[2,3,4,5,6,7]$
+
+\section{Random Properties of Numbers}
+\begin{enumerate}
+    \item Odd + Odd = Even
+    \item Even + Even = Even
+    \item Odd + Even = Odd
+    \item Odd * Odd = Odd
+    \item Odd * Even = Even
+    \item Even * Even = Even
+\end{enumerate}
+
+\section{Algebra}
+\subsection{Factor formulae} \label{algebra-factor-formulae}
+\begin{enumerate}
+    \item $a^3 + b^3$ = $(a+b)$ $(a^2 - ab + b^2)$
+    \item $a^3 - b^3$ = $(a-b)$ $(a^2 + ab + b^2)$
+    \item $a^2 - b^2$ = $(a-b)$ $ (a+b)$
+    \item $a^2 + b^2$ cannot be factorised
+\end{enumerate}
+
+Based on above, there exists a few patterns
+\begin{itemize}
+    \item $a^n + b^n$
+    \begin{enumerate}
+        \item If $n$ is odd, then divisible by $(a+b)$
+        \item If $n$ is even, anything cannot be concluded
+    \end{enumerate}
+
+    \item $a^n - b^n$
+    \begin{enumerate}
+        \item If $n$ is odd, then divisible by $(a-b)$
+        \item If $n$ is even, then divisible by $(a+b)$ and $(a-b)$
+    \end{enumerate}
+\end{itemize}
+
+\section{Properties of exponents} \label{formulae:expo}
+\begin{enumerate}
+    \item $a^m * b^n = a^{m+n}$
+    \item $\dfrac{a^m}{b^n} = a^{m-n}$
+    \item $a^0 = 1$
+    \item $a^{-m} = \dfrac{1}{a^m}$
+    \item $(a^{m})^{n} = a^{mn}$
+    \item $\left(ab \right)^{m} = a^m * b^m$
+    \item $\left (\dfrac{a}{b} \right)^{m} = \dfrac{a^m}{b^m}$
+\end{enumerate}
+
+\section{Some important numbers and their prime factorization}
+
+{ANKI}
+
+\begin{enumerate}
+    \item $1001 = 13 * 11 * 7 $
+    \item $1003 = 17 * 59 $
+    \item $1007 = 19 * 53 $
+    \item $10001 = 137 * 73 $
+\end{enumerate}
+
+\section{Miscellaneous / Uncategorized}
+\begin{enumerate}
+    \item $2^0 + 2^1 + \ldots 2^n = 2^{n+1} - 1$
+    \item $3^0 + 3^1 + \ldots 3^n = \dfrac{3^{n+1} - 1}{2}$
+\end{enumerate}

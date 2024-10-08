@@ -1,0 +1,245 @@
+\section{Basics and Assumptions}
+\begin{NOTE}
+    This chapter consists of a type of questions that are asked in the examination. We will discuss integral solutions and natural numbers.     
+\end{NOTE}
+
+Let us say that we have a question where we need to find the number of ways we can write 45 can be written as difference of 2 perfect squares that are natural numbers. According to question, for $a,b \in \mathbb{N}$, we need to find count of values which satisfy the condition $a^2 - b^2 = 45$. \\
+
+\begin{NOTE}
+    There is an important property of natural numbers : For two natural numbers $(a,b)$ 
+    
+    $$ (a + b) > (a - b) $$
+    
+    For all $a,b \in \mathbb{N}$
+\end{NOTE}
+
+The verbose way of doing this is as follows:
+\begin{align*}
+    (a-b) * (a+b) &= 45 \tag{$a^2 - b^2 = (a-b) * (a+b)$} \\
+    &= 5 * 9 \tag{Case 1} \\
+    &= 3 * 15 \tag{Case 2} \\
+    &= 1 * 45 \tag{Case 3} \\
+\end{align*}
+
+Let us solve each case and then find values of $a,b$
+
+\textbf{Case 1, $(a+b) = 9, (a-b) = 5$}
+\begin{align*}
+    a+b &= 9 \\
+    a-b &= 5 \\
+    2a &= 14 \tag{add above equations} \\
+    a &= 7 \\
+    b &= 2 \tag{Use $a+b = 9$}
+\end{align*}
+
+Pair = $(2,7)$ \\
+
+\textbf{Case 1, $(a+b) = 5, (a-b) = 9$}
+This is not possible as we mentioned above that $(a + b) > (a - b)$ for all natural numbers. \\ 
+
+\textbf{Case 2, $(a+b) = 15, (a-b) = 3$}
+\begin{align*}
+    a+b &= 15 \\
+    a-b &= 3 \\
+    2a &= 18 \tag{add above equations} \\
+    a &= 9 \\
+    b &= 6 \tag{Use $a+b = 15$}
+\end{align*}
+
+Pair = $(6,9)$ \\
+
+\textbf{Case 2, $(a+b) = 3, (a-b) = 15$}
+This is not possible as we mentioned above that $(a + b) > (a - b)$ for all natural numbers. \\
+
+\textbf{Case 3, $(a+b) = 45, (a-b) = 1$}
+\begin{align*}
+    a+b &= 45 \\
+    a-b &= 1 \\
+    2a &= 46 \tag{add above equations} \\
+    a &= 23 \\
+    b &= 22 \tag{Use $a+b = 23$}
+\end{align*}
+
+Pair = $(22,23)$ \\
+
+\textbf{Case 3, $(a+b) = 1, (a-b) = 45$}
+This is not possible as we mentioned above that $(a + b) > (a - b)$ for all natural numbers. \\
+
+Ultimately, we got 3 values where difference of perfect squares = 45. \textbf{This is same for ordered and unordered solutions}. This is because, in ordered solutions, we will encounter a case where $(a-b) > (a+b)$ but \textbf{if $a$ and $b$ are natural numbers, this is invalid}
+
+\section{Odd Numbers}
+
+We will devote this section to find count of pairs where difference of perfect squares is equal to the number $n$. In this case, $n$ will be odd. We saw the manual above method above and in this section, numerical values will be discussed. 
+
+In general, the two methods are 
+\begin{enumerate}
+    \item Find the number of ways to write the number as product of two odd numbers
+    \item Use number of factors concept.
+\end{enumerate}
+
+\subsection{Natural Number Solutions}
+
+\begin{itemize}
+    \item For natural number $(a,b)$, we have the property that $a + b > a - b$. Keeping this property in mind, we will write the odd factors $a,b$ in a way that the above property is satisfied. 
+    \item For an odd number $n$, it will always have only odd numbers as factors as $odd * odd = odd$. 
+    
+    \item There is no concept of ordered / unordered pair in this scenario because there will be always one pair for two numbers where $a + b > a - b$
+
+    \item Therefore, number of pairs = number of ways to write odd factors = $\dfrac{\text{number of factors}}{2}$
+
+    \item What if $n$ is a perfect square itself? In that case, we will have a scenario where $(a+b) = (a-b)$. For example, if $n = 49$ then we will have a case where $(a+b) * (a-b) = 7 * 7$. Again, for natural numbers, this is a case which is not exactly possible. \hl{Perfect squares have odd number of factors} so, the count of pairs = $\dfrac{\text{Number of factors - 1}}{2}$
+\end{itemize}
+
+\SampleQuestion{In how many ways can we write the following numbers as difference of 2 perfect squares?}
+\begin{enumerate}
+    \item 195
+    \item 441
+    \item 945
+\end{enumerate}
+
+\begin{itemize}
+    \item $195 = 3 * 5 * 13 \implies 8$ factors. Out of these 8 factors, we can have $\dfrac{8}{2} = 4$ pairs of numbers
+    
+    \item $441 = 3^2 * 7^2 \implies 9 $ factors. Count = $\dfrac{9 - 1}{2} = 4$ pairs
+
+    \item $945 = 3^3 * 5 * 7 \implies 16 $ factors. Count = $\dfrac{16}{2} = 8$
+\end{itemize}
+
+\subsection{Integer Solutions}
+For integers (that is, both positive and negative numbers), the square is a positive number. So, in the equation $a^2 - b^2 = k$, $a$ can have either a positive or a negative value. Similarly, $b$ can have a positive or negative value. We can have total of 4 possibilities
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c ||}
+         \hline
+         $a$ & $b$ & Value of $a^2 - b^2$ \\
+         \hline
+         $+ve$ & $+ve$ & $+ve$ \\ 
+         $+ve$ & $-ve$ & $+ve$  \\ 
+         $-ve$ & $+ve$ & $+ve$  \\ 
+         $-ve$ & $-ve$ & $+ve$  \\ 
+         \hline
+    \end{tabular}
+\end{table}
+
+So, if we have one pair $(a,b)$ where $a^2 - b^2 = k$, then we can have 4 pairs of integral values which satisfy the condition. Using the formula we discussed for natural numbers where difference of their squares is equal to an odd number, we can just multiply the count by 4 $\implies \bigParen{\dfrac{\text{Number of factors}}{2}} * 4$ 
+
+\SampleQuestion{Find integral solutions for the equations}
+\begin{enumerate}
+    \item $x^2 - y^2 = 675$
+    \item $x^2 - y^2 = 2025$
+\end{enumerate}
+
+\begin{itemize}
+    \item $675 = 3^3 * 5^2 \implies 12$ factors. The integral solutions are, therefore, $\dfrac{12}{2} * 4 = 24$
+
+    \item $2025 = 3^4 * 5^2 \implies 15 $ factors. The integral solutions are, therefore, $\dfrac{15 - 1}{2} * 4 = 28$
+\end{itemize}
+
+\section{Even numbers}
+
+We can divide even numbers in two categories 
+\begin{itemize}
+    \item $4k$ : A number can be represented as $odd * even$ or $even * even$
+    \item $4k + 2$ : A number can only be represented as $odd * even$. 
+\end{itemize}
+
+To validate the above, let us write how the final number looks like when multiplied by two numbers
+
+\textbf{Case 1 : Odd * Odd}
+
+Let us have 2 odd numbers $(2m+1)$ and $(2n+1)$
+\begin{align*}
+    (2m + 1) * (2n + 1) &= 4mn + 2m + 2n + 1 \\
+    &= 4mn + 2(m+n) + 1 \\
+    &= 2 * (2mn + (m+n)) + 1 \\
+    &= 2k + 1 \tag{$k = (2mn + (m+n))$} \\
+\end{align*}
+
+Using this, we can see that $odd * odd = odd$
+
+\textbf{Case 2 : Even * Even}
+
+Let us have 2 even numbers $(2m)$ and $(2n)$
+\begin{align*}
+    (2m) * (2n) &= 4mn \\
+    &= 2k \tag{$k = mn$} 
+\end{align*}
+
+Using this, we can see that $even * even = even$
+
+\textbf{Case 3 : Even * Odd}
+Let us have an odd number $(2m + 1)$ and an even number $(2n)$
+\begin{align*}
+    (2m + 1) * (2n) &= 4mn + 2n \\
+    &= 2 * (2mn + n) \\
+    &= 2 * 2k \tag{If $n$ is even, $k = mn + n$.} \\
+    &= 2 * (2k + 1) \tag{If $n$ is odd, $k = mn + \frac{n}{2} - \frac{1}{2}$} \\
+    &= 4k + 2
+\end{align*}
+
+\begin{itemize}
+    \item We can see from above that Even * Even = Even and Odd * Even = Even.
+    \item However, there are cases when odd * even can be of form 4k or 4k + 2.
+    \item We can say that 4k + 2 will always be caused by odd * even however 4k can be caused by even * even or odd * even 
+\end{itemize}
+
+\subsection{Numbers of form 4k + 2}
+
+Numbers of the form $4k + 2$ \textbf{can never be represented as difference of perfect squares}. This is because we will never get an integral or a natural number as the solution which can satisfy $a^2 - b^2$. For example, see the following question
+
+\SampleQuestion{Find number of ways in which 126 can be written as difference of 2 perfect squares}
+
+\begin{align*}
+    a^2 - b^2 &= 126 \\
+    (a - b) * (a + b) &= 126 \\
+    &= 2 * 63 \tag{Case 1} \\
+    &= 6 * 21 \tag{Case 2} \\
+    &= 14 * 9 \tag{Case 3} \\
+    &= 42 * 3 \tag{Case 4} 
+\end{align*}
+
+Let us explore case 1
+\begin{align*}
+    a + b &= 63 \\
+    a - b &= 2 \\
+    2a &= 65 \tag{Add both equations}
+\end{align*}
+
+When we have one equation where there is an odd number and in another, we have even number, the sum will be an odd number. An odd number divided by 2 will never give a natural number or an integer as a solution. 
+
+\subsection{Even numbers of form 4k}
+
+As a summary, here are the results
+\begin{itemize}
+    \item Natural Numbers : $\dfrac{\text{Factors of $\frac{n}{2}$}}{4}$
+    \item Integer Numbers : $\dfrac{\text{Factors of $\frac{n}{2}$}}{4} * 4$
+\end{itemize}
+
+Now, an even number can be represented as odd * even or even * even. If we are to represent an even number by odd * even, we will encounter the same issue we faced in numbers of form $4k + 2$ : Lack of natural / integer solution. \textbf{So, while calculating for even numbers, always use even * even} \\
+
+We know that 
+\begin{align*}
+    a^2 - b^2 &= n \\
+    (a + b) * (a - b) &= n \\
+    (2 * k_1) * (2 * k_2) &= n \tag{Since we want even * even, we can write $(a+b)$ and $(a-b)$ as even numbers} \\
+    k_1 * k_2 &= \dfrac{n}{4}
+\end{align*}
+
+Now, we will find number of values where $k_1 * k_2 = m, m = \dfrac{n}{4}$. To proceed, simply find number of factors of $m$ and divide by 2 to get the number of pairs. For integer solution, just multiply by 4. 
+
+\SampleQuestion{Find count of pairs where difference of squares of \textbf{natural numbers} is 120}
+
+\begin{align*}
+    a^2 - b^2 &= 120 \\
+    (a+b) * (a-b) &= 120 \\
+    (2 * k_1) * (2 * k_2) &= 120 \tag{We want $(a+b), (a-b)$ to be even} \\
+    k_1 * k_2 &= 30 
+\end{align*}
+
+$30 = 2 * 3 * 5 \implies 8$ factors. Therefore, number of count of pairs = $\dfrac{8}{2} = 4$
+
+\SampleQuestion{Find integral solutions of $a^2 - b^2 = 78000$}
+Notice that $78000 = 4k, k = \dfrac{78000}{4} = 19500$. We can, therefore, find number of integral pairs whose difference of perfect squares gives us this number. $m = \dfrac{78000}{4} = 19500$. \\
+
+Number of factors of 19500 = $19500 = 2^2 * 3 * 5^3 * 13 \implies 48$ factors. Integral pairs = $\dfrac{48}{2} * 4 = 96$

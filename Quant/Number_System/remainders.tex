@@ -1,0 +1,910 @@
+\section{Introduction to division and remainder}
+
+Division of a number $a$, called dividend by $b$, called divisor, is to find the number $q$ called quotient which, when multiplied by $b$ would get the value of $a$. If $a$ is not completely divisible by $b \implies b*q < a$, then a number $r$, called remainder is added to $b*q$. Mathematically
+
+$a = b*q + r$
+
+For example
+\begin{align*}
+    15 &= 5 * 3 + 0 \tag{a = 15, b = 5, q = 3, r = 0 } \\
+    27 &= 5 * 5 + 2 \tag{a = 27, b = 5, q = 5, r = 2 } \\
+\end{align*}
+
+\begin{NOTE}
+    Some shorthand notations for writing the expression to get remainder of $a$ when divided by $b$ are
+    \begin{itemize}
+        \item $\remFrac{32}{7} = 4$
+        \item $32 \mod 7 = 4$
+    \end{itemize}
+\end{NOTE}
+
+
+\section{Successive Division to find remainder} \label{sec:rem-succ-division}
+
+To find the remainder of a number $a$ when it is divided by $b$, we can split $a$ into different parts, find remainder of each and then multiply each remainder and keep on finding remainder until we get a value which is $\leq$ divisor. For example
+
+\SampleQuestion{Find remainder of $\dfrac{72}{7}$}
+
+We need to find $\remFrac{72}{7}$. For ease, we can write $72$ as $72 = 8 * 9$ and find remainder of 8 and 9 with 7 each, then multiply and find its remainder
+
+\begin{align*}
+    \remFrac{72}{7} &= \remFrac{8 * 9}{7} \\ \\ 
+    \remFrac{8 * 9}{7} &= \remFrac{8}{7} * \remFrac{9}{7} \\ \\ 
+    &= \remFrac{1 * 2}{7} \\
+    &= 2
+\end{align*}
+
+\SampleQuestion{Find remainder of the expression $\displaystyle \frac{17 * 18 * 22 * 23}{15}$}
+
+\begin{WARNING}
+    DO NOT CANCEL OUT COMMON FACTORS OF 15 and 18. THIS WILL RUIN THE RESULT. THIS IS DISCUSSED IN SECTION \ref{sec:rem-cancel-factor}
+\end{WARNING}
+
+\begin{align*}
+    \remFrac{17 * 18 * 22 * 23}{15} &= \remFrac{17}{15} * \remFrac{18}{15} * \remFrac{22}{15} * \remFrac{23}{15} \\ \\
+    &= \remFrac{2 * 3 * 7 * 8}{15} \\ \\
+    &= \remFrac{16}{15} * \remFrac{21}{15} \\ \\
+    &= \remFrac{1 * 6}{15} \\
+    &= 6
+\end{align*}
+
+\section{Negative Remainders}
+
+This is not something mathematically defined but it is a tool which can make calculations easier. While finding $\remFrac{a}{b}$, we can write the remainder in "negative" terms as well $\implies -(b - r)$. For example
+\begin{align*}
+    \remFrac{15}{7} &= 2 &= -5 \tag{$15 \mod 7 = 2$, $7-2 = 5$} \\
+    \remFrac{32}{33} &= 32 &= -1 \tag{$33 \mod 32 = 32$, $33-32 = 1$} \\
+\end{align*}
+
+\SampleQuestion{Find remainder of $\dfrac{14 * 15 * 16 * 17 * 18}{19}$}
+
+We will use concept of negative remainders to make our calculations easier
+
+\begin{align*}
+    \remFrac{14 * 15 * 16 * 17 * 18}{19} &= \remFrac{14}{19} * \remFrac{15}{19} * \remFrac{16}{19} * \remFrac{17}{19} * \remFrac{18}{19} \\ \\
+    &= \remFrac{-5 * -4 * -3 * -2 * -1}{19} \\ \\
+    &= \remFrac{-120}{19} \\
+    &= -6 \\
+    &= 13 \tag{Remainder = -6 $\implies$ positive remainder = 19-6}
+\end{align*}
+
+\begin{EXTRA-LEARNING}
+    The golden rule to whether you should use positive remainder or negative remainder is dependent upon the "magnitude" of the number. For example, finding remainder of 32 when divided by 33 will return 32 as a "positive" remainder and -1 as a "negative" remainder. For calculations, it will be easier to do them with a small negative remainder than a large positive remainder
+\end{EXTRA-LEARNING}
+
+\section{Finding remainder of excessively large exponents}
+
+We can use negative remainders to simplify this. A general rule is to bring the numerator in such a state that its remainder with denominator will be either 1 or -1. Let us take an example
+
+\SampleQuestion{Find remainder of $\dfrac{38^{138}}{39}$}
+
+We can see that $38 \mod 39 = 38 or -1$. According to \fullref{sec:rem-succ-division}, we can successively find remainders. Therefore, the remainder of $\dfrac{38^{138}}{39}$ is now equivalent to remainder of $\dfrac{-1^{138}}{39}$. 
+
+\begin{align*}
+    \remFrac{38^{138}}{39} &= \remFrac{38}{39} * \remFrac{38}{39} * \ldots \text{138 times} \\
+    \remFrac{-1^{138}}{39} &= 1 \tag{Negative remainder of $38 \mod 39$} \\
+\end{align*}
+
+\vspace{2cm}
+
+\SampleQuestion{Find the remainder of expression $\dfrac{2^{185}}{33}$}
+
+This is an interesting question. For us to be able to find a remainder, we will try to write the numerator in such a way that when divided by the denominator, it gives the remainder as 1 or -1. In our case
+\begin{align*}
+    2^{185} &= (2^{5})^{37} \tag{Refer to \fullref{formulae:expo}} \\
+    &= 32^{37}
+\end{align*}
+
+We now need to find $\remFrac{32^{37}}{33}$.
+
+\begin{align*}
+    \remFrac{32^{37}}{33} &= (-1)^{37} \\
+    &= -1 \\
+    &= 33 - 1 \\
+    &= 32
+\end{align*}
+
+\SampleQuestion{Find the remainder of expression $\dfrac{2^{187}}{33}$}
+
+This is similar to above question however we need to deal with exponent smartly. For us to be able to find a remainder, we will try to write the numerator in such a way that when divided by the denominator, it gives the remainder as 1 or -1. In our case
+\begin{align*}
+    2^{187} &= 2^2 * 2^{185} \tag{Refer to \fullref{formulae:expo}} \\
+    &= (2^{5})^{37} * 2^2 \\
+    &= 32^{37} * 4
+\end{align*}
+
+We now need to find $\remFrac{32^{37} * 4}{33}$.
+
+\begin{align*}
+    \remFrac{32^{37} * 4}{33} &= \remFrac{32^{37}}{33} * \remFrac{4}{33} \\
+    &= (-1)^{37} * 4\\
+    &= -4 \\
+    &= 33 - 4 \\
+    &= 29
+\end{align*}
+
+\section{Cancellation Factor} \label{sec:rem-cancel-factor}
+
+While trying to find the remainder of large expressions, we have a tendency to take their common factors and then reduce the magnitude of values in both numerator and denominator. This, if done incorrectly, can generate a lot of errors. 
+
+For example, $\remFrac{100}{40} = 20$. However, if we take 20 as the common factor and then try to find remainder of $\remFrac{5}{2} = 1$, which is completely different from our answer. \hl{In cases where we can take a factor as a common, we must store it in a variable called $cf$ or cancellation factor and multiply it by remainder}. \textbf{Multiply by the cancellation factor $cf$ at the last step}
+
+See the below question as an example
+
+\SampleQuestion{Find remainder of $\dfrac{15}{6}$}.
+
+Using the cancellation factor method
+\begin{align*}
+    \dfrac{15}{6} &= \dfrac{5}{2} \tag{cf = 3} \\
+    \remFrac{5}{2} &= 1 \\
+    &= 1 * cf \\
+    &= 3
+\end{align*}
+
+\SampleQuestion{Find remainder of $\dfrac{7^{777}}{28}$}
+
+We can write the above expression as $\dfrac{7 * 7^{776}}{7 * 4} \implies \dfrac{7^{776}}{4} $ with $cf = 7$. We now need to find  the remainder of $\remFrac{7^{776}}{4}$.
+
+\begin{align*}
+    \remFrac{7^{776}}{4} &= \remFrac{3^{776}}{4} \tag{$7 \mod 4 = 3$}\\
+    \remFrac{3^{776}}{4} &= 1^{776} \\
+    &= 1 * cf \\
+    &= 1 * 7 \\
+    &= 7 \\
+\end{align*}
+
+
+\SampleQuestion{Find remainder of $\dfrac{3^{159}}{30}$}
+
+We can simplify $\dfrac{3^{159}}{30}$ by taking 3 out as common factor, resulting in $\dfrac{3^{158}}{10}$ with $cf=3$
+
+\begin{align*}
+    \remFrac{3^{158}}{10} &= \remFrac{9^{79}}{10} \\
+    &= -1^{79} \\
+    &= -1 \\
+    &= 9 * cf \tag{10 - 1 = 9} \\
+    &= 27 \tag{9 * 3 = 27} 
+\end{align*}
+
+\SampleQuestion{Find remainder of $\dfrac{5^{160}}{20}$}
+
+We can simplify $\dfrac{3^{159}}{30}$ by taking 5 out as common factor, resulting in $\dfrac{5^{159}}{4}$ with $cf=5$
+
+\begin{align*}
+    \remFrac{5^{159}}{4} &= 1^{159} \\
+    &= 1 \\
+    &= 1 * cf \\
+    &= 5 \\
+\end{align*}
+
+\section{Euler's Number}
+
+\subsection{Prerequisite}
+
+Before we explore euler's number, we should know how to calculate the count of numbers which are in the range $\inRange{1}{n}$ such that they are not a multiple of $m$. \\
+
+For example, let us say that we want to find the count of numbers which are in the range $\inRange{1}{30}$ and are not a multiple of 3. Since we are counting from 1, we can say that the count of numbers which are multiples of 3 in the range $\inRange{1}{30}$ are $\dfrac{30}{3} = 10$. Thus, to find the count of numbers which are not multiple of 3, we simply subtract 10 by 30 $\implies 30 - 10 = 20$. We can also write this as $30 - \dfrac{30}{10} \implies 30 * \left ( 1 - \dfrac{1}{3} \right )$ \\
+
+Similarly, if we want to find the count of numbers which are not multiples of 5 in the range of $\inRange{1}{50}$, we can find by counting of numbers which are multiples of 5 and then subtract from 50. The number of multiples = $\dfrac{50}{5} = 10 \implies 50 - 10 = 40$. Rewriting this as above $\implies 50 - \left ( 1 - \dfrac{1}{5} \right )$ \\
+
+However, if we now want to find numbers which are neither multiple of 2 nor multiple of 5 in the range $\inRange{1}{30}$, we will proceed differently. We will first find count of numbers which are not a multiple of 2 and then in those numbers, we will find count of numbers which are not multiple of 5.
+
+\begin{enumerate}
+    \item Count of numbers which are not multiple of 2 = $30 * \left ( 1 - \dfrac{1}{2} \right ) = 15$
+    \item Count of numbers which are not multiple of 2 and not multiple of 5 = $15 * \left ( 1 - \dfrac{1}{5} \right ) = 12$
+    \item We can write this in a single equation : Count of numbers which are not multiple of 2 and not multiple of 5 = $30 * \left ( 1 - \dfrac{1}{2} \right ) * \left ( 1 - \dfrac{1}{5} \right ) = 12$
+\end{enumerate}
+
+But what if we want to find the count of numbers which are not multiples of 6 in range $\inRange{1}{30}$ ? There is no difference really, just do the above calculation by 6 $\implies 30 * \left ( 1 - \dfrac{1}{6} \right ) = 25$
+
+\subsection{Calculating Euler's number}
+
+Euler's number $E_n$ is defined as the count of numbers which are in the range of $\inRange{1}{n}$ such that they are co-prime to $n$. Two numbers $a$ and $b$ are said to be co-prime if $a$ and $b$ have no factor in common. \hl{1 and any number $x$ are supposed to be co-prime} \\
+
+To calculate this number, we need to find the prime factors $p_i$ of the number $n$ and find the count of numbers which are not a multiple of any of the prime factors of $n$.
+
+\begin{equation*}
+    E_n = 
+    \begin{cases}
+        n * \bigParen{1 - \dfrac{1}{p_1}} * \bigParen{1 - \dfrac{1}{p_2}} * \ldots \bigParen{1 - \dfrac{1}{p_k}}, & \text{If $n$ is composite and $p_1^{a_1},p_2^{a_2} \ldots p_k^{a_k}$ are prime factors of $n$} \\
+
+        n-1, & \text{If $n$ is prime} \\
+        
+        0, & \text{If $n = 1$} \\
+    \end{cases}
+\end{equation*}
+
+\SampleQuestion{Find Euler's number of 30 OR find the count of numbers that are co-prime with 30}
+
+In both the cases, we need to find the Euler's number of 30. $30 = 2 * 3 * 5 \implies$ find the count of numbers which are neither multiple of 2, 3 nor 5. \\
+
+$E_n = 30 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{3}} * \bigParen{1 - \dfrac{1}{5}} = 8$
+
+\SampleQuestion{Find Euler's number of 60 OR find the count of numbers that are co-prime with 60}
+
+In both the cases, we need to find the Euler's number of 60. $60 = 2^2 * 3 * 5 \implies$ find the count of numbers which are neither multiple of 2, 3 nor 5. \\
+
+\begin{NOTE}
+    We don't need to consider the power of the prime factor. For example, in this case, $2^2$ is not relevant for us. We are just concerned with $2$ as a prime factor because the power of the prime is divisible by prime itself. If we find numbers which are not multiples of the prime number itself, then any of its powers will be handled
+\end{NOTE}
+
+$E_n = 60 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{3}} * \bigParen{1 - \dfrac{1}{5}} = 16$
+
+\SampleQuestion{Find Euler's number of 37 OR find the count of numbers that are co-prime with 37}
+
+In both the cases, we need to find the Euler's number of 37. $37 = 1 * 37 \implies$ find the count of numbers which are not a multiple of 37. 1 is not really a prime factor \\
+
+$E_n = 37 * \bigParen{1 - \dfrac{1}{37}}  = 37 * \dfrac{36}{37} = 36$
+
+\section{Application of Euler's Number in finding remainder}
+
+To find the remainder for an expression like $\dfrac{x^a}{b}$ where $x$ and $b$ are co-prime to each other, we can use the Euler's number. The formula is 
+$$
+  \remFrac{x^a}{b}  = \remFrac{x^{ \bigParen{\remFrac{a}{E_b}}} }{b}
+$$ where $E_b = $ Euler's number of $b$. 
+
+\SampleQuestion{Find remainder of $\dfrac{11^{62}}{7}$}.
+
+11 and 7 are co-prime to each other so therefore, using Euler's theorem, we can find the remainder of the expression by calculating $\remFrac{11^{ \bigParen{\remFrac{62}{E_7}}} }{7}$
+
+\begin{align*}
+    E_7 &= 6 \tag{7 is a prime number} \\
+    \remFrac{62}{E_7} &= \remFrac{62}{6} \\
+    &= 2
+\end{align*}
+
+Now, finding remainder of $\remFrac{11^{2}}{7}$
+
+\begin{align*}
+    \remFrac{11^{2}}{7} &= \remFrac{\remFrac{11}{7} * \remFrac{11}{7}}{7} \\
+    &= \remFrac{4 * 4}{7} \\
+    &= 2 \\    
+\end{align*}
+
+\SampleQuestion{Find remainder of $\dfrac{69^{282}}{29}$}.
+
+69 and 29 are co-prime to each other so therefore, using Euler's theorem, we can find the remainder of the expression by calculating $\remFrac{69^{ \bigParen{\remFrac{282}{E_{29}}}}}{29}$
+
+\begin{align*}
+    E_29 &= 28 \tag{29 is a prime number} \\
+    \remFrac{282}{E_{29}} &= \remFrac{282}{28} \\
+    &= 2
+\end{align*}
+
+Now, finding remainder of $\remFrac{69^{2}}{29}$
+
+\begin{align*}
+    \remFrac{69^{2}}{29} &= \remFrac{\remFrac{69}{29} * \remFrac{69}{29}}{29} \\
+    &= \remFrac{11 * 11}{29} \\
+    &= \remFrac{121}{29} \\
+    &= 5 \\    
+\end{align*}
+
+\SampleQuestion{Find remainder of $\dfrac{97^{97}}{10}$}
+
+97 and 10 are co-prime. We can find remainder as 
+$$
+    \remFrac{97 ^ {\remFrac{97}{E_{10}}}}{10}
+$$
+
+\begin{enumerate}
+    \item $10 = 2 * 5 \implies E_{10} = 10 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{5}} = 4$ 
+
+    \item Finding $\remFrac{97}{E_{10}} \implies \remFrac{97}{4} = 1$ 
+
+    \item Finding $\remFrac{97^1}{10} = 7$ 
+\end{enumerate}
+
+\SampleQuestion{Find remainder of $\dfrac{39^{128}}{25}$}
+
+39 and 25 are co prime to each other therefore $\remFrac{39^{128}}{25} = \remFrac{39 ^ { \remFrac{128}{E_{25} } }  }{25}$
+
+\begin{align*}
+    25 &= 5 * 5 \\
+    E_{25} &= 25 * \bigParen{1 - \dfrac{1}{5}} \\
+    &= 20
+\end{align*}
+
+Finding $\remFrac{128}{E_{25} }$
+
+\begin{align*}
+    &= \remFrac{128}{20} \\
+    &= 8
+\end{align*}
+
+Finding $\remFrac{39^{8}}{25}$ 
+
+\begin{align*}
+    &= \remFrac{-11^{8}}{25} \tag{$39 \mod 25 = 14 \implies -11$ } \\
+    &= \remFrac{121^{4}}{25} \tag{$-11^8 = \bigParen{-11^{2}}^4$ } \\
+    &= \remFrac{-4^{4}}{25} \tag{$121 \mod 25 = 21 \implies -4$ } \\
+    &= \remFrac{256}{25} \\
+    &= 6
+\end{align*}
+
+\section{Chinese Remainder Theorem}
+
+\subsection{Prerequisites to Chinese Remainder Theorem}
+
+The prerequisite to Chinese remainder theorem is the ability to solve questions like these
+
+\SampleQuestion{There is a number which when divided by 11 gives the remainder 7. The same number, when divided by 9, leaves a remainder of 2. Find the number(s)} 
+
+According to the question, the number when divided by 11 gives the remainder 2 $\implies$ the number is of the form $11x + 7 , x \in \mathbb{Z^{+}}$. \\
+
+On a similar note, since the number gives a remainder of 2 when divided by 9, we can write it as $9y + 2, y \in \mathbb{Z^{+}}$ \\
+
+Based on above, we can say that $11x + 7 = 9y + 2$. Now, we need to find the values of x and y and do some math
+
+\begin{NOTE}
+    Method 1 of finding value of $x$ and $y$ in situations similar to above : Direct guessing. In these cases, separate out the variable with the smallest magnitude and substitute values of bigger variable. This approach is good when both numbers have relatively small magnitudes
+\end{NOTE}
+
+\begin{align*}
+    11x + 7 &= 9y + 2 \\
+    9y &= 11x + 5 \\ 
+    9y &\neq 5 \tag{x = 0. $y$ is an integer} \\
+    9y &\neq 16 \tag{x = 1. $y$ is an integer} \\ 
+    9y &= 27 \implies y = 3 \tag{x = 2. $y$ is an integer}
+\end{align*}
+
+The number = $9y + 2 = 9*3 + 2 \implies 29$
+
+The numbers which will satisfy the above conditions can be defined as $num + LCM(d_a,d_b) k$ where $num$ is the number which we calculated above, $d_a$ is the first divisor (in this case, 11) and $d_b$ is the second divisor (in this case, 9) and $k$ is an integer
+
+\begin{align*}
+    num + LCM(d_a,d_b) \\
+    &= 29 + LCM(11,9) k \\ 
+    &= 29 + 99k     
+\end{align*}
+
+A note on taking LCM
+
+\begin{EXTRA-LEARNING}
+    But why take LCM? This is because by taking LCM, we get a number which is divisible by both the divisors. The number which we first calculated retains its properties intact
+\end{EXTRA-LEARNING}
+
+\SampleQuestion{There is a number which when divided by 17 gives the remainder 1. The same number, when divided by 9, leaves a remainder of 2. Find the number(s)}
+
+Similar to the question above, we can write the equation as $17x + 1 = 9y + 2$, where $x,y \in \mathbb{Z^{+}}$. We now need to find the value of x and y to get the number and define the series of numbers which will satisfy this property
+
+\begin{NOTE}
+    This is the second method for finding values of x and y. This is good when you have values with relatively large magnitude. The approach is to take the variables and constants on LHS and RHS, then divide by the value of the variable having the smallest magnitude
+\end{NOTE}
+
+\begin{align*}
+    17x + 1 &= 9y + 2 \\
+    17x - 9y &= 1 \\
+    \remFrac{17x - 9y}{9} &= \remFrac{1}{9} \tag{Find remainder on both sides with 9} \\
+    \remFrac{8 * x}{9} &= \remFrac{1}{9} \tag{$17 \mod 9 = 8 \ldots$. $9x$ will give remainder 0} \\
+    \remFrac{-1 * x}{9} &= \remFrac{1}{9} \tag{$8 \mod 9 = 8 = -1$. Did this to simplify math} \\
+    \implies x &= 8 
+\end{align*}
+
+\begin{NOTE}
+    How did we get 8 above? For $\remFrac{-1x}{9}$ to be equal $\remFrac{1}{9}$, $x$ should be a value where its positive remainder with 9 should be 1 $\implies$ negative remainder should be 8. Thus, if $x=8$, then $\remFrac{-8}{9} = 1$
+\end{NOTE}
+
+Now, the number is $17 * 8 + 1 = 137$. $LCM(17,9) = 17 * 9 = 153$. The sequence is $137 + 153k$
+
+\subsection{Chinese Remainder Theorem}
+
+The point of using Chinese remainder theorem is to convert the question into the type of questions which we have solved above. We split the denominator into two factors which are co-prime, find remainder with each factor and then solve the question like above. 
+
+This should be done when two conditions are satisfied
+
+\begin{enumerate}
+    \item The denominator is a composite number which can be split into two co-prime factors
+    
+    \item It is difficult to find the remainder using Euler's number
+\end{enumerate}
+
+\SampleQuestion{Find $\remFrac{ 2^{90} }{ 91 }$ }
+
+Let us try to solve this by Euler number. The remainder is defined by $\eulerRem{2}{90}{91}$
+
+\begin{align*}
+    91 &= 7 * 13 \\
+    E_{91} &= 91 * \bigParen{1 - \dfrac{1}{7}} * \bigParen{1 - \dfrac{1}{13}} \\
+    &= 72
+\end{align*}
+
+Finding $\remFrac{90}{E_{91}}$
+
+\begin{align*}
+    \remFrac{90}{E_{91}} &= \remFrac{90}{72} \\
+    &= 18
+\end{align*}
+
+The expression now becomes $\remFrac{2^{18}}{91}$. We cannot really solve this efficiently because $E_{91} > $ 18. \textbf{We will now proceed with Chinese Remainder Theorem to solve this}. 91 can be split into two co-prime factors 7 and 13. Let us find remainder of $2^{90}$ using 7 and 13. 
+
+Remainder of $2^{90}$ with 7. Let us use Euler's number $\implies$ $\remFrac{ 2^{ \remFrac{90}{E_7} } }{ 7 }$
+
+\begin{align*}
+    E_7 = 6 \tag{7 is a prime number} \\
+    \remFrac{ 2^{ \remFrac{90}{E_7} } }{ 7 } &= \remFrac{ 2^{ \remFrac{90}{6} } }{ 7 } \\
+    &= \remFrac{ 2^{0} }{ 7 } \tag{$90 \mod 6 = 0$} \\
+    &= 1 \\
+\end{align*}
+
+Remainder of $2^{90}$ with 13. Let us use Euler's number $\implies$ $\remFrac{ 2^{ \remFrac{90}{E_{13} } } }{ 13 }$
+
+\begin{align*}
+    E_{13} = 12 \tag{13 is a prime number} \\
+    \remFrac{ 2^{ \remFrac{90}{E_{13}} } }{ 13 } &= \remFrac{ 2^{ \remFrac{90}{12} } }{ 13 } \\
+    &= \remFrac{ 2^{6} }{ 13 } \\
+    &= \remFrac{ 64 }{ 13 } \\
+    &= 12 \\
+\end{align*}
+
+Now, we can phrase the above question as follows : $2^{90}$ is a number which yields a remainder of 1 when divided by 7 and a remainder of 12 when divided by 13. Find the series of numbers which satisfy this condition
+
+\begin{align*}
+    7x + 1 &= 13y + 12 \\
+    7x &= 13y + 11 \\
+    7x &!= 24 \tag{$y = 1$, $x$ is not an integer in this equation} \\
+    7x &!= 27 \tag{$y = 2$, $x$ is not an integer in this equation} \\
+    7x &!= 50 \tag{$y = 3$, $x$ is not an integer in this equation} \\
+    7x &= 63 \tag{$y = 4 \implies x = 9$} \\
+\end{align*}
+
+Number = $7*9 + 1 = 64$.
+
+The sequence of numbers = $64 + LCM(7,13)k \implies 64 + 91k$. $2^{90}$ can be derived from the equation $64 + 91k$ for a sufficient value of $k \implies \remFrac{64 + 91k}{91} = 64$. The remainder is, therefore, 64
+
+\SampleQuestion{Find $\remFrac{97^{97}}{10}$}
+
+Let us use chinese remainder theorem to solve this. $10 = 2 * 5 \implies$ find remainder of $97^{97}$ with 2 and 5
+
+Finding remainder with 2
+$\remFrac{ 97^{97} }{2} = 1$
+
+Finding remainder with 5
+\begin{align*}
+    \remFrac{ 97^{97} }{5} &= \remFrac{ 2^{97} }{5} \tag{$97 \mod 5 = 2$} \\
+    &= \remFrac{ 2 * 2^{96} }{5} \\
+    &= \remFrac{ 2 * 4^{48} }{5} \\
+    &= \bigParen{ \remFrac{2}{5} * \remFrac{4^{48}}{5} } \mod 5 \\
+    &= \bigParen{2 * 1} \mod 5 \\
+    &= 2 
+\end{align*}
+
+Now we can phrase the question as follows : $97^{97}$ is a number which gives the remainder 1 when divided by 2 and remainder 2 when divided by 5. Find the series of numbers which satisfy this condition
+
+\begin{align*}
+    2x + 1 &= 5y + 2 \\
+    2x &= 5y + 1 \\
+    2x &= 6 \tag{$y=1 \implies x=3$} \\
+\end{align*}
+
+Number = $2*3 + 1 = 7$. $LCM(2,5) = 10$. \\
+
+The series of numbers is $7 + 10k$. Remainder with 10 = 7
+
+\SampleQuestion{Find $\remFrac{ 32^{32} }{6}$}
+
+\begin{WARNING}
+    We cannot solve this problem using Euler's theorem because 32 and 6 are not co-primes. Euler's theorem is applicable only when numerator and denominator are co-prime
+\end{WARNING}
+
+\textbf{This question will be solved using Chinese remainder theorem}
+
+Since $6 = 2 * 3$, we will find remainder of $32^{32}$ with 2 and 3 and then find the series of numbers which will give the same remainders as $32^{32}$ \\
+
+Finding $\remFrac{32^{32}}{2} = 0$ (divisible by 2)
+
+Finding $\remFrac{32^{32}}{3}$. 32 and 3 are co-prime so we can find the remainder through Euler's $\implies \eulerRem{32}{32}{3}$
+
+\begin{align*}
+    \remFrac{32^{ \remFrac{32}{2} }}{3} &= \remFrac{32^0}{3} \tag{$E_3 = 2$ as 3 is prime} \\
+    &= \remFrac{1}{3} \\
+    &= 1
+\end{align*}
+
+We can now phrase the question as : There is a number which when divided by 2 gives 0 and when divided by 3, gives 1 as remainder. Find the series of numbers which satisfy this property
+
+\begin{align*}
+    2x + 0 &= 3y + 1 \\
+    2x &= 3y + 1 \\
+    2x &= 4 \tag{$y=1 \implies x=2$}
+\end{align*}
+
+Remainder = 4
+
+\SampleQuestion{Find remainder of $\remFrac{2^{5600}}{153}$}
+
+First, let's check whether we should do it through Euler's or not. $153 = 51 * 3 \implies 153 = 17 * 3^2$. 
+
+\begin{align*}
+    E_{153} &= 153 * \bigParen{1 - \dfrac{1}{3}} * \bigParen{1 - \dfrac{1}{17}} \\
+    &= 153 * \dfrac{2}{3} * \dfrac{16}{17} \\
+    &= 102 * \dfrac{16}{17} \\
+    &= 96
+\end{align*}
+
+The euler number is fairly large. Since the denominator is a composite, it is better to use Chinese remainder theorem and split. Co-prime splitting of $153 = 17 * 9$. We will now proceed to find remainders by 17 and 9
+
+Finding $\remFrac{2^{5600}}{9} \implies \eulerRem{2}{5600}{9}$. 
+
+\begin{align*}
+    E_9 = 9 * \bigParen{1 - \dfrac{1}{3}} = 6 \\
+    \eulerRem{2}{5600}{9} &= \remFrac{2^{ \remFrac{5600}{6} }}{ 9} \\
+    &= \remFrac{2^{2}}{ 9} \\
+    &= 4
+\end{align*}
+
+Finding $\remFrac{2^{5600}}{17} \implies \eulerRem{2}{5600}{17}$. 
+
+\begin{align*}
+    E_{17} = 16 \\
+    \eulerRem{2}{5600}{17} &= \remFrac{2^{ \remFrac{5600}{16} }}{ 17 } \\
+    &= \remFrac{2^{0}}{ 9} \\
+    &= 1
+\end{align*}
+
+We now need to find series of numbers which when divided by 17 gives 1 as remainder and when divided by 9 gives 4 as remainder
+
+\begin{align*}
+    17x + 1 &= 9y + 4 \\
+    9y &= 17x - 3 \\
+    9y &= (17*6) - 3 \tag{$x=6 \implies y=11$} 
+\end{align*}
+
+Number = $9y + 4 = 103 \implies$ Remainder = 103. 
+
+\SampleQuestion{Find $\remFrac{347^{347}}{100}$ OR find the last two digits of $347^{347}$ } 
+
+\begin{EXTRA-LEARNING}
+    The last two digits of a number are obtained by finding remainder of the number with 100
+\end{EXTRA-LEARNING}
+
+Let us see if we can use Euler's theorem to solve this.
+\begin{align*}
+    E_{100} = 100 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{5}} = 40 \\
+    \remFrac{347}{40} &= 7
+\end{align*}
+
+This means that we would need to calculate $\remFrac{347^7}{100}$ which is not easy either. \textbf{Therefore, we should use Chinese Remainder Theorem}. We can write two factors of 100 where factors are co-prime as $100 = 25 * 4$
+
+Finding remainder of $347^{347}$ with 4
+
+\begin{align*}
+    \remFrac{347^{347}}{4} \\
+    &= \remFrac{3^{347}}{4} \tag{$347 \mod 4 = 3$} \\
+    &= \remFrac{-1^{347}}{4} \tag{$3 \mod 4 = -1$}
+    &= -1 = 3
+\end{align*}
+
+Finding remainder of $347^{347}$ with 25
+\begin{align*}
+    \remFrac{347^{347}}{25} = \eulerRem{347}{347}{25} \tag{Solving through Euler's theorem} \\
+    E_{25} = 25 * \bigParen{1 - \dfrac{1}{5}} = 20 \\
+    \eulerRem{347}{347}{25} &= \remFrac{347^{ \remFrac{347}{20} }}{25} \\
+    &= \remFrac{347^{7}}{25} \\
+    &= \remFrac{-3^{7}}{25} \tag{$347 \mod 25 = -3$} \\
+    &= \remFrac{-3^{3} * -3^{4}}{25} \\
+    &= \remFrac{-27 * -81}{25} \\
+    &= \remFrac{-2 * 6}{25} \\
+    &= \remFrac{-12}{25} = 13 \\
+\end{align*}
+
+Now, we need to find numbers which when divided by 4 give 3 as a remainder and when divided by 25 give 13 as a remainder. 
+
+\begin{align*}
+    4y + 3 &= 25x + 13 \\
+    4y &= 25x + 10 \\
+    4y &= 25*2 + 10 \tag{$x=2 \implies y=15$}
+\end{align*}
+
+Number = Remainder = $4*15 + 3 = 63$
+
+\section{Reverse Euler Theorem / Approach} \label{reverse-euler}
+
+\subsection{Prerequisite : General form of a remainder}
+When we find remainder of a number with a divisor, we can write the remainder in the form of the divisor. For example, $\remFrac{14}{3} = 2$. This remainder (2) can also be written as $3k + 2$. The smallest value of $k$ which will give the remainder is $k = 0$
+
+\subsection{Reverse Euler}
+
+This is more of a technique to solve questions than a legit defined theorem. There are certain types of questions which can be solved through the reverse Euler approach. Let us discuss a question...
+
+\SampleQuestion{Find $\remFrac{50^{51}}{53}$}
+
+If we try to solve this question using Euler's approach, then this will be difficult. $E_{53} = 52 $ as 53 is a prime number. The Euler's approach to solve this would be $\eulerRem{50}{51}{53}$. Now, $\remFrac{51}{52} = 51$ and this does not exactly make it easier to solve. We can't use Chinese Remainder Theorem because 53 is a prime number. \\
+
+\vspace{1cm}
+
+However, if we had to find $\remFrac{50^{52}}{53}$, this would be very easy since $E_{53} = 52$ and $\remFrac{52}{52} = 0$. This will make $\eulerRem{50}{52}{53} = 1$. \\
+
+\vspace{1cm}
+
+We can write $\remFrac{50^{52}}{53}$ as $\remFrac{50^{51} * 50}{53}$. Based on above
+
+\begin{align*}
+    \remFrac{50^{52}}{53} &= 1 \\
+    \remFrac{50^{51} * 50}{53} &= 1 \\
+    \remFrac{50^{51}}{53} * -3 &= 1 \tag{$50 \mod 53 = -3$} \\
+    \remFrac{50^{51}}{53} * -3 &= 53k + 1 \tag{General form of remainder of $50^{52} \mod 53$} \\
+    \remFrac{50^{51}}{53} &= \dfrac{53k + 1}{-3}
+\end{align*}
+
+Now, since $\dfrac{53k + 1}{-3}$ is supposed to be a remainder, it must be an integer. We now need to find the smallest value of $k$ such that $\dfrac{53k + 1}{-3}$ is an integer. We can see that if we put $k=1$, we get $\dfrac{-54}{3} = -18$. Now, the equation becomes
+
+\begin{align*}
+    \remFrac{50^{51}}{53} &= -18 \\
+    &= 35 \tag{-18 is the negative remainder. To get positive remainder, we do $53 - 18 = 35$}
+\end{align*}
+
+
+\SampleQuestion{Find $\remFrac{7^{99}}{101}$}
+
+Since 101 is a prime number, we cannot use Chinese remainder theorem. Let us proceed with Euler's number $\implies E_{101} = 100$. Now, $\remFrac{99}{100} = 99$ which does not really make calculation any easier \\
+
+However, if we had to find remainder of $\remFrac{7^{100}}{101}$, this would be easy as $E_{101} = 100$ and $\remFrac{100}{100} = 0$, making the remainder to be 1. 
+
+\begin{align*}
+    \remFrac{7^{100}}{101} &= 1 \\
+    \remFrac{7}{101} * \remFrac{7^{99}}{101} &= 1 \\
+    \remFrac{7^{99}}{101} * 7 &= 101k + 1 \tag{General form of remainder of $7^{100} \mod 99$} \\
+    &= \dfrac{101k + 1}{7}
+\end{align*}
+
+Now, we need to find a value of $k$ which will make $101k + 1$ divisible by 7. \textbf{This can be simplified to finding the value of $k$ where the expression $101k + 1$ will give remainder as 0 when divided by 7}
+
+\begin{align*}
+    \remFrac{101k + 1}{7} &= 0 \\
+    \remFrac{\remFrac{101k}{7} + 1}{7} &= 0 \\
+    \remFrac{3k + 1}{7} &= 0 \tag{$101 \mod 7 = 3$} \\
+    \remFrac{7}{7} &= 0 \tag{$k=2$} \\
+\end{align*}
+
+Therefore, the remainder of $\remFrac{7^{99}}{101}$ is $\dfrac{203}{7} = 29$
+
+\SampleQuestion{Find $\remFrac{12^{107}}{37}$}
+
+Since 37 is a prime number, we can't use Chinese remainder theorem. Therefore, let us try with Euler. $E_{37} = 36$. Now, $\remFrac{107}{36} = 35$. While this does reduce the exponent, it is not enough to solve the question. \\
+
+However, if we were solving $\remFrac{12^{108}}{37}$, this would be easy as $\remFrac{108}{36} = 0 \implies$ remainder = 1. \\
+
+\begin{align*}
+    \remFrac{12^{108}}{37} &= 1 \\
+    \remFrac{12}{37} * \remFrac{12^{107}}{37} &= 1 \\
+    12 * \remFrac{12^{107}}{37} &= 1 \\
+    12 * \remFrac{12^{107}}{37} &= 37k + 1 \tag{General form of remainder of $12^{108} \mod 37$} \\
+    \remFrac{12^{107}}{37} &= \dfrac{37k + 1}{12}
+\end{align*}
+
+Now, we need to find a value of $k$ for which $\dfrac{37k + 1}{12}$ is an integer $\implies$ remainder = 0
+
+\begin{align*}
+    \remFrac{37k + 1}{12} &= 0 \\
+    \remFrac{ \remFrac{37k}{12} + \remFrac{1}{12} }{12} &= 0 \\
+    \remFrac{ k + 1 }{12} &= 0 \\
+    \remFrac{ 12 }{12} &= 0 \tag{$k=11$}
+\end{align*}
+
+Therefore, the remainder is $\dfrac{37 * 11 + 1}{12} = 34$
+
+\section{Remainders with Factorials}
+
+\subsection{Basics}
+
+There is not too much difference in how we calculate factorials however there are nuances. For example, the remainder of $\remFrac{17!}{16!} = 0$ as $17! = 17 * 16!$. However, for cases where denominator is greater than numerator, it is difficult to find remainder. For example $\remFrac{15!}{16!} = 15!$ because $16! > 15!$. \\
+
+\subsection{Wilson's Remainder Theorem}
+
+For a \hl{prime number $p$}, the remainder of the expressions of the following types is defined as follows
+
+\begin{align*}
+    \remFrac{(p-1)!}{p} &= -1 \equiv (p-1) \\
+    \remFrac{(p-2)!}{p} &= 1 \\
+    \remFrac{(p-3)!}{p} &= \dfrac{p-1}{2} \tag{Derived in \fullref{reverse-wilson-p-minus-3}}
+\end{align*}
+
+\SampleQuestion{Find $\remFrac{1001!}{1003}$}
+
+\begin{WARNING}
+    While our first assumption is that 1003 looks like a prime number so we can use Wilson's theorem, \textbf{1003 is not a prime number!. The smallest 4 digit prime number is 1009}
+\end{WARNING}
+
+We can write $1003$ as $1003 = 17 * 59$. Now, $1001! = 1 * 2 * 3 * \ldots 1001 \implies$ Product of all numbers from 1 to 1001. Therefore, we can say that $1001!$ is divisible by both 17 and 59 $\implies \remFrac{1001!}{1003} = 0$
+
+\subsection{Extending / Reverse Wilson's theorem} \label{reverse-wilson-p-minus-3}
+
+Wilson's theorem provides us values of remainder for $\dfrac{(p-1)!}{p}$ and $\dfrac{(p-2)!}{p}$. However, if we encounter a situation where we need to find remainder for $\dfrac{(p-3)!}{p}$, we cannot directly use Wilson's theorem. However, just like we did in \fullref{reverse-euler}, we can do so for Wilson's theorem. Let us discuss this through an example
+
+\SampleQuestion{Find remainder of $\remFrac{34!}{37}$}
+
+Here, $p = 37$. We cannot directly use Wilson's theorem here. However, if we find remainder of $\dfrac{36!}{37}$, we can use it to derive remainder for $\dfrac{34!}{37}$
+
+\begin{align*}
+    \remFrac{36!}{37} &= 36 \tag{Wilson's theorem} \\
+    \remFrac{36 * 35 * 34!}{37} &= 36 \\
+    \remFrac{34!}{37} * -2 * -1 &= 36 \tag{$35 \mod 37 = -2, 36 \mod 37 = -1$} \\
+    \remFrac{34!}{37} &= \dfrac{36}{-1 * -2} \tag{No need to use general form of remainder if already divisible} \\
+    &= 18
+\end{align*}
+
+\SampleQuestion{Find remainder of $\remFrac{20!}{23}$}
+
+Similar to above, we will use reverse Wilson's to find
+
+\begin{align*}
+    \remFrac{22!}{23} &= 22 \tag{Wilson's theorem} \\
+    \remFrac{22 * 21 * 20!}{23} &= 22 \tag{$21 \mod 23 = -2, 22 \mod 23 = -1$} \\
+    \remFrac{20!}{23} * -2 * -1 &= 22 \\
+    \remFrac{20!}{23} &= \dfrac{22}{-1 * -2} \tag{No need to use general form of remainder if already divisible} \\
+    &= 11
+\end{align*}
+
+\begin{EXTRA-LEARNING}
+    We can observe from the above questions that $\remFrac{(p-3)!}{p} = \dfrac{p-1}{2}$
+\end{EXTRA-LEARNING}
+
+\SampleQuestion{Find $\remFrac{27!}{31}$}
+
+We will use reverse Wilson's but with $p-3$ condition
+
+\begin{align*}
+    \remFrac{28!}{31} &= 15 \tag{Wilson for $\dfrac{(p-3)!}{p}$} \\
+    \remFrac{28 * 27!}{31} &= 15 \\
+    \remFrac{27!}{31} * -3 &= 15 \\
+    &= \dfrac{15}{-3} \\
+    &= -5 \\
+    &= 26 \tag{Negative remainder to positive remainder, 31 - 5}
+\end{align*}
+
+\SampleQuestion{Find $\remFrac{17!}{23}$}
+
+We can use reverse Wilson using $\remFrac{20!}{23}$
+
+\begin{align*}
+    \remFrac{20!}{23} &= 22 \\
+    \remFrac{20 * 19 * 18 * 17!}{23} &= 11 \\
+    \remFrac{17!}{23} * -3 * -4 * -5 &= 11 \\
+    \remFrac{17!}{23} * \remFrac{-60}{23} &= 11 \\
+    \remFrac{17!}{23} &= \dfrac{11}{9} \tag{$60 \mod 23 = -9$ but we had negative sign}\\
+    &= \dfrac{23k + 11}{9} \tag{General form of remainder} \\
+\end{align*}
+
+We need to find a value of $k$ where $23k + 11$ is divisible by $9$
+
+\begin{align*}
+    \remFrac{23k + 11}{9} &= 0 \\
+    \remFrac{5k + 2}{9} &= 0 \\
+    \remFrac{27}{9} &= 0 \tag{$k=5$} \\
+\end{align*}
+
+Therefore, remainder = $\dfrac{23k + 11}{9} = \dfrac{126}{9} = 14$
+
+\SampleQuestion{Find $\remFrac{50!}{47^2}$}
+
+This is an interesting question. We can write $50! = 50 * 49 * 48 * 47 * 46!$. Since denominator is $47^2$, we can simplify numerator by splitting remainder. \textbf{Since we can cancel 47, we should cancel it and use cancellation factor instead of finding $\remFrac{47}{47}$. This will allow to us perform our calculation}
+
+\begin{align*}
+    \remFrac{50!}{47^2} &= \remFrac{50 * 49 * 48 * 47 * 46!}{47 * 47} \\
+    &= \remFrac{50 * 49 * 48 * 47}{47} * \remFrac{46!}{47} \\
+    &= \remFrac{50}{47} * \remFrac{49}{47} * \remFrac{48}{47} * \remFrac{46!}{47} \tag{Cancelled 47. $cf = 47$} \\
+    &= \remFrac{3 * 2 * 1 * -1}{47} \tag{Wilson's theorem for $\dfrac{46!}{47}$} \\
+    &= \remFrac{-6}{47} \\
+    &= 41 \\
+    &= 41 * 47 \tag{Multiply final answer by $cf$} \\
+    &= 1927 \\
+\end{align*}
+
+\SampleQuestion{Find $\remFrac{35!}{74}$}
+
+This looks like a difficult question but it isn't. If we observe the denominator, we can see that $74 = 37 * 2$. We can use Chinese Remainder Theorem to solve this question
+
+Find $\remFrac{35!}{37} = 1$ (Wilson's theorem) \\
+
+Find $\remFrac{35!}{2} = 0$ ($35! = 35 * 34 * \ldots 2 * 1$) \\
+
+We now need to find a number which when divided by 37, yields 1 as a remainder and when divided by 2, yields a remainder of 2
+
+\begin{align*}
+    37x + 1 &= 2y + 0 \\
+    2y &= 38  \tag{$x=1 \implies y=19$} \\
+\end{align*}
+
+Remainder = $2 * 19 = 38$
+
+\section{Digital Sum and Remainder}
+
+Digital Sum of a number $n$ is defined by taking sum of digits until we get a single digit. See the below example
+
+\SampleQuestion{Find digital sum of $ 984367 $}
+
+\begin{align*}
+    984367 &= 9 + 8 + 4 + 3 + 6 + 7 \\
+    &= 37 \\
+    &= 3 + 7 \tag{Digital sum is not a single digit} \\
+    &= 10 \\
+    &= 1 + 0 \tag{Digital sum is not a single digit} \\
+    &= 1
+\end{align*}
+
+There is an interesting property of digital sum is that the numbers of an AP (arithmetic progression) with a common difference = 9 will have the same digital sum
+
+\begin{align*}
+    37,46,55,64,73,82,91,100,109 \ldots &= 1 \\
+    34,43,52,61,70,81,92 \ldots &= 7 
+\end{align*}
+
+\begin{theorem} \label{test}
+    The remainder of a number $n$ when divided by 9 can be defined as
+    \begin{equation*}
+        \remFrac{n}{9} = 
+        \begin{cases}
+            0, & \text{digitalSum(n) $=$ 9} \\
+            digitalSum(n), & \text{digitalSum(n) $\neq$ 9} 
+        \end{cases}
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Any number $n$ can be written as $n = k + 9x$ where $k \in [0,8]$ and $x \in \mathbb{Z}$  \\
+        \begin{enumerate}
+            \item We have observed above that an AP with a common difference of 9 has the same digital sum. The general term of such an AP is defined as $a_n = a + (n-1)*9$. If $a = k$ and $n = x + 1$, then the term of AP is $a_{x+1} = k + 9x$. 
+            \item Since $k \in [0,8]$, the digital sum of $k = k$. 
+            \item When $k + 9x$ is divided by 9, we will have the remainder $k$. The digital sum is unchanged in all numbers of AP
+            \item If $k=9$, then $k + 9x = 9x + 9 \implies$ multiple of 9 $\implies$ remainder = 0
+        \end{enumerate}
+    
+    Hence proved
+\end{proof}
+
+\begin{NOTE}
+    This also means that if $\remFrac{n}{9} = 0$ then $digitalSum(n) = 9$
+\end{NOTE}
+
+\SampleQuestion{Find digital sum of $358^{46}$}
+
+To find digital sum, we can refer to the above theorem (Theorem \ref{test}) . 
+
+\begin{align*}
+    digitalSum &= \remFrac{358^{46}}{9} \\
+    &= \remFrac{358^{\remFrac{46}{E_9}}}{9} \tag{Using Euler's number} \\
+    &= \remFrac{358^{\remFrac{46}{6}}}{9} \tag{$E_9 = 6$} \\
+    &= \remFrac{358^{4}}{9} \\
+    &= \remFrac{7^{4}}{9} \tag{$358 \mod 9 = 7$. Just do digital sum of 358} \\
+    &= \remFrac{49 * 49}{9} \\
+    &= \remFrac{4 * 4}{9} \tag{$49 \mod 9 = 4$. Just do digital sum of 49} \\
+    &= \remFrac{16}{9} \\
+    &= 7 \tag{$16 \mod 9 = 7$. Just do digital sum of 16}
+\end{align*}
+
+\SampleQuestion{Find digital sum of $32!$}
+
+To find digital sum of $32!$, we need to find $\remFrac{32!}{9}$. Since $32! = 32 * 31 * 30 * 29 * 28 * 27 * 26!$ and 27 is a multiple of $9$, we can say that $\remFrac{32!}{9} = 0$. \\ 
+
+\textbf{But, $\remFrac{n}{9} = 0$ indicates that the digital sum is 9} $\implies$ digital sum of $32! = 9$
+
+\SampleQuestion{How many numbers from 100 to 800 (both inclusive) will have digital sum = 6}
+
+This is an interesting question. We know that numbers in an AP of common difference = 9 have the same digital sum. We need to find the AP in range $[100,800]$ where digital sum = 6 \\
+
+By hit and trial, we can find that $105$ is the first term in the range $[100,800]$ to have digital sum = 6 $\implies$ AP = $105,114,123 \ldots 798$. In this AP, $a = 105, d = 9, a_n = 798$ ($a_n$ is the last term of the AP)
+
+\begin{align*}
+    a_n &= a + (n-1) * d \\
+    798 &= 105 + 9 * (n - 1) \\
+    693 &= 9n - 9 \\
+    702 &= 9n \\
+    n &= \dfrac{702}{9} \\
+    n &= 78 
+\end{align*}
+
+\SampleQuestion{$A = 8888^{7777}$, $B = $ digital sum of $A$, $C = $ digital sum of $B$, $D = $ digital sum of $C \ldots$ till digital sum of $x$ = $x$. Find the value of $x$ }
+
+According to the question, we can calculate $B$ as $B = \remFrac{A}{9} \implies \remFrac{8888^{7777}}{9}$
+
+\begin{align*}
+    \remFrac{8888^{7777}}{9} & =\remFrac{8888^{ \remFrac{7777}{E_9}}}{9} \tag{Euler's approach} \\
+    & =\remFrac{8888^{ \remFrac{7777}{6}}}{9} \tag{$E_9 = 6$} \\
+    & =\remFrac{8888^{1}}{9} \\
+    & = 5 \tag{digital sum of 8888 = 5} \\
+\end{align*}
+
+The property $x = x$ can only be valid when $x$ is a single digit. $A = 8888^{7777}, B = 5$ therefore property is not satisfied \\
+
+$C = $ sum of digits of $B \implies$ C = 5, B = 5 $\implies$ answer = 5.

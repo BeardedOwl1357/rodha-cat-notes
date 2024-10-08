@@ -1,0 +1,858 @@
+\section{Number of factors}
+
+For a number $n$, a factor $a$ is defined as a number for which there exists a number $b$ such that $a * b = n$. For example, 20 has 6 factors : 1,2,4,5,10,20
+
+\begin{itemize}
+    \item $1 * 20 = 20$
+    \item $2 * 10 = 20$
+    \item $4 * 5 = 20$
+\end{itemize}
+
+Let us take a simpler number : 8. The factors of 8 are 1,2,4 and 8. We can write 8 as $2^3$ and observe that the factors of 8 are various powers of 2 $\implies$ $2^0,2^1,2^2,2^3$. On a similar note, we can find the number of factors of 81 ($3^4$). The factors of 81 are $3^0,3^1,3^2,3^3,3^4$. \\
+
+We can observe that in the above examples, we were considering prime numbers and the number of factors of power of prime numbers was 1 more than their power $\implies$ for $p^x$, we have $x+1$ factors. To find the number of factors for a composite number, we can do the following steps
+
+\begin{itemize}
+    \item Prime factorize the composite number
+    \item Find number of factors of each prime number by considering its power
+    \item Multiply the number of factors of each prime number
+\end{itemize}
+
+\SampleQuestion{Find number of factors of 36}
+
+We can write 36 as $2^2 * 3^2$. Number of factors of $2^2 = 3$ and $3^2 = 3$. The total number of factors of 36 are therefore, $3 * 3 = 9$. 
+
+Let us see why this happens. The factors of $2^2$ are $2^0,2^1,2^2$ and for $3^2$, we have $3^0,3^1,3^2$. If we multiply each term, we will get the following
+
+$$
+\begin{pmatrix}
+    2^0 \\
+    2^1 \\
+    2^2
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^1 \\
+    3^2 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+    2^0 * 3^0 & 2^1 * 3^0 & 2^2 * 3^0 \\
+    2^0 * 3^1 & 2^1 * 3^1 & 2^2 * 3^1 \\
+    2^0 * 3^2 & 2^1 * 3^2 & 2^2 * 3^2 
+\end{pmatrix}
+\implies
+\begin{pmatrix}
+    1 & 2 & 4 \\
+    3 & 6 & 12 \\
+    9 & 18 & 36 
+\end{pmatrix}
+$$
+
+Which are essentially all factors of 36 = 1,2,3,4,6,9,12,18,36
+
+\SampleQuestion{Find number of factors of 720}
+
+\begin{align*}
+    720 &= 9 * 8 * 10 \\
+    &= 3^2 * 2^3 * 2 * 5 \\
+    &= 2^4 * 3^2 * 5
+\end{align*}
+
+From above, we can say that number of factors = $(4+1) * (2+1) * (1+1) = 30$ \\
+
+Generalising, we can say that for a number $n = p_{1}^{a_1} * p_{2}^{a_2} * \ldots p_{k}^{a_m}$ will have $(a_1 + 1) * (a_2 + 1) * \ldots (a_m + 1)$ factors
+
+\SampleQuestion{Find the number of factors of the following}
+
+\begin{enumerate}
+    \item 1024
+    \item 999
+    \item 1001
+    \item 997
+    \item 1003
+\end{enumerate}
+
+Finding for 1024
+
+We can write 1024 as $1024 = 2^10 \implies$ number of factors = 11 \\
+
+Finding for 999
+
+We can write 999 as $9 = 9 * 111 \implies 9 * 3 * 37 \implies 3^3 * 37$. The  number of factors are, therefore $4 * 2 = 8$ \\
+
+Finding for 997 
+
+997 is a prime number so it will have 2 factors 
+
+Finding for 1001
+
+We can write 1001 as $1001 = 13 * 11 * 7$. The  number of factors are, therefore $2 * 2 * 2 = 8$ \\
+
+Finding for 1003
+
+997 is a prime number so the number of factors = 2
+We can write 1003 as $1003 = 17 * 59$. The  number of factors are, therefore $2 * 2 = 4$ \\
+
+\SampleQuestion{For $n = 3600$, answer the following questions}
+
+\begin{enumerate}
+    \item Find number of factors
+    \item Find number of even factors
+    \item Find number of odd factors
+    \item How many factors are divisible by 12?
+    \item How many factors are divisible by 15?
+    \item How many factors are divisible by 40?
+    \item How many factors are perfect squares?
+    \item How many factors are perfect cubes?
+\end{enumerate}
+
+Number of factors of 3600... We can write 3600 as $3600 = 6^2 + 10^2$. Further breaking it, $2^2 * 3^2 * 2^2 * 5^2 \implies 2^4 * 3^2 * 5^2$. Therefore, the number of factors are $(4+1) * (2+1) * (2+1) = 45$. \\
+
+\textbf{Finding number of even factors of 36}. For this, we will use the fundamental concept which we discussed in previous section about finding number of factors
+
+$$
+\begin{pmatrix}
+    2^0 \\
+    2^1 \\
+    2^2 \\
+    2^3 \\
+    2^4 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^1 \\
+    3^2 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^1 \\
+    5^2 \\
+\end{pmatrix}
+$$
+
+Each factor of 3600 is defined as $2^a * 3^b * 5^c, 0 \leq a \leq 4, 0 \leq b \leq 2, 0 \leq c \leq 2$. To have even numbers, we need to ensure that we have at least one even number in the above expression. All powers of 2 except 0 will be even and thus, will make the above expression even. Our choices of numbers are now 
+
+$$
+\begin{pmatrix}
+    2^1 \\
+    2^2 \\
+    2^3 \\
+    2^4 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^1 \\
+    3^2 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^1 \\
+    5^2 \\
+\end{pmatrix}
+$$
+
+Number of factors = $4 * 3 * 3 = 36$ \\
+
+\textbf{Finding number of odd factors} : Similarly, each factor of 3600 is defined as $2^a * 3^b * 5^c, 0 \leq a \leq 4, 0 \leq b \leq 2, 0 \leq c \leq 2$. To have odd numbers, we need to ensure that we don't have any number as any number multiplied to even number results in an even number. Our number choices now include 
+
+$$
+\begin{pmatrix}
+    2^0 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^1 \\
+    3^2 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^1 \\
+    5^2 \\
+\end{pmatrix}
+$$
+
+Number of odd factors = $1 * 3 * 3 = 9$ \\
+
+\textbf{Finding numbers of factors divisible by 12} : 3600 is prime factorized as $3600 = 2^2 * 3^2 * 2^2 * 5^2 \implies 2^4 * 3^2 * 5^2$. For a factor to be divisible by 12, we can define a factor as $(2^2 * 3) * (2^2 * 3 * 5^2) \implies 12 * (2^2 * 3 * 5^2)$. The number of factors are, therefore $(2+1) * (1+1) * (2+1) = 18$ \\
+
+\textbf{Finding number of factors divisible by 15} : 3600 can be prime factorized as $3600 = 2^4 * 3^2 * 5^2$. Factors which are divisible by 15 can be represented as $5 * 3 * (2^4 * 3 * 5) \implies 15 * (2^4 * 3 * 5)$. Therefore, number of factors are $(4+1) * (1+1) * (1+1) = 20$ \\
+
+\textbf{Finding number of factors divisible by 40} : 3600 can be prime factorized as $2^4 * 3^2 * 5^2$. For a number to be divisible by 40, we will have to write it as $(2^2 * 2 * 5) * (2 * 3^2 * 5) \implies 40 * (2 * 3^2 * 5)$. Number of factors = $(1+1) * (2+1) * (1+1) = 12$ \\
+
+\textbf{Finding number of factors which are perfect squares} : \hl{A perfect square is a number whose square root is a natural number}. 3600 is prime factorized as $2^4 * 3^2 * 5^2$. For a factor to be a perfect square, it must be composed of even powers of factors $\implies 2^{2k} * 3^{2m} * 5^{2n}$. In our case, maximum powers of 2,3 and 5 are 4,2 and 2 respectively. 
+
+$$
+\begin{pmatrix}
+    2^0 \\
+    2^2 \\
+    2^4 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^2 \\
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^2 \\
+\end{pmatrix}
+$$
+
+According to above, we will have $3 * 2 * 2 = 12$ factors
+
+\begin{NOTE}
+    We could also use a numerical approach to this. For $2^4 * 3^2 * 5^2$, we will have $(\floor{ \dfrac{4}{2} } + 1) + (\floor{ \dfrac{2}{2} } + 1) + (\floor { \dfrac{2}{2} } + 1)$. The logic behind $\floor { \dfrac{power}{2} }$ is that we are finding the number of even powers in given prime number. We are adding 1 because the $0^{th}$ power is a perfect square as well (1)
+\end{NOTE}
+
+\textbf{Finding number of perfect cubes} : \hl{A perfect cube is a number whose cube root is an integer}. In our case, for $2^4 * 3^2 * 5^2$, we will require powers in multiple of 3 to make a perfect cube. Note that this also includes $0^{th}$ power. Therefore, number of factors = $( \floor{ \dfrac{4}{3} } + 1 ) * (\floor{ \dfrac{2}{3} } + 1) * (\floor{ \dfrac{2}{3} } + 1) = 2$ \\
+
+\section{Product of Factors}
+
+\subsection{Ordered and Unordered Pairings}
+While finding out the number of ways to write a number as product of two numbers / factors, we can have two kind of arrangements : 
+\begin{itemize}
+    \item Where the order of numbers does not matter $\implies a * b$ and $b * a$ is counted as 1 pair. This is called \textbf{unordered pairing}
+    
+    \item Where the order of numbers matters $\implies a * b$ and $b * a$ are counted as 2 pairs. This is called \textbf{ordered pairing}
+
+    \item In general, when the question states to find the number of combinations of $(a,b)$ where $a * b = n$, this will be considered a question of ordered pairing.
+
+    \item In contrast, when we are just asked the number of ways we can write $n$ as product of two numbers, assume it to be an unordered pairing question
+\end{itemize}
+
+  
+\subsection{Summary}
+
+In this section, we will explore the number of ways in which we can write a number as product of its two factors. A summarised version is as follows for a number $n$ having $x$ factors
+
+\begin{itemize}
+    \item $n$ is not a perfect square
+    \begin{itemize}
+        \item \hl{Will have even numbers of factors}
+        \item Ordered pairing ($a * b; a,b \in \mathbb{Z}$) = $x$
+        \item Unordered pairing = $\dfrac{x}{2}$
+        \item Product of all factors = $n^{\left ( \dfrac{x}{2} \right )}$
+    \end{itemize}
+
+    \item $n$ is a perfect square
+    \begin{itemize}
+        \item \hl{Will have odd number of factors}
+        \item Unordered pairing = $\dfrac{x + 1}{2}$
+        \item Ordered pairs ($a * b; a,b \in \mathbb{Z}$) = $x$
+        \item Distinct factors = $\dfrac{x - 1}{2}$
+        \item Product of all factors = $n^{\left ( \dfrac{x}{2} \right )}$
+    \end{itemize}
+\end{itemize}
+
+Let us explore each one in depth with example
+
+\SampleQuestion{Find the number of ways in which 48 can be written as product of two numbers}
+
+For this, let us list the factors of 48. 48 has $1,2,3,4,6,8,12,16,24,48$ as factors. Using these factors, we can write (order does not matter)
+\begin{enumerate}
+    \item $1 * 48 = 48$
+    \item $2 * 24 = 48$
+    \item $3 * 16 = 48$
+    \item $4 * 12 = 48$
+    \item $6 * 8 = 48$
+\end{enumerate}
+
+We can see that we have 5 ways of writing 48 as product of two numbers (order does not matter). This can also be calculated by using number of factors. Number of factors of $48 = 2^4 * 3 \implies (4+1) * (1+1) = 10$. Number of pairs (order does not matter) will be $\dfrac{10}{2} = 5$
+
+\SampleQuestion{Find the number of pairs $(a,b)$ such that $a * b = 48$}
+
+Similar to above, we need to find product of two numbers which will give 48, however \textbf{order matters this time}. For example, (1,48) and (48,1) both will give 48 as a product. Therefore
+\begin{enumerate}
+    \item $1 * 48 = 48$ and $48 *   1 = 48$
+    \item $2 * 24 = 48$ and $24 *   2 = 48$
+    \item $3 * 16 = 48$ and $16 *   3 = 48$
+    \item $4 * 12 = 48$ and $12 *   4 = 48$
+    \item $6 * 8 = 48$  and $8  *   6 = 48$
+\end{enumerate}
+
+The number of pairs = 10 (which is, equal to number of factors of 48)
+
+\SampleQuestion{Find number of solutions of $a * b = 500; a,b \in \mathbb{Z}$}
+
+Basically, we need to find number of pairs of factors of 500. Order matters here. $500 = 5 * 100 \implies 2^2 * 5^3$. Number of factors = Number of pairs of $(a,b)$ = $(2+1) * (3+1) = 12$
+
+\SampleQuestion{In how many ways can 1800 be written as product of 2 of its factors?}
+
+Finding unordered pairs of factors where product is 1800. $1800 = 18 * 100 \implies 2 * 3^2 * 2^2 * 5^2 = 2^3 * 3^2 * 5^2$. Number of factors is $(3+1) * (2+1) * (2+1) = 36$. Unordered pairs are $\dfrac{36}{2} = 18$
+
+\SampleQuestion{Find number of ways of writing 36 as product of }
+\begin{enumerate}
+    \item 2 factors
+    \item 2 \textbf{distinct} factors
+    \item Ordered pairs $(a,b); a,b \in \mathbb{Z}; a*b = 36$
+\end{enumerate}
+
+$36 = 6 * 6 \implies 2^2 * 3^2$. Number of factors = $(2+1) * (3+1) = 9$
+
+\textbf{Writing as product of 2 factors}
+We can write 36 as 
+\begin{enumerate}
+    \item $1    *   36 = 36$
+    \item $2    *   18 = 36$
+    \item $3    *   12 = 36$
+    \item $4    *   9 = 36$
+    \item $6    *   6 = 36$
+\end{enumerate}
+
+Since we are \hl{not asked for distinct} factors, we can consider $6*6$ as a factor. Therefore, we can say that we can write in 5 ways $\implies \dfrac{9 + 1}{2}$
+
+\textbf{Writing as product of 2 distinct factors}
+We can write 36 as 
+\begin{enumerate}
+    \item $1    *   36 = 36$
+    \item $2    *   18 = 36$
+    \item $3    *   12 = 36$
+    \item $4    *   9 = 36$
+\end{enumerate}
+
+Since we are \hl{asked for distinct} factors, we cannot consider $6*6$ as a factor. Therefore, we can say that we can write in 4 ways $\implies \dfrac{9 - 1}{2}$
+
+\textbf{Ordered pairs}
+For ordered pairs, we need to find combinations of $(a,b)$ such that $a*b = 36$
+
+\begin{enumerate}
+    \item $1    *   36  = 36$   and     \item $36 *   1  = 36$
+    \item $2    *   18  = 36$   and     \item $18 *   2  = 36$
+    \item $3    *   12  = 36$   and     \item $12 *   3  = 36$
+    \item $4    *   9   = 36$   and     \item $9  *   4   = 36$
+    \item $6    *   6   = 36$
+\end{enumerate}
+
+We have, a total of 9 factors $\implies$ number of factors of 36
+
+\SampleQuestion{Find product of all factors of 48}
+
+48 can be written as $48 = 2^4 * 3 \implies$ number of factors = $(4+1) * (1+1) = 10$. Out of these 10 factors, since 48 is not a perfect square, there will be pair of factors which have their product as 48. From the list of factors $[ 1,2,3,4,6,8,12,16,24,48 ]$
+\begin{enumerate}
+    \item $1 * 48 = 48$
+    \item $2 * 24 = 48$
+    \item $3 * 16 = 48$
+    \item $4 * 12 = 48$
+    \item $6 * 8 = 48$
+\end{enumerate}
+
+We, therefore, have 5 pairs of factors with product of 48. Total product is, therefore, $48^5$ as we can arrange $(1 * 2 * 3 * 4 * 6 * 8 * 12 * 16 * 24 * 48)$ in above pairs. This can also be written as $48^{\dfrac{10}{2}}$
+
+
+\SampleQuestion{Find product of all factors of 36}
+
+36 is a perfect square. We prime factorise 36 as $2^2 * 3^2 \implies 9$ factors. The list of factors of 36 are $(1,2,3,4,6,9,12,18,36)$. We can arrange product of factors $(1 * 2 * 3 * 4 * 6 * 9 * 12 * 18 * 36)$ as
+\begin{enumerate}
+    \item $1    *   36 = 36$
+    \item $2    *   18 = 36$
+    \item $3    *   12 = 36$
+    \item $4    *   9 = 36$
+\end{enumerate}
+
+Finally, $36^4 * 6 \implies 6^8 * 6 = 36^{\dfrac{9}{2}}$
+
+\SampleQuestion{Find product of all factors of $24^3$}
+
+We can write $24^3 = 24 * 24 * 24$. We can write $24 = 2^3 * 3 \implies 24^3 = 2^9 * 3^3$. Number of factors = $(9+1) * (3+1) = 40$. Product = $( 24^{3} ) ^ {\dfrac{40}{2}} \implies 24^{60}$
+
+\SampleQuestion{Find product of all factors of $6!$}
+
+$6! = 1 * 2 * 3 * 4 * 5 * 6 \implies 2 * 3 * 2^2 * 5 * 2 * 3 = 2^4 * 3^2 * 5$. Number of factors = $(4+1) * (2+1) * (1+1) = 30$. Product = $6!^{\dfrac{30}{2}} \implies 6!^{15}$
+
+\section{Sum of Factors}
+To find the sum of factors of a number, we will prime factorize it. For each prime factor $p_i^a$, find sum of each power of $p_i$ from 0 to $a$. Then, take a product of the sums. Let us explore a sample question
+
+\SampleQuestion{Find sum of factors of 40}
+
+We can write 40 as $40 = 2^2 * 5 ^ 2 \implies 2^3 * 5$. We will have factors represented as follows
+
+$$
+\begin{pmatrix}
+    2^0 \\
+    2^1 \\
+    2^2 \\
+    2^3
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^1
+\end{pmatrix}
+$$
+
+The sum of factors will be 
+\begin{align*}
+    &=  ( 2^0 * 5^0 + 2^0 * 5^1 ) + 
+        ( 2^1 * 5^0 + 2^1 * 5^1 ) + 
+        ( 2^2 * 5^0 + 2^2 * 5^1 ) + 
+        ( 2^3 * 5^0 + 2^3 * 5^1 ) \\
+    &=  2^0 * (5^0 + 5^1 ) + 
+        2^1 * (5^0 + 5^1 ) + 
+        2^2 * (5^0 + 5^1 ) + 
+        2^3 * (5^0 + 5^1 ) \\
+    &=  (2^0 + 2^1 + 2^2 + 2^3) * (5^0 + 5^1 ) \\
+    &= 15 * 6 \\
+    &= 90
+\end{align*}
+
+This proves that to find sum of factors, prime factorise it and take sum of powers of each factor and multiply them
+
+\SampleQuestion{Find sum of factors of 924}
+
+924 can be prime factorised as $924 = 2 * 2 * 3 * 7 * 11 \implies 2^2 * 3 * 7 * 11$. The sum of factors will be 
+
+\begin{align*}
+    &= (2^0 + 2^1 + 2^2) * (3^0 + 3^1) * (7^0 + 7^1) * (11^0 + 11^1) \\
+    &= (7) * (4) + (8) + (12) \\
+    &= 28 * 96 \\
+    &= 2688
+\end{align*}
+
+\SampleQuestion{For a number 7200, find}
+\begin{itemize}
+    \item Sum of odd factors
+    \item Sum of even factors
+\end{itemize}
+
+We can prime factorise 7200 as 
+\begin{align*}
+    7200 &= 8 * 9 * 100 \\
+    &= 2^3 * 3^2 * 2^2 * 5^2 \\
+    &= 2^5 * 3^2 * 5^2
+\end{align*}
+
+\textbf{Sum of odd factors}
+
+
+Odd factors can only be created by multiplication of odd numbers. Therefore, we will not consider any power of 2 in our sum
+
+\begin{align*}
+    &= (3^0 + 3^1 + 3^2) * (5^0 + 5^1 + 5^2) \\
+    &= (13) * (31) \\
+    &= 310 + 31 * 3 \\
+    &= 403 \\
+\end{align*}
+
+\textbf{Sum of even factors}
+Let us write the matrix of factors
+$$
+\begin{pmatrix}
+    2^0 \\
+    2^1 \\
+    2^2 \\
+    2^3 \\
+    2^4 \\
+    2^5 
+\end{pmatrix}
+*
+\begin{pmatrix}
+    3^0 \\
+    3^1 \\
+    3^2
+\end{pmatrix}
+*
+\begin{pmatrix}
+    5^0 \\
+    5^1 \\
+    5^2
+\end{pmatrix}
+$$
+
+\hl{We will not need $2^0$. This is because all other prime factors are odd and odd number * odd number (1) = odd number} We need even numbers. Therefore
+
+\begin{align*}
+    &= (2^1 + 2^2 + 2^3 + 2^4 + 2^5) * (3^0 + 3^1 + 3^2) * (5^0 + 5^1 + 5^2) \\
+    &= (63) * (13) * (31) \\
+    &= 25389
+\end{align*}
+
+\section{Sum of reciprocals of factors}
+This is interesting. Let us explore this through a Sample question
+
+\SampleQuestion{Find sum of reciprocal of factors of the following}
+\begin{itemize}
+    \item 20
+    \item 720
+\end{itemize}
+
+\textbf{Finding for 20}
+
+We can write factors of 20 as $1,2,4,10,5,20$. The equation would be
+\begin{align*}
+    &= 1 + \dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{10} + \dfrac{1}{5} + \dfrac{1}{20} \\ \\ 
+    &= \dfrac{20 + 10 + 5 + 2 + 4 + 1}{20}
+\end{align*}
+
+\begin{EXTRA-LEARNING}
+    We can see that we can find the sum of reciprocal of factors for a number $n$ as $\dfrac{\text{Sum of factors}}{n}$
+\end{EXTRA-LEARNING}
+
+\textbf{Finding for 720}
+We can prime factorise 720 as 
+\begin{align*}
+    &= 72 * 10 \\
+    &= 2^3 * 3^2 * 2 * 5 \\
+    &= 2^4 * 3^2 * 5 \\
+\end{align*}
+
+As explained earlier, we can find sum of reciprocal of factors as 
+\begin{align*}
+    &= \dfrac{(2^0 + 2^1 + 2^2 + 2^3 + 2^4) * (3^0 + 3^1 + 3^2) * (5^0 + 5^1)}{720} \\ \\
+    &= \dfrac{31 * 13 * 6}{720}
+\end{align*}
+
+\section{Factors to Numbers}
+We have been dealing with problems where we had a number and we had to find the number of factors. However, what if we have number of factors and we need to find a number on the basis of some constraints? Suppose that for a number $n$, we have $m$ factors and we need to find the minimum value of $n$. 
+
+One important consideration is to remember the method by which we find factors. We take a number, prime factorise it in different powers and then use the powers of those products to find number of factors. A few examples are shown as below : For a number $n$ which has 20 factors, we can have 
+
+\begin{equation*}
+    20 =
+    \begin{cases}
+        20, & a^{19} \\
+        2 * 10, & a^1 * b^9 \\
+        4 * 5, & a^3 * b^4 \\
+        2 * 2 * 5, & a * b * c^4 \\ 
+    \end{cases}
+\end{equation*}
+
+In the above equation, $a,b,c$ are prime numbers. Let us solve a question using above equation
+
+\SampleQuestion{Find the minimum value of $n$ when $n$ has 20 factors}
+We have split the various possibilities in the above equation. We will now substitute values of $a,b,c$ in order to minimise the number. Use the minimum possible prime number to substitute values of $a,b,c$
+
+\begin{NOTE}
+    A general rule is that the more we split a number, the more we will be able to minimise the value. \textbf{However, this is not always true}
+\end{NOTE}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c | c | c ||}
+        \hline
+         Expression & $a$ & $b$ & $c$ & equation & value  \\
+        \hline
+         $a^{19}$ & 2 & NA & NA & $2^{19}$ & (too big value) \\
+        \hline
+         $a^1 * b^9$ & 3 & 2 & NA & $3^1 * 2^9 $ & 1536 \\
+        \hline
+         $a^3 * b^4$ & 3 & 2 & NA & $3^3 * 2^4 $ & 432 \\
+        \hline
+         $a * b * c^4 $ & 5 & 3 & 2 & $ 5 * 3 * 2^4 $ & 240 \\
+        \hline
+    \end{tabular}
+    \caption{Possible values of $n$ that can have 20 factors}
+    % \label{tab:my_label}
+\end{table}
+
+From the above table, we can see that the minimum value of $n$ that can have 20 factors is 240.
+
+\SampleQuestion{For a number $n$ having 60 factors, find the minimum value of $n$}
+
+We can split 60 as 
+
+\begin{equation*}
+    60 = 
+    \begin{cases}
+        60, & a^{59} \\
+        2 * 30, & a^{1} * b^{29} \\
+        3 * 20, & a^{2} * b^{19} \\
+        4 * 15, & a^{3} * b^{14} \\
+        2 * 2 * 15, & a * b * c^{14} \\
+        3 * 4 * 5, & a^2 * b^3 * c^4 \\
+        2 * 2 * 3 * 5, & a * b * c^2 * d^4 \\
+    \end{cases}
+\end{equation*}
+
+Let us substitute values of each variable with lowest possible prime numbers and find the minimum value of $n$. Since we know that the greater the number of splits (that is, more prime factors), the lower its value is. Let's start with values having maximum number of prime factors. \textbf{DO NOT RUSH TO A JUDGEMENT}. 
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c | c | c | c ||}
+        \hline
+         Expression & $a$ & $b$ & $c$ & $d$ & equation & value  \\
+        \hline
+        $a * b * c^2 * d^4$ & 7 & 5 & 3 & 2 & $7 * 5 * 3^2 * 2^4$ & 5040 \\
+        \hline
+        $a^2 * b^3 * c^4$ & 5 & 3 & 2 & NA & $5^2 * 3^3 * 2^4$ & 10800 \\
+        \hline
+        $a * b * c^{14}$ & 5 & 3 & 2 & NA & $5 * 3 * 2^{14}$ & (too big) \\
+        \hline
+    \end{tabular}
+    \caption{Possible values of $n$ that can have 60 factors}
+    % \label{tab:my_label}
+\end{table}
+
+We can see that the other values will be too big. From the above, we can conclude that $n = 5040$
+
+\SampleQuestion{For a number $n$ having 16 factors, find the minimum value of $n$}
+
+\hl{\textbf{This is a question where "more splitting" $\neq$ minimum value}}
+
+Let us find different ways of prime factorising a number with 16 factors
+
+\begin{equation*}
+    16 = 
+    \begin{cases}
+        16, & a^{15} \\
+        2 * 8, & a * b^7 \\
+        4 * 4, & a^3 * b^3 \\
+        2 * 2 * 4, & a * b * c^3 \\
+        2 * 2 * 2 * 2, & a * b * c * d
+    \end{cases}
+\end{equation*}
+
+Possible values are
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c | c | c | c ||}
+        \hline
+         Expression & $a$ & $b$ & $c$ & $d$ & equation & value  \\
+        \hline
+        $a * b * c * d$ & 7 & 5 & 3 & 2 & $7 * 5 * 3 * 2$ & 210 \\
+        \hline
+        $a * b * c^3$ & 5 & 3 & 2 & NA & $5 * 3 * 2^3$ & 120 \\
+        \hline
+        $a^3 * b^3$ & 3 & 2 & NA & NA & $3^3 * 2^3$ & 216 \\
+        \hline
+        $a * b^7$ & 3 & 2 & NA & NA & $3 * 2^7$ & 384 \\
+        \hline
+    \end{tabular}
+    \caption{Possible values of $n$ that can have 16 factors}
+    % \label{tab:my_label}
+\end{table}
+
+We can see that the expression $a * b * c^3$ gave a minimum value instead of the expression $a * b * c * d$. It is not always necessary for an expression with more terms to give minimum value. $n = 120$
+
+\SampleQuestion{If $n^2$ has 15 factors, how many factors will $n^3$ have?}
+
+Let us write prime factorisation of 15 and possible expressions for $n^2$ below
+
+\begin{equation*}
+    15 = 
+    \begin{cases}
+        15, & a^{14} \\
+        3 * 5, & a^2 * b^4 \\
+    \end{cases}
+\end{equation*}
+
+Let us evaluate both cases
+\begin{enumerate}
+    \item $(a^7)^2$ : If $n^2 = (a^7)^2$, then $n = a^7 \implies n^3 = (a^7)^3 = a^{21}$. We will, thus, have $21 + 1 = 22$ factors
+    
+    \item $a^2 * b^4$ : If $n^2 = a^2 * b^4$, then $n = a * b^2 \implies n^3 = a^3 * b^6$. We will, thus have $(3+1) * (6+1) = 28$ factors
+\end{enumerate}
+
+\section{Factors and Perfect Squares}
+
+There are some interesting observations about perfect squares. They are as follows
+
+\begin{enumerate}
+    \item A perfect square will always have odd number of factors
+    \begin{itemize}
+        \item Each prime factor of a perfect square will have an even power. 
+        \item To calculate number of factors, we multiply (power + 1) for all prime factors. In this case, all terms will be odd and odd terms when multiplied by odd terms, will give odd number
+        \item For example, $36 = 2^2 * 3^2$. Number of factors = $(2+1) * (2+1) = 9$
+    \end{itemize}
+
+    \item If a perfect square $n^2$ has $m$ factors, then it will have $\dfrac{m-1}{2}$ factors before $n$ and $\dfrac{m-1}{2}$ factors after $n$
+    \begin{itemize}
+        \item For example, 36 has 9 factors : $1,2,3,4,6,9,12,18,36$
+        \item There are $\dfrac{9-1}{2} = 4$ factors before $6 : 1,2,3,4$
+        \item There are $\dfrac{9-1}{2} = 4$ factors after $6 : 9,12,18,36$
+    \end{itemize}
+    
+    \item This also gives rise to the fact that if $n^2$ has $x$ factors that are less than $n$, then $n^2$ will have $2x + 1$ factors
+
+    \item Factors of $n$ are factors of $n^2$ but factors of $n^2$ are not factors of $n$
+    \begin{itemize}
+        \item For example, $6 = 1,2,3,6$
+        \item For example, $36 = 1,2,3,4,6,9,12,18,36$
+        \item Factors of 6 are factors of 36 as well, however factors of 36 (for example, 4) are not factors of 6. 
+    \end{itemize}
+\end{enumerate}
+
+\SampleQuestion{$n^2$ has exactly 10 factors less than $n$. How many factors will $n^5$ have ?}
+
+Since we have 10 factors that are less than $n$, $n^2$ will have $10 * 2 + 1 = 21$ factors. We can write different prime factorization for $21$
+
+\begin{equation*}
+    21 = 
+    \begin{cases}
+        21, & a^{20} \\
+        3 * 7, & a^2 * b^6 \\
+    \end{cases}
+\end{equation*}
+
+Let us find number of factors for $n^5$ for each case
+
+\begin{enumerate}
+    \item $a^{20}$ : If $n^2$ has $a^{20}$ prime factorization, then $n = a^{10} \implies n^5 = a^{50}$. Number of factors = $(50 + 1) = 51$
+
+    \item $a^2 * b^6$ : If $n^2$ has $a^2 * b^6$ prime factorization, then $n = a * b^3 \implies n^5 = a^5 * b^15$. Number of factors = $(5 + 1) * (15 + 1) = 96$
+\end{enumerate}
+
+\SampleQuestion{For $n = 2^{43} * 3^{31}$, find the number of factors of $n^2$ which are less than $n$ but does not divide $n$}
+
+We can find number of factors of $n^2 = 2^{86} * 3^{62} = 87 * 63 = 5481$. Out of these factors, $\dfrac{5481 - 1}{2} = 2740$ factors will be less than $n$. \\
+
+Now, it is an observation that factors of $n^2$ are not necessarily factors of $n$. To find number factors of $n^2$ that are less than $n$ but do not divide $n$, we need to find number of factors of $n$ and subtract it from 2740. \\
+
+$n = 2^{43} * 3^{31} \implies 44 * 32 = 1408$. \textbf{Note that, $n$ is also included in these 1408 factors}, therefore, we will have 1407 factors \\
+
+Number factors of $n^2$ that are less than $n$ but do not divide $n$ = 2740 - 1407 = 1333
+
+\SampleQuestion{If all the factors of 3600 are written in ascending order, then which factor will come at the $40^{th}$ position? }
+
+\hl{This is an interesting question as the concept behind it is interesting}. To understand this concept, let me demonstrate it by an example
+
+\begin{EXTRA-LEARNING}
+    Let us take the number 48. 48 has $2^4 * 3 = 10$ factors. They are as follows : $1,2,3,4,6,8,12,16,24,48$. Now 
+    \begin{itemize}
+        \item 1 * 48 = 48 $\implies 1^{st} \text{factor} * 10^{th} \text{factor}$. 
+        \item 2 * 24 = 48 $\implies 2^{nd} \text{factor} * 9^{th} \text{factor}$. 
+        \item 3 * 16 = 48 $\implies 3^{rd} \text{factor} * 8^{th} \text{factor}$. 
+    \end{itemize}
+    And so on... One interesting property is, the "sum" of index of factor is constant. For example, if we sum 1 and 10 (index of first factor = 1 and of tenth factor = 10), we will get 11. We will get a similar behavior from other indices : $2^{nd}$ and $9^{th}$, $3^{rd}$ and $8^{th}$ etc. Generalising, we can write that if $n$ has $x$ number of factors, then 
+    $$
+    m^{th} \text{ factor} * (x + 1 - m)^{th} \text{ factor} = n
+    $$
+\end{EXTRA-LEARNING}
+
+Following the above, we can find the value of $40^{th}$ factor of 3600 by calculating $(45 + 1) - (40) = 6^{th}$. Therefore, we need to find the value of $6^{th}$ factor and divide it by 3600 to get the $40^{th}$ factor. \\
+
+Omitted list of factors of 3600 = $1,2,3,4,5,6 \ldots$. The $6{th}$ factor is, therefore 6. According to question
+
+\begin{align*}
+    6 * 40^{th} \text{ factor} &= 3600 \\
+    40^{th} \text{ factor} &= \dfrac{3600}{6} \\
+    &= 600 \\
+\end{align*}
+
+\SampleQuestion{If all the factors of $3^4 * 5^5$ are written in ascending order, then which factor will come at $27^{th}$ position?}
+
+Let us assume $n = 3^4 * 5^5$. Number of factors of $n = (4+1) * (5+1) \implies 30$. $27^{th}$ factor will be multiplied by $(30 + 1 - 27) = 4^{th}$ factor to give $n$. \\
+
+Omitted list of factors of $n = 1,3,5,9 \ldots$. $4^{th}$ factor is 9
+
+\begin{align*}
+    9 * 27^{th} \text{ factor} &= 3^4 * 5^5 \\
+    27^{th} \text{ factor} &= \dfrac{3^4 * 5^5}{9} \\
+    &= 3^2 * 5^5 \\
+\end{align*}
+
+\SampleQuestion{How many factors of 3600 are not factors of 5400 ?}
+
+\begin{itemize}
+    \item $5400 = 2^3 * 3^3 * 5^2 \implies 3 * (2^3 * 3^2 * 5^2) $. 
+    \item $3600 = 2^4 * 3^2 * 5^2 \implies 2 * (2^3 * 3^2 * 5^2) $
+    \item Number of factors of 5400 = $(3+1) * (3+1) * (2+1) = 48$
+    \item Number of factors of 3600 = $(4+1) * (2+1) * (2+1) = 45$
+    \item Number of factors of $(2^3 * 3^2 * 5^2) = (3+1) * (2+1) * (2+1) = 36$
+    \item We can see that both 5400 and 3600 have 36 factors in common. From above, we can conclude that 3600 has $45 - 36 = 9$ factors that are not in common with 5400
+\end{itemize}
+
+\textbf{We can simplify the above as : Factors of 3600 - Factors of HCF(5400,3600)}
+
+\SampleQuestion{If a 3 digit number $pqr$ has 2 factors, how many factors will the 6 digit number $pqrpqr$ will have? (IMPORTANT)}
+
+We can write $pqrpqr$ as 
+
+\begin{align*}
+    pqrpqr &= (p * 10^5) + (q * 10^4) + (r * 10^3) + (p * 10^2) + (q * 10) + (r) \\
+    &= 10^2 * (10^3 * p + p) + 10 * (10^3 * q + q) + (10^3 r + r) \\
+    &= 10^2 (1001p) + 10 * (1001q) + (1001r) \\
+    &= 1001 (100p + 10q + r) \\
+    &= 1001 * (pqr) \tag{$pqr$ is a 3 digit number}
+\end{align*}
+
+Now, we need to find number of factors of $1001 * pqr$. Since $pqr$ has only 2 factors, we can say that $pqr$ is a prime number. 
+
+\begin{align*}
+    1001 * pqr &= 13 * 77 * pqr \\
+    &= 13 * 11 * 7 * pqr \\
+    &= (1+1) * (1+1) * (1+1) * (1+1) \\
+    &= 16
+\end{align*}
+
+\begin{EXTRA-LEARNING}
+    \hl{An interesting variation to the above question : What if $pqr$ has 3 factors?}. We can make two observations : That $pqr$ is a perfect square (as only perfect squares have odd number of factors) and $pqr = x^2$ where $x = \sqrt{pqr}$ and $x$ is prime (this is because, only in this scenario we will have 3 factors). \\
+
+    \begin{itemize}
+        \item Now, in the equation $13 * 11 * 7 * pqr$, we can write $pqr = x^2 \implies 13 * 11 * 7 * x^2$
+        
+        \item Now, $x \neq 7$ as $x^2$ is supposed to be a 3 digit number
+        \item We can have two cases
+        \begin{itemize}
+            \item \textbf{$x$ is a prime number which is different than $11,13$}. In this case, the number of factors of $7 * 11 * 13 * x^2 = (1+1) * (1+1) * (1+1) * (2+1) = 24$
+            \item \textbf{$x$ is either 11 or 13} : In this case, either 11 or 13 will have a power of $3$. Let us assume $x = 11$ (results will be same with $x=13$ as well). Therefore, number of factors of $7 * 11^3 * 13 = (1+1) * (3+1) * (1+1) = 16$
+        \end{itemize}
+    \end{itemize}
+\end{EXTRA-LEARNING}
+
+\SampleQuestion{Find number of factors of 33333333}
+
+We can write $33333333$ as 
+\begin{align*}
+    33333333 &= 3 * 11111111 \\
+    &= 3 * ( 10^7 + 10^6 + 10^5 + 10^4 + 10^3 + 10^2 + 10^1 + 1) \\
+    &= 3 * \bigParen{10^3 * (10^4 + 1) + 10^2 * (10^4 + 1) + 10 * (10^5 + 1) + 1} \\ 
+    &= 3 * \bigParen{(10^4 + 1) * (10^3 + 10^2 + 10 + 1) } \\ 
+    &= 3 * \bigParen{(10001) * (1111) } \\ 
+    &= 3 * 10001 * 101 * 11  \\ 
+    &= 3 * 137 * 73 * 101 * 11 \tag{10001 = 137 * 73 (prime factorise)} \\ 
+    &= 32 \text{ factors} 
+\end{align*}
+
+840 = $2^3 * 3 * 5 * 7$
+
+\section{Co-primes and Euler Number}
+
+\subsection{Revision : Euler Number}
+For a number $n$, Euler Number $E_n$ is defined as the count of numbers which are $\leq n$ that are co-prime to it. Two numbers $a$ and $b$ are co-prime if their HCF (Highest Common Factor) is 1 $\implies HCF(a,b) = 1$. For example, for $10$, there are 4 co-prime numbers
+\begin{itemize}
+    \item 1 : $HCF(1,10) = 1$
+    \item 3 : $HCF(3,10) = 1$
+    \item 7 : $HCF(7,10) = 1$
+    \item 9 : $HCF(9,10) = 1$
+\end{itemize}
+
+For a number $n$ prime factorised as $n = p_1^a * p_2^b * \ldots p_n^z$, $E_n = n * \bigParen{1 - \dfrac{1}{p_1}} * \bigParen{1 - \dfrac{1}{p_2}} * \ldots \bigParen{1 - \dfrac{1}{p_n}}$. For example, if $n = 10 = 2 * 5$
+
+\begin{align*}
+    E_n &= 10 * \bigParen{1 - \dfrac{1}{2}} * \bigParen{1 - \dfrac{1}{5}} \\
+    &= 10 * \dfrac{1}{2} * \dfrac{4}{5} \\
+    &= 4 
+\end{align*}
+
+\subsection{STUDY PROPERTIES OF HCF BEFORE CONTINUING WITH FACTORS 12 OF RODHA}
+
+\subsection{Count of pairs of co-primes of a number}
+
+For a number $n$, we need to find the count of pairs where each element is co-prime to $n$. \textbf{In general, when we are asked about count, we assume it is unordered. However, if we are asked about pairs of variables $(a,b)$ where $a$ and $b$ are co-prime to $n$, then order would matter}. 
+
+\SampleQuestion{Find count of pairs where each element is co-prime to 28}
+
+Let us write the numbers that are co-prime to 28 in ascending order : $1,3,5,9,11,13,15,17,19,21,23,25,27 = 12$ numbers. You may notice that sum of first and last term in the above sequence sums to 28. Similarly, second and second-last, third and third-last and so on. This is an interesting consequence of property of HCF function (also called GCD or Greatest Common Divisor) : \hl{If $HCF(x,n) = 1$ then $HCF(n-x,n) = 1$}. 
+
+\begin{NOTE}
+    \href{https://forthright48.com/sum-of-coprime-numbers-of-integer/}{Source of proof}. Suppose $gcd(x,n)=1$, but $gcd(n - x,n)=d$, where $d>1$. Then $d$ divides $n - x$ and $n$. If $d$ divides $n$ and $n - x$, then it must also divide $x$. But that’s impossible since if $d$ can divide both $n$ and $x$, then $gcd(x,n)=d$. But we started with the fact that $gcd(x,n)=1$. Contradiction! Hence, $gcd(n - x,n) \neq d$. Instead, it must be $gcd(n - x,n)=1$.
+\end{NOTE}
+
+Using this property, we can pretty much figure out that the number of pairs are $\dfrac{\text{number of co-primes}}{2} \implies \dfrac{E_n}{2}$. In our case, the answer is 6
+
+\SampleQuestion{Find number of solutions for the expression $a + b = 420$ where both $a$ and $b$ are co-primes to 420}
+
+\textbf{TO BE DONE}
+
+\href{https://www.youtube.com/watch?v=BM4NMqu7qbc&list=PLG4bwc5fquzgmP5BLHrRDwBueer0udDjc&index=36}{Continue from here}

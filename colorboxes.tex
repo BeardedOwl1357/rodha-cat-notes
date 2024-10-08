@@ -1,0 +1,47 @@
+% Admonition boxes
+% Documentation is available here
+% https://texdoc.org/serve/tcolorbox/0
+\usepackage{tcolorbox}
+
+% Warning box
+\newtcolorbox{WARNING}{
+    adjusted title=WARNING,
+    % Set background color. 100 means yellow and 0 means white. Supports values between 0 to 100
+    colback=yellow!10!white, 
+    % Set title color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltitle=white!100!black, 
+    % Set text color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltext=white!0!black, 
+    % Set border color. 100 means red and 100 means black. Supports values between 0 to 100
+    colframe=red!75!black,
+}
+
+% Note box
+\newtcolorbox{NOTE}{
+    adjusted title=NOTE,
+    % Set background color. 100 means yellow and 0 means white. Supports values between 0 to 100
+    colback=yellow!10!white, 
+    % Set title color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltitle=white!100!black, 
+    % Set text color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltext=white!0!black, 
+    % Set border color. 100 means red and 100 means black. Supports values between 0 to 100
+    colframe=yellow!75!black,
+}
+
+% Note box
+\newtcolorbox{EXTRA-LEARNING}{
+    adjusted title=EXTRA LEARNING,
+    % Set background color. 100 means green and 0 means white. Supports values between 0 to 100
+    colback=green!10!white, 
+    % Set title color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltitle=white!100!black, 
+    % Set text color. 100 means black and 0 means white. Supports values between 0 to 100
+    coltext=white!0!black, 
+    % Set border color. 100 means green and 100 means black. Supports values between 0 to 100
+    colframe=green!75!black,
+}
+
+
+% Use text as
+% \begin{NOTE}{This is a note}\end{NOTE}

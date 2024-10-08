@@ -1,0 +1,44 @@
+% Writing the expression for finding remainder of fraction numbers
+\newcommand{\remFrac}[2]{\displaystyle{ \left. \frac{#1}{#2} \right |_{R} }}
+
+% Referencing to a section with name and section count
+% Shows like "section 3.2 Successive Division to find remainder"
+% Refer to https://tex.stackexchange.com/a/121871
+\newcommand*{\fullref}[1]{ \hyperref[{#1}]{Section \ref*{#1} : \nameref*{#1}}}
+
+\newcommand{\inRange}[2]{
+    {#1} \ldots {#2}
+}
+
+\newcommand{\bigParen}[1]{
+    \left ( #1 \right )
+    }
+
+%% #1 = Numerator
+%% #2 = Numerator's exponent
+%% #3 = Denominator
+\newcommand{\eulerRem}[3]{
+    \remFrac{#1^{ \remFrac{#2}{E_{#3}} }}{#3}
+}
+
+%% Floor and Ceil
+
+\newcommand{\floor}[1]{
+    \displaystyle{\left \lfloor {#1} \right \rfloor}
+}
+
+\newcommand{\degree}[1]{
+    {#1}^{\circ}
+}
+
+\newcommand{\Triangle}[1]{
+    \Delta {#1}
+}
+
+\newcommand{\Area}[1]{
+    \text{Area}({#1})
+}
+
+\newcommand{\Round}[1]{
+    \left [ #1 \right ]
+}
