@@ -1,0 +1,71 @@
+\section{Basics and Interesting cases}
+
+Average is defined as $\dfrac{\text{Sum}}{\text{Number of quantities}}$. For example, the average of numbers 17,12,10 and 20 is $\dfrac{17 + 12 + 10 + 20}{4} = \dfrac{59}{4} = 14.75$. There are some special cases
+
+When numbers are in AP (Arithmetic Progression), the average of that sequence is the middle term of the sequence
+
+\begin{itemize}
+    \item Middle term of AP is given as $\dfrac{\text{First term} + \text{Last term}}{2}$
+    \begin{itemize}
+        \item This middle term may or may not exist in the sequence itself : If a sequence has odd number of terms, then the average exists in the sequence but if there are even number of terms, average will not exist in sequence
+        \item 2,4,6,8,10 . Average = $\dfrac{2 + 10}{2} = 6$. 6 exists in AP. 
+        \item 1,3,5,7. Average = $\dfrac{1 + 7}{2} = 4$. 4 does not exist in AP
+    \end{itemize}
+
+    \item If we want to find the index of the middle term/s that resulted in average, they are as follows
+    \begin{itemize}
+        \item Odd number of terms : $\floor{ \dfrac{\text{Number of terms}}{2} } + 1$
+        \item Even number of terms : $ \dfrac{\text{Number of terms}}{2} $, $ \dfrac{\text{Number of terms}}{2} + 1$. The average of AP is the average of these middle terms 
+    \end{itemize}
+\end{itemize}
+
+\SampleQuestion{Average of 7 consecutive even integers is 36. Product of 2nd and 5th term is?}
+
+Since we have odd number of terms in the AP, the middle term of the AP will be the average. If we write our AP as $a , a+2 , a+4 , a+6 , a+8 , a+10 , a+12 $. The middle term is $a + 6 = 36 \implies a = 30$. \\
+
+Product of 2nd and 5th term = $(a + 2) * (a + 8) = 32 * 38 = 1216$
+
+\SampleQuestion{Average of 12 consecutive odd integers is 30. Find the sequence}. 
+
+The sequence is an AP with 12 terms and common difference = 2. Since we have even terms, the average is calculated as average of middle terms. Let the first term of the AP be $a$.
+
+\begin{align*}
+    30 &= \dfrac{a + (4 * 2) + a + (5 * 2)}{2} \\
+    30 &= \dfrac{2a + 18}{2} \\
+    &= a + 9 \\
+    a &= 21
+\end{align*}
+
+Series is therefore, $21,23,25,27,29,31,33,35,37,39,41,43$
+
+\textbf{Another approach}
+
+We can see that the average of the sequence is 30. In a sequence of 12 terms, average is derived by average of 2 middle terms. In this question, the terms would be the 5th and 6th term. 
+
+\begin{itemize}
+    \item If the average of 2 terms is an integer $x$, then the terms must be $x-1$ and $x+1$. $\dfrac{(x-1) + (x+1)}{2} = \dfrac{2x}{2} = x$. 
+
+    \item If the average of 2 terms is a decimal $y$, then the terms must be $y-0.5$ and $y+0.5$. For example, if average is 14.5, then the terms are 14 and 15 $\dfrac{14 + 15}{2} = \dfrac{29}{2} = 14.5$. 
+\end{itemize}
+
+Using the above, we can find the 5th and 6th terms : 30-1 and 30+1 respectively. Using that, with common difference of 2, we can find the terms
+
+\SampleQuestion{ Average of 143 consecutive odd integers is 'P'. Average of last 67 terms is 'n'. Find 'P' in terms of 'n' }
+
+\begin{itemize}
+    \item Since average of 143 terms is $P$, we can say that $\floor{\dfrac{143}{2}} + 1 = 72^{nd}$ term is equal to $P$. 
+    
+    \item The last 67 terms are in the range 77th term to 143rd term ($143 - 67 + 1 = 76$). The middle term of this sequence will be $\dfrac{77 + 143}{2} = 110$. 
+    
+    \item $110^{th}$ term = $n$, $72^{nd}$ term = $P$. Difference = $110 - 72 = 38$. Therefore, $n = P + 76$
+\end{itemize}
+
+\begin{NOTE}
+    I will be using the notation $t_n$ from now on to describe the $n^{th}$ term
+\end{NOTE}
+
+\SampleQuestion{Find the average of 1 + 3 + 5 + 7 + $\ldots$ 167}
+
+The above is an AP with common difference of 2. We can find the average as $\dfrac{1 + 167}{2} = 84$
+
+\href{https://youtu.be/q-ZUkah-xys?si=V63ya2Kswin-ulr-}{Continue from here}
