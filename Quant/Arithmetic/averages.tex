@@ -68,4 +68,115 @@ Using the above, we can find the 5th and 6th terms : 30-1 and 30+1 respectively.
 
 The above is an AP with common difference of 2. We can find the average as $\dfrac{1 + 167}{2} = 84$
 
-\href{https://youtu.be/q-ZUkah-xys?si=V63ya2Kswin-ulr-}{Continue from here}
+\newpage
+
+\SampleQuestion{Which digit is missing in the average of numbers 9,99,999,9999 $\ldots$ 999999999 ?}
+
+There are two ways to solve this question : Through pattern and actual calculation. I will show both
+
+\textbf{Pattern Matching}
+
+We are asked to find the missing digit in $\dfrac{9 + 99 + 999 + \ldots 999999999}{9}$. We can simplify by taking 9 common $\implies 1 + 11 + 111 + \ldots 111111111$
+
+Now, we can start to notice a pattern
+\begin{itemize}
+    \item 1 + 11 = 12
+    \item 1 + 11 + 111 = 123
+    \item 1 + 11 + 111 + 1111 = 1234
+    \item We can see that as we keep adding the next series of 1s, we are getting each digit. Like, when we found 1 digit number + 2 digit number + 3 digit number + 4 digit number, we got all the 4 digits
+    \item We can extend this and be sure that when we add 9 numbers like this, we will get the sum 123456789
+\end{itemize}
+
+We can now say that the digit 0 is missing    
+
+\textbf{Actually Finding the Sum}
+We can find the sum of expression $9 + 99 + 999 + \ldots 999999999$ by using geometric progression formula
+
+\begin{align*}
+    9 + 99 + 999 + \ldots 999999999 &= (10 - 1) + (10^2 - 1) + (10^3 - 1) + \ldots (10^9 - 1) \\
+    &= (10 + 10^2 + 10^3 + \ldots 10^9 ) - 9 \tag{There are nine "1"} \\
+    &= \dfrac{10 * (10^9 - 1)}{10 - 1} - 9 \tag{GP sum formula with $r = 10$ and $n = 9$} \\
+    &= 1111111110 - 9 \\
+    &= 1111111101
+\end{align*}
+
+Average is $\dfrac{1111111101}{9} = 123456789 \implies $ Missing digit = 0
+
+\SampleQuestion{The sales of a company in January 2012 was Rs 348 crores. In Feb and March, sales were Rs 364 crores and Rs 380 crores respectively. If sales increase in a similar trend till December of that year, find average sales in 2012}
+
+We can see that 348, 364 and 380 are in an AP with $a = 348, d = 16 \text{and} n = 12$. Therefore, we can find average by taking sum of sale of january and december and dividing by 2
+
+\begin{itemize}
+    \item Sales in December = $348 + (11*16) = 348 + 176 = 524$
+    \item Average = $\dfrac{348 + 524}{2} = 436$
+\end{itemize}
+
+Answer = Rs 436 crores
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+\section{Average Increase and Decrease}
+
+This is a class of questions where we are given an average, the change in average and number of quantities. Refer to the following examples 
+
+\SampleQuestion{The average weight of a group of 15 friends increases by 1 Kg when a person joins the group. Find the weight of the person who joined the group if the initial average weight of the group is 48Kg}
+
+\begin{multicols}{2}
+
+    \textbf{Mathematics Method}
+
+    Let $S$ be the sum of weights of 15 friends. According to the question 
+    \begin{align*}
+        \dfrac{S}{15} &= 48 \\
+        S &= 48 * 15 \\
+        &= 720
+    \end{align*}
+    
+    By adding a new person, average becomes 49. Let the weight of this new person be $x$
+    
+    \begin{align*}
+        \dfrac{S + x}{16} &= 49 \\
+        720 + x &= 49 * 16 \\
+        x &= 784 - 720 \\
+        x &= 64
+    \end{align*}
+    
+
+    \columnbreak
+
+    \textbf{Logic Method}
+
+    \begin{itemize}
+        \item Let us assume that on an average, each friend in the friend group weighs 48kg. We can make this assumption as the average will still be 48 if each friend weighs 48 Kg
+        \item Now, a new friend joined in and because of this, the average weight increased by 1
+        \item This is the equivalent of each friend being 49kg on an average. For each friend, the average weight increased by 1
+        \begin{itemize}
+            \item The average would not have changed if the new friend was 48Kg
+            \item Since the average increased, friend must be heavier than 48Kg
+            \item Each friend's average weight increased by 1 Kg therefore, the new friend must weight $48 + (1 * 16) = 64$ as there are 16 friends now
+        \end{itemize}
+    \end{itemize}
+
+\end{multicols}
+
+\SampleQuestion{The average weight of a group of 20 friends increases by 2 Kg when a person joins the group. Find the weight of the person who joined the group if the initial average weight of the group is 60Kg}
+
+\begin{itemize}
+    \item 20 friends where each friend on an average weighed 60Kg
+    \item New friend (friend 21) joined which led to increase in average weight of each friend by 2
+    \item The average weight of 21 friend increased by 2 therefore weight of friend 21 = 60 + (21 * 2) = 102
+\end{itemize}
+
+
+
+\href{https://youtu.be/q-ZUkah-xys?feature=shared&t=1381}{Continue from here}
