@@ -217,14 +217,151 @@ This is a class of questions where we are given an average, the change in averag
     \begin{itemize}
         \item In a group of 10 students, one student left and a new student of weight 23 kg was included. The average of the group still decreased by 1.
         \item Since the average weight reduced, we can conclude that the weight of this new student is less than the original student. If it were not, the average would have remained the same or increased
-        \item Since his inclusion reduced average age of each student by 1, weight of the student who left = 23 + 10 = 33
+        \item Since his inclusion reduced average age of each student by 1, weight of the student who left = 23 + 10 = 33 Kg
     \end{itemize}
-
 
 \end{multicols}
 
-% \SampleQuestion{An MBA studying student calculates his cumulative average after every test. Banking and Accounting were his last 2 tests. 83 marks in Banking increased his average by 2 marks. 75 marks in accounting further increased his average by 1 mark. Reasoning is the next test; if he gets 51 in reasoning, what will be his average?}
+\SampleQuestion{Average age of a group went up by 2 years when a man aged 34 years was replaced by an old man aged 58 years. How many members were in the group ?}
+
+\begin{itemize}
+    \item The difference in the ages of men = 58 - 34 = 24
+    \item The average age of each member in the group increased by 2 years
+    \item Dividing the increase equally, we can say that the number of people in the group are $\dfrac{24}{2} = 12$
+\end{itemize}
+
+\SampleQuestion{Average runs scored by a batsman who has played 52 innings increased by 1 after an innings of 126 runs. Find average runs of the batsman before this innings}
+
+\begin{multicols}{2}
+    
+    \textbf{Mathematical Way}
+   
+    Let average runs be $x$ in 52 innings. According to the above question, 
+    \begin{align*}
+        \dfrac{52x + 126}{53} &= x + 1 \tag{$x$ is average run per inning} \\
+        52x + 126 &= 53x + 53 \\
+        x &= 126 - 53 \\
+        &= 73
+    \end{align*}
+    
+    \columnbreak
+    
+    \textbf{Analytical Way}
+    
+    \begin{itemize}
+        \item Till 52 innings, batsman scored some average run. Let it be $x$
+        \item At inning 53, he scored 126 runs. This increased his average run by 1
+        \item So, at 53 innings, average run is $x+1$ and at 52 innings, average run is $x$. We can see that the "extra" runs from average $x$ is 53
+        \item Therefore, average runs before innings 53 = 126 - 53 = 73
+    \end{itemize}
+\end{multicols}
+
+\SampleQuestion{16 men went into a hotel. 15 of them paid Rs 80 each and the 16th man paid Rs 75 more than the average bill paid by all 16 men. Find the total bill}
+
+Let the average of the bill of 16 men be $x$. According to question
+\begin{align*}
+    \dfrac{15 * 80 + (x + 75)}{16} &= x \\
+    1200 + x + 75 &= 16x \\
+    15x &= 1275 \\
+    x &= \dfrac{1275}{15} \\
+    &= 85
+\end{align*}
+
+Total bill = 85 * 16 = 850 + (85 * 2 * 3) = 1360
+
+\SampleQuestion{Average age of a family of 5 members is the same today as it was 5 years ago. There is no change in the family except that the elder daughter was replaced by daughter-in-law. If the age of the elder daughter is 48 years, how old is the daughter-in-law?}
+
+\begin{itemize}
+    \item Let us assume that the average age of family 5 years ago was $x$
+    \item In 5 years, age of everyone would increase by 5 years, thus increasing the average by 5
+    \item However, the elder daughter was replaced by daughter-in-law. For the other 4 members, age increased by 4 * 5 = 20 but the average did not change. Therefore, the age of daughter-in-law is such that she offsetted the increase of 20
+    \item Age of daughter-in-law, therefore, is 48 - 20 = 28
+\end{itemize}
+
+\begin{NOTE}
+    Age of elder daughter \textbf{is} 48, thus we subtract 20 from 48
+\end{NOTE}
+
+\SampleQuestion{Average marks obtained by 40 students of a class is 85. Difference between highest and lowest scorer is 108. If both of these students are removed, average falls by 1 mark. Find the highest mark.}
+
+\begin{itemize}
+    \item Marks obtained by all 40 students = 40 * 85 = 3400
+    \item Marks obtained by 38 students (average decreased by 1) = 38 * 84 = 3360 - 168 = 3192
+    \item Difference in marks of high scorer and low scorer = 108
+    \item Let $x$ be marks of high scorer. Therefore, marks of low scorer is $x - 108$.
+    \item Collectively, high and low scorer scored $3400 - 3192 = 208$ marks
+    \item $x + x - 108 = 208 \implies 2x = 316 \implies x = 158$  
+\end{itemize}
 
 
+\section{Miscellaneous Questions}
 
-\href{https://www.youtube.com/watch?v=i3o8REcdEXQ}{Continue from here}
+\SampleQuestion{An MBA student calculates his cumulative average after every test. Banking and accounting were his last tests. 83 marks in banking increased his average by 2. 75 marks in accounting further increased his average by 1. Reasoning is his next test; if he gest 51 in reasoning, what will be his average? }
+
+This question is better solved through a table Method
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c ||}
+        \hline
+        state & average & Quantity & total \\
+        \hline
+        Initially & $x$ & $n$ & $nx$ \\
+        \hline
+        After banking & $x + 2$ & $n + 1$ & $(n + 1) * (x + 2)$ \\
+        \hline
+        After banking and accounting & $x + 3$ & $n + 2$ & $(n + 2) * (x + 3)$ \\
+        \hline
+        After banking and accounting and reasoning & $y$ & $n + 3$ & $(n + 2) * (x + 3) + 51$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+According to question, difference after banking and initially is 83
+\begin{align*}
+    (n + 1) (x + 2) - nx &= 83 \\
+    nx + 2n + x + 2 - nx &= 83 \\
+    x + 2n &= 81
+\end{align*}
+
+According to question, difference after banking + reasoning and after banking is 75
+\begin{align*}
+    (n + 2) (x + 3) - (n + 1) (x + 2) &= 75 \\
+    ( nx + 3n + 2x + 6 ) - ( nx + 2n + x + 2 ) &= 75 \\
+    x + n &= 71
+\end{align*}
+
+Using the above 2 equations, we can find that $n = 10$ and $x = 61$. We now need to find average after banking, accounting and reasoning 
+\begin{align*}
+    y &= \dfrac{12 * 64 + 51}{13} \\
+    &= \dfrac{720 + 48 + 51}{13} \\
+    &= \dfrac{819}{13} \\
+    y &= 63 \\
+\end{align*}
+
+\SampleQuestion{Average weight of a class of 100 students is 45 Kg. Class consists of two sections A and B, each with 50 students. Average weight $W_1$ of section A is 1 kg less than average weight $W_2$ of section B. If Ravi, the heaviest student of section B is moved to section A, and Govind, the lightest student of section A, is moved to section B, then average weights of 2 classes are interchanged. What is the weight of Govind, if it is known that movement of Ravi from section B to section A makes the average weights of two sections equal}
+
+The average weight of 2 classes combined is 45. We can also say that average of average weights of each class are equal to 45 as well
+\begin{align*}
+    \dfrac{W_1 + W_2}{2} &= 45 \\
+    W_1 + W_2 &= 90 \\
+    2 * W_2 - 1 &= 90 \tag{$W_1 = W_2 - 1$ as mentioned in question} \\
+    W_2 &= 45.5
+\end{align*}
+
+\textbf{Let us take the second scenario} first and calculate weight of Ravi. Let weight of Ravi = $W_R$.  
+
+\begin{itemize}
+    \item For $W_1 = W_2$, the equation $\dfrac{W_1 + W_2}{2} = 90$ must be satisfied. This is only possible if $W_1 = W_2 = 45$
+    \item By adding Ravi, average weight of section A $W_1$ has become 45. Initially, it was 44.5.
+    \item Therefore, for 51 students, average weight of class increased by 0.5 $\implies W_R = 44.5 + (51 * 0.5) = 70$
+\end{itemize}
+
+\textbf{Moving Ravi from section B to A and Govind from section A to B}
+
+\begin{itemize}
+    \item The averages interchanged as soon as the students above are exchanged
+    \item In section B, we can thus say that the average decreased by 1 (as average weight of section A was 1 less than average weight of section B )
+    \item Ravi in section B has weight of 70 kg. By adding Govind, the average weight of each student decreased by 1. The number of students remained 50\
+    \item Therefore, $W_R - 50 = W_G \implies W_G = 20$ 
+\end{itemize}
