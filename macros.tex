@@ -42,3 +42,20 @@
 \newcommand{\Round}[1]{
     \left [ #1 \right ]
 }
+
+% https://tex.stackexchange.com/questions/54260/qa-template-in-latex
+\newcounter{question}[chapter]
+\setcounter{question}{0}
+
+\newcounter{example}
+\setcounter{example}{0}
+
+\newcommand\SampleQuestion[1]{%
+   \leavevmode
+   \par
+   \stepcounter{question}
+   \noindent
+   \textbf{Question \thechapter.\thequestion} \,: #1
+   \vspace{0.5cm}
+   \par
+}

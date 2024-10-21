@@ -1,0 +1,367 @@
+\section{Basics and Interesting cases}
+
+Average is defined as $\dfrac{\text{Sum}}{\text{Number of quantities}}$. For example, the average of numbers 17,12,10 and 20 is $\dfrac{17 + 12 + 10 + 20}{4} = \dfrac{59}{4} = 14.75$. There are some special cases
+
+When numbers are in AP (Arithmetic Progression), the average of that sequence is the middle term of the sequence
+
+\begin{itemize}
+    \item Middle term of AP is given as $\dfrac{\text{First term} + \text{Last term}}{2}$
+    \begin{itemize}
+        \item This middle term may or may not exist in the sequence itself : If a sequence has odd number of terms, then the average exists in the sequence but if there are even number of terms, average will not exist in sequence
+        \item 2,4,6,8,10 . Average = $\dfrac{2 + 10}{2} = 6$. 6 exists in AP. 
+        \item 1,3,5,7. Average = $\dfrac{1 + 7}{2} = 4$. 4 does not exist in AP
+    \end{itemize}
+
+    \item If we want to find the index of the middle term/s that resulted in average, they are as follows
+    \begin{itemize}
+        \item Odd number of terms : $\floor{ \dfrac{\text{Number of terms}}{2} } + 1$
+        \item Even number of terms : $ \dfrac{\text{Number of terms}}{2} $, $ \dfrac{\text{Number of terms}}{2} + 1$. The average of AP is the average of these middle terms 
+    \end{itemize}
+\end{itemize}
+
+\SampleQuestion{Average of 7 consecutive even integers is 36. Product of 2nd and 5th term is?}
+
+Since we have odd number of terms in the AP, the middle term of the AP will be the average. If we write our AP as $a , a+2 , a+4 , a+6 , a+8 , a+10 , a+12 $. The middle term is $a + 6 = 36 \implies a = 30$. \\
+
+Product of 2nd and 5th term = $(a + 2) * (a + 8) = 32 * 38 = 1216$
+
+\SampleQuestion{Average of 12 consecutive odd integers is 30. Find the sequence}. 
+
+The sequence is an AP with 12 terms and common difference = 2. Since we have even terms, the average is calculated as average of middle terms. Let the first term of the AP be $a$.
+
+\begin{align*}
+    30 &= \dfrac{a + (4 * 2) + a + (5 * 2)}{2} \\
+    30 &= \dfrac{2a + 18}{2} \\
+    &= a + 9 \\
+    a &= 21
+\end{align*}
+
+Series is therefore, $21,23,25,27,29,31,33,35,37,39,41,43$
+
+\textbf{Another approach}
+
+We can see that the average of the sequence is 30. In a sequence of 12 terms, average is derived by average of 2 middle terms. In this question, the terms would be the 5th and 6th term. 
+
+\begin{itemize}
+    \item If the average of 2 terms is an integer $x$, then the terms must be $x-1$ and $x+1$. $\dfrac{(x-1) + (x+1)}{2} = \dfrac{2x}{2} = x$. 
+
+    \item If the average of 2 terms is a decimal $y$, then the terms must be $y-0.5$ and $y+0.5$. For example, if average is 14.5, then the terms are 14 and 15 $\dfrac{14 + 15}{2} = \dfrac{29}{2} = 14.5$. 
+\end{itemize}
+
+Using the above, we can find the 5th and 6th terms : 30-1 and 30+1 respectively. Using that, with common difference of 2, we can find the terms
+
+\SampleQuestion{ Average of 143 consecutive odd integers is 'P'. Average of last 67 terms is 'n'. Find 'P' in terms of 'n' }
+
+\begin{itemize}
+    \item Since average of 143 terms is $P$, we can say that $\floor{\dfrac{143}{2}} + 1 = 72^{nd}$ term is equal to $P$. 
+    
+    \item The last 67 terms are in the range 77th term to 143rd term ($143 - 67 + 1 = 76$). The middle term of this sequence will be $\dfrac{77 + 143}{2} = 110$. 
+    
+    \item $110^{th}$ term = $n$, $72^{nd}$ term = $P$. Difference = $110 - 72 = 38$. Therefore, $n = P + 76$
+\end{itemize}
+
+\begin{NOTE}
+    I will be using the notation $t_n$ from now on to describe the $n^{th}$ term
+\end{NOTE}
+
+\SampleQuestion{Find the average of 1 + 3 + 5 + 7 + $\ldots$ 167}
+
+The above is an AP with common difference of 2. We can find the average as $\dfrac{1 + 167}{2} = 84$
+
+\newpage
+
+\SampleQuestion{Which digit is missing in the average of numbers 9,99,999,9999 $\ldots$ 999999999 ?}
+
+There are two ways to solve this question : Through pattern and actual calculation. I will show both
+
+\textbf{Pattern Matching}
+
+We are asked to find the missing digit in $\dfrac{9 + 99 + 999 + \ldots 999999999}{9}$. We can simplify by taking 9 common $\implies 1 + 11 + 111 + \ldots 111111111$
+
+Now, we can start to notice a pattern
+\begin{itemize}
+    \item 1 + 11 = 12
+    \item 1 + 11 + 111 = 123
+    \item 1 + 11 + 111 + 1111 = 1234
+    \item We can see that as we keep adding the next series of 1s, we are getting each digit. Like, when we found 1 digit number + 2 digit number + 3 digit number + 4 digit number, we got all the 4 digits
+    \item We can extend this and be sure that when we add 9 numbers like this, we will get the sum 123456789
+\end{itemize}
+
+We can now say that the digit 0 is missing    
+
+\textbf{Actually Finding the Sum}
+We can find the sum of expression $9 + 99 + 999 + \ldots 999999999$ by using geometric progression formula
+
+\begin{align*}
+    9 + 99 + 999 + \ldots 999999999 &= (10 - 1) + (10^2 - 1) + (10^3 - 1) + \ldots (10^9 - 1) \\
+    &= (10 + 10^2 + 10^3 + \ldots 10^9 ) - 9 \tag{There are nine "1"} \\
+    &= \dfrac{10 * (10^9 - 1)}{10 - 1} - 9 \tag{GP sum formula with $r = 10$ and $n = 9$} \\
+    &= 1111111110 - 9 \\
+    &= 1111111101
+\end{align*}
+
+Average is $\dfrac{1111111101}{9} = 123456789 \implies $ Missing digit = 0
+
+\SampleQuestion{The sales of a company in January 2012 was Rs 348 crores. In Feb and March, sales were Rs 364 crores and Rs 380 crores respectively. If sales increase in a similar trend till December of that year, find average sales in 2012}
+
+We can see that 348, 364 and 380 are in an AP with $a = 348, d = 16 \text{and} n = 12$. Therefore, we can find average by taking sum of sale of january and december and dividing by 2
+
+\begin{itemize}
+    \item Sales in December = $348 + (11*16) = 348 + 176 = 524$
+    \item Average = $\dfrac{348 + 524}{2} = 436$
+\end{itemize}
+
+Answer = Rs 436 crores
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+\section{Average Increase and Decrease}
+
+This is a class of questions where we are given an average, the change in average and number of quantities. Refer to the following examples 
+
+\SampleQuestion{The average weight of a group of 15 friends increases by 1 Kg when a person joins the group. Find the weight of the person who joined the group if the initial average weight of the group is 48Kg}
+
+\begin{multicols}{2}
+
+    \textbf{Mathematics Method}
+
+    Let $S$ be the sum of weights of 15 friends. According to the question 
+    \begin{align*}
+        \dfrac{S}{15} &= 48 \\
+        S &= 48 * 15 \\
+        &= 720
+    \end{align*}
+    
+    By adding a new person, average becomes 49. Let the weight of this new person be $x$
+    
+    \begin{align*}
+        \dfrac{S + x}{16} &= 49 \\
+        720 + x &= 49 * 16 \\
+        x &= 784 - 720 \\
+        x &= 64
+    \end{align*}
+    
+
+    \columnbreak
+
+    \textbf{Logic Method}
+
+    \begin{itemize}
+        \item Let us assume that on an average, each friend in the friend group weighs 48kg. We can make this assumption as the average will still be 48 if each friend weighs 48 Kg
+        \item Now, a new friend joined in and because of this, the average weight increased by 1
+        \item This is the equivalent of each friend being 49kg on an average. For each friend, the average weight increased by 1
+        \begin{itemize}
+            \item The average would not have changed if the new friend was 48Kg
+            \item Since the average increased, friend must be heavier than 48Kg
+            \item Each friend's average weight increased by 1 Kg therefore, the new friend must weight $48 + (1 * 16) = 64$ as there are 16 friends now
+        \end{itemize}
+    \end{itemize}
+
+\end{multicols}
+
+\SampleQuestion{The average weight of a group of 20 friends increases by 2 Kg when a person joins the group. Find the weight of the person who joined the group if the initial average weight of the group is 60Kg}
+
+\begin{itemize}
+    \item 20 friends where each friend on an average weighed 60Kg
+    \item New friend (friend 21) joined which led to increase in average weight of each friend by 2
+    \item The average weight of 21 friend increased by 2 therefore weight of friend 21 = 60 + (21 * 2) = 102
+\end{itemize}
+
+\SampleQuestion{When a heavy student leaves from a group of 40 students, average weight of the group decreases by 2Kg. Find the weight of the student who leaves the class if the average weight of the original group is 60Kg}
+
+\begin{itemize}
+    \item Since the average is decreasing when the number of students is decreasing, this means that the decrease in numerator > decrease in denominator
+    \item We can thus, see that the weight of the student who left must be greater than the average weight i.e. 60Kg
+    \item Since average weight of each student decreased by 2Kg $\implies$ weight of student who left = $60 + (39 * 2) = 138$ Kg
+\end{itemize}
+
+
+\SampleQuestion{Average age of a class of 24 students and 1 teacher is 15 years. If the teacher is not considered, the average age of students is 14 years. What is the age of the teacher?}
+
+\begin{itemize}
+    \item In a group of \textbf{24 students} and \textbf{1 teacher}, average is 15 years
+    \item When the teacher leaves, average is 14 years
+    \item We can see that when the teacher leaves, the age of the 24 students in the group gets decreased by 1
+    \item Therefore, age of teacher = $15 + (1 * 24) = 39$
+\end{itemize}
+
+\SampleQuestion{Average age of a group of 10 students decreased by 1 year when a new boy of age 23 joined the group and an existing boy left. What is the age of the boy who left?}
+
+\begin{multicols}{2}
+    \textbf{Mathematical Way}
+
+    Let average age of each student be $x$. In a group of 10 students, one student left and a new student of weight 23 kg was included. The average of the group still decreased by 1. We can write this mathematically as follows 
+
+    \begin{align*}
+        \dfrac{9x + 23}{10} &= x - 1 \tag{Weight of 9 students + new included student} \\
+        9x + 23 &= 10x - 10 \\
+        x &= 23 + 10 \\
+        &= 33
+    \end{align*}
+
+    Therefore, the student that left had the weight of 33 Kg
+
+    \columnbreak
+
+    \textbf{Reasoning Way}
+    \begin{itemize}
+        \item In a group of 10 students, one student left and a new student of weight 23 kg was included. The average of the group still decreased by 1.
+        \item Since the average weight reduced, we can conclude that the weight of this new student is less than the original student. If it were not, the average would have remained the same or increased
+        \item Since his inclusion reduced average age of each student by 1, weight of the student who left = 23 + 10 = 33 Kg
+    \end{itemize}
+
+\end{multicols}
+
+\SampleQuestion{Average age of a group went up by 2 years when a man aged 34 years was replaced by an old man aged 58 years. How many members were in the group ?}
+
+\begin{itemize}
+    \item The difference in the ages of men = 58 - 34 = 24
+    \item The average age of each member in the group increased by 2 years
+    \item Dividing the increase equally, we can say that the number of people in the group are $\dfrac{24}{2} = 12$
+\end{itemize}
+
+\SampleQuestion{Average runs scored by a batsman who has played 52 innings increased by 1 after an innings of 126 runs. Find average runs of the batsman before this innings}
+
+\begin{multicols}{2}
+    
+    \textbf{Mathematical Way}
+   
+    Let average runs be $x$ in 52 innings. According to the above question, 
+    \begin{align*}
+        \dfrac{52x + 126}{53} &= x + 1 \tag{$x$ is average run per inning} \\
+        52x + 126 &= 53x + 53 \\
+        x &= 126 - 53 \\
+        &= 73
+    \end{align*}
+    
+    \columnbreak
+    
+    \textbf{Analytical Way}
+    
+    \begin{itemize}
+        \item Till 52 innings, batsman scored some average run. Let it be $x$
+        \item At inning 53, he scored 126 runs. This increased his average run by 1
+        \item So, at 53 innings, average run is $x+1$ and at 52 innings, average run is $x$. We can see that the "extra" runs from average $x$ is 53
+        \item Therefore, average runs before innings 53 = 126 - 53 = 73
+    \end{itemize}
+\end{multicols}
+
+\SampleQuestion{16 men went into a hotel. 15 of them paid Rs 80 each and the 16th man paid Rs 75 more than the average bill paid by all 16 men. Find the total bill}
+
+Let the average of the bill of 16 men be $x$. According to question
+\begin{align*}
+    \dfrac{15 * 80 + (x + 75)}{16} &= x \\
+    1200 + x + 75 &= 16x \\
+    15x &= 1275 \\
+    x &= \dfrac{1275}{15} \\
+    &= 85
+\end{align*}
+
+Total bill = 85 * 16 = 850 + (85 * 2 * 3) = 1360
+
+\SampleQuestion{Average age of a family of 5 members is the same today as it was 5 years ago. There is no change in the family except that the elder daughter was replaced by daughter-in-law. If the age of the elder daughter is 48 years, how old is the daughter-in-law?}
+
+\begin{itemize}
+    \item Let us assume that the average age of family 5 years ago was $x$
+    \item In 5 years, age of everyone would increase by 5 years, thus increasing the average by 5
+    \item However, the elder daughter was replaced by daughter-in-law. For the other 4 members, age increased by 4 * 5 = 20 but the average did not change. Therefore, the age of daughter-in-law is such that she offsetted the increase of 20
+    \item Age of daughter-in-law, therefore, is 48 - 20 = 28
+\end{itemize}
+
+\begin{NOTE}
+    Age of elder daughter \textbf{is} 48, thus we subtract 20 from 48
+\end{NOTE}
+
+\SampleQuestion{Average marks obtained by 40 students of a class is 85. Difference between highest and lowest scorer is 108. If both of these students are removed, average falls by 1 mark. Find the highest mark.}
+
+\begin{itemize}
+    \item Marks obtained by all 40 students = 40 * 85 = 3400
+    \item Marks obtained by 38 students (average decreased by 1) = 38 * 84 = 3360 - 168 = 3192
+    \item Difference in marks of high scorer and low scorer = 108
+    \item Let $x$ be marks of high scorer. Therefore, marks of low scorer is $x - 108$.
+    \item Collectively, high and low scorer scored $3400 - 3192 = 208$ marks
+    \item $x + x - 108 = 208 \implies 2x = 316 \implies x = 158$  
+\end{itemize}
+
+
+\section{Miscellaneous Questions}
+
+\SampleQuestion{An MBA student calculates his cumulative average after every test. Banking and accounting were his last tests. 83 marks in banking increased his average by 2. 75 marks in accounting further increased his average by 1. Reasoning is his next test; if he gest 51 in reasoning, what will be his average? }
+
+This question is better solved through a table Method
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|| c | c | c | c ||}
+        \hline
+        state & average & Quantity & total \\
+        \hline
+        Initially & $x$ & $n$ & $nx$ \\
+        \hline
+        After banking & $x + 2$ & $n + 1$ & $(n + 1) * (x + 2)$ \\
+        \hline
+        After banking and accounting & $x + 3$ & $n + 2$ & $(n + 2) * (x + 3)$ \\
+        \hline
+        After banking and accounting and reasoning & $y$ & $n + 3$ & $(n + 2) * (x + 3) + 51$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+According to question, difference after banking and initially is 83
+\begin{align*}
+    (n + 1) (x + 2) - nx &= 83 \\
+    nx + 2n + x + 2 - nx &= 83 \\
+    x + 2n &= 81
+\end{align*}
+
+According to question, difference after banking + reasoning and after banking is 75
+\begin{align*}
+    (n + 2) (x + 3) - (n + 1) (x + 2) &= 75 \\
+    ( nx + 3n + 2x + 6 ) - ( nx + 2n + x + 2 ) &= 75 \\
+    x + n &= 71
+\end{align*}
+
+Using the above 2 equations, we can find that $n = 10$ and $x = 61$. We now need to find average after banking, accounting and reasoning 
+\begin{align*}
+    y &= \dfrac{12 * 64 + 51}{13} \\
+    &= \dfrac{720 + 48 + 51}{13} \\
+    &= \dfrac{819}{13} \\
+    y &= 63 \\
+\end{align*}
+
+\SampleQuestion{Average weight of a class of 100 students is 45 Kg. Class consists of two sections A and B, each with 50 students. Average weight $W_1$ of section A is 1 kg less than average weight $W_2$ of section B. If Ravi, the heaviest student of section B is moved to section A, and Govind, the lightest student of section A, is moved to section B, then average weights of 2 classes are interchanged. What is the weight of Govind, if it is known that movement of Ravi from section B to section A makes the average weights of two sections equal}
+
+The average weight of 2 classes combined is 45. We can also say that average of average weights of each class are equal to 45 as well
+\begin{align*}
+    \dfrac{W_1 + W_2}{2} &= 45 \\
+    W_1 + W_2 &= 90 \\
+    2 * W_2 - 1 &= 90 \tag{$W_1 = W_2 - 1$ as mentioned in question} \\
+    W_2 &= 45.5
+\end{align*}
+
+\textbf{Let us take the second scenario} first and calculate weight of Ravi. Let weight of Ravi = $W_R$.  
+
+\begin{itemize}
+    \item For $W_1 = W_2$, the equation $\dfrac{W_1 + W_2}{2} = 90$ must be satisfied. This is only possible if $W_1 = W_2 = 45$
+    \item By adding Ravi, average weight of section A $W_1$ has become 45. Initially, it was 44.5.
+    \item Therefore, for 51 students, average weight of class increased by 0.5 $\implies W_R = 44.5 + (51 * 0.5) = 70$
+\end{itemize}
+
+\textbf{Moving Ravi from section B to A and Govind from section A to B}
+
+\begin{itemize}
+    \item The averages interchanged as soon as the students above are exchanged
+    \item In section B, we can thus say that the average decreased by 1 (as average weight of section A was 1 less than average weight of section B )
+    \item Ravi in section B has weight of 70 kg. By adding Govind, the average weight of each student decreased by 1. The number of students remained 50\
+    \item Therefore, $W_R - 50 = W_G \implies W_G = 20$ 
+\end{itemize}
