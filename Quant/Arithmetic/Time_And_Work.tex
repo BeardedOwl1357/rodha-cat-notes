@@ -1,0 +1,70 @@
+\section{Basics}
+The fundamental formula is 
+$$
+\text{Work} = \text{Efficiency} * \text{Time}
+$$
+
+\begin{NOTE}
+    Efficiency is defined as the amount of work that can be done in 1 day. Mathematically, efficiency is denoted as $\eta$ (eta)
+\end{NOTE}
+
+We explore the basic types of question that come under this topic. Mostly, we should try to deal with whole numbers rather than fractions however there are cases where fractions are unavoidable. Refer to the below questions
+
+\SampleQuestion{A can complete work in 10 days and B can complete work in 15 days. Find number of days in which A and B together can complete the work}
+
+\begin{multicols}{2}
+
+    \textbf{Using fractions (not recommended)}
+
+    \begin{itemize}
+        \item Let the work be $x$ units. According to this, A does $\dfrac{x}{10}$ amount of work in 1 day ($\eta_A$) and B does $\dfrac{x}{15}$ amount of work in 1 day ($\eta_B$)
+        \item Collectively, they will do $\dfrac{x}{10} + \dfrac{x}{15} = \dfrac{x}{6}$ work in 1 day ($\eta_{AB}$)
+        \item Therefore, $x = t * \dfrac{x}{6} \implies t = 6$. Will take 6 days
+    \end{itemize}
+
+    \columnbreak
+    
+    \textbf{Using LCM (Recommended)}
+    \begin{itemize}
+        \item Let work be LCM(10,15) = 30. According to this, A does $\dfrac{30}{10} = 3$ units work in 1 day ($\eta_A$) and B does $\dfrac{30}{15} = 2$ units of work in 1 day ($\eta_B$)
+        \item Collectively, they will do $3 + 2 = 5$ units of work in 1 day ($\eta_{AB}$)
+        \item Therefore, $30 = t * 5 \implies t = 6$. Will take 6 days
+    \end{itemize}
+
+\end{multicols}
+
+\SampleQuestion{A can do work in 12 days and B can do work in 18 days. Both started the work together but A left after 2 days. In how many days can B complete the remaining work?}
+
+\begin{itemize}
+    \item Let work = LCM(12,18) = 36 units. $\eta_A = \dfrac{36}{12} = 3, \eta_B = \dfrac{36}{18} = 2$
+    \item $\eta_{AB} = 5$
+    \item In 2 days, they collectively do $5 * 2 = 10$ units of work. Therefore, remaining work for B is 36 - 10 = 26 units
+    \item Time taken for B to complete remaining work = $\dfrac{26}{2} = 13$ days
+\end{itemize}
+
+\SampleQuestion{A can complete work in 12 days and B can complete work in 20 days. C can complete work in 40 days Find number of days in which all three can finish the work together}
+
+\begin{itemize}
+    \item Work = LCM(12,20,40) = LCM(12,LCM(20,40)) = LCM(12,40) = 120
+    \item $\eta_A = \dfrac{120}{12} = 10, \eta_B = \dfrac{120}{20} = 6, \eta_C = \dfrac{120}{40} = 3$
+    \item $\eta_{ABC} = 10 + 6 + 3 = 19$
+    \item Time taken = $\dfrac{120}{19} = 6$ days (approx)
+\end{itemize}
+
+\SampleQuestion{P and Q can complete work in 15 and 21 days respectively. Q started the work and after some days, P joined. Work was finished in 14 days. Find the number of days after which P joined to work with Q}
+
+\begin{itemize}
+    \item Work = LCM(15,21) = 105
+    \item $\eta_P = \dfrac{105}{15} = 7, \eta_Q = \dfrac{105}{21} = 5$
+    \item Let $x$ be the days which P worked alone. Therefore, P and Q worked together for $(14 - x)$ days
+    \item We can write the following equation
+\end{itemize}
+
+\begin{align*}
+    105 &= 5x + 12 (14 - x) \\
+    105 &= -7x + 168 \\
+    7x &= 168 - 105 \\
+    x &= \dfrac{63}{7} = 9
+\end{align*}
+
+P joined after 9 days
