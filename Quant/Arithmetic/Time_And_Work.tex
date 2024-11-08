@@ -68,3 +68,197 @@ We explore the basic types of question that come under this topic. Mostly, we sh
 \end{align*}
 
 P joined after 9 days
+
+\SampleQuestion{A, B and C take 20, 24 and 40 days respectively to complete the work. They start the work together but after 6 days, A left. B and C continue the work together but B left 4 days before the completion of the work. Find the total number of days in which the work was finished}
+
+\begin{itemize}
+    \item Work = LCM(20,24,40) = 120
+    \item $\eta_A = \dfrac{120}{20} = 6, \eta_B = \dfrac{120}{24} = 5, \eta_C = \dfrac{120}{40} = 3$
+\end{itemize}
+
+Using the information provided in question, we can express work done as follows
+\begin{align*}
+    120 &= (6 * \eta_{ABC}) + (t * \eta_{BC}) + (4 * \eta_C) \\
+    120 &= 84 + 8t + 12 \\
+    t &= \dfrac{120 - 96}{8} \\
+    &= 3
+\end{align*}
+
+Total time taken = 6 + 3 + 4 = 13 days
+
+\SampleQuestion{A and B take 10 and 18 days respectively to complete the work respectively. In how many days, work will be completed if they work alternatively in the following cases}
+
+\begin{enumerate}
+    \item When A starts the work
+    \item When B starts the work
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{itemize}
+    \item Work = LCM(10,18) = 90
+    \item $\eta_A = \dfrac{90}{10} = 9, \eta_B = \dfrac{90}{18} = 5$
+    \item Irrespective of who starts the work first, both A and B will work $\eta_A + \eta_b = 14$ units of work in 2 days
+    \item In interval of 2 days, the amount of work remaining is $14 * \floor{\dfrac{90}{14}} = 14 * 6 = 84$
+    \item Remaining work is 6 units of work  
+\end{itemize}
+
+\begin{multicols}{2}
+    
+    \textbf{Case 1 : A started the work first}
+    \begin{itemize}
+        \item A will now do 6 units of work. $\eta_A = 9$, that is, A can do 9 units of work in 1 day. 
+        \item Thus A will take $\dfrac{6}{9} = \dfrac{2}{3} = 0.66$ days. 
+        \item Thus, total time taken is 12 + 0.66 = 12.66 days
+    \end{itemize}
+        
+    \columnbreak
+    
+    \textbf{Case 2 : B started the work first}
+    \begin{itemize}
+        \item B will now do 6 units of work. $\eta_B = 5$, that is, B can do 5 units of work in 1 day. Thus, B will work for 1 day and remaining work is 1 unit
+        \item A will now work for $\dfrac{1}{9} = 0.11$ days to finish this 1 unit of work 
+        \item Thus, total time taken is 12 + 1 + 0.11 = 13.11 days
+    \end{itemize}
+
+\end{multicols}
+
+\SampleQuestion{To complete the work, A and B take 30 days. B and C take 18 days. A and C take $\dfrac{45}{2}$ days. Find the following}
+
+\begin{enumerate}
+    \item Time taken for A, B and C to complete the work together
+    \item Time taken for A to complete the work
+    \item Time taken for B to complete the work
+    \item Time taken for C to complete the work
+\end{enumerate}
+
+\vspace{2cm}
+
+\begin{itemize}
+    \item Work = $LCM(\dfrac{30}{1}, \dfrac{18}{1}, \dfrac{45}{2}) = \dfrac{LCM(30,18,45)}{HCF(1,1,2)} = 90$
+    \item $\eta_{AB} = \dfrac{90}{30} = 3, \eta_{BC} = \dfrac{90}{18} = 5, \eta_{AC} = \dfrac{90}{\frac{45}{2}} = 4$
+\end{itemize}
+
+As per the given data and data we derived above, we can create an equation to find $\eta_{ABC}$
+
+\begin{align*}
+    \eta_{AB} + \eta_{AC} + \eta_{BC} &= 3 + 5 + 4 \\
+    \eta_A + \eta_B + \eta_A + \eta_C + \eta_C + \eta_B &= 12 \\
+    2 * (\eta_{ABC}) &= 12 \\
+    \eta_{ABC} &= 6
+\end{align*}
+
+Time taken by ABC together to do the work is $\dfrac{90}{6} = 15$ days \\
+
+Time taken by A, B and C to do the work is as follows
+
+\begin{multicols}{3}
+    \textbf{Find $\eta_A$}
+    \begin{align*}
+        \eta_{ABC} - \eta{BC} &= 6 - 5 \\
+        \eta_A = 1
+    \end{align*}
+
+    Time taken by A to do the work = $\dfrac{90}{1} = 90$ days
+
+    \columnbreak
+
+    \textbf{Find $\eta_B$}
+
+    \begin{align*}
+        \eta_{ABC} - \eta_{BC} &= 6 - 4 \\
+        \eta_B = 2
+    \end{align*}
+
+    Time taken by B to do the work = $\dfrac{90}{2} = 45$ days
+
+    \columnbreak
+
+    \textbf{Find $\eta_C$}
+
+    \begin{align*}
+        \eta_{ABC} - \eta_{AC} &= 6 - 3 \\
+        \eta_B = 3
+    \end{align*}
+
+    Time taken by C to do the work = $\dfrac{90}{3} = 30$ days
+
+\end{multicols}
+
+\subsection{Efficiency and Earning}
+There are questions where people are paid to do the work and we need to find how the money is distributed. In these questions, \textbf{Better the efficiency, higher the pay}
+
+\SampleQuestion{A, B and C working individually can complete a piece of work in 10,15 and 20 days respectively. They completed the work in 4 days with the help of D. If they earned Rs 15000 for the entire work, how much did D earn for the work?}
+
+Work = LCM(10,15,20,4) = 60
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item $\eta_A = \dfrac{60}{10} = 6$
+        \item $\eta_B = \dfrac{60}{15} = 4$
+        \item $\eta_C = \dfrac{60}{20} = 3$
+    \end{itemize}
+    
+    \columnbreak
+
+    \begin{itemize}
+        \item As per question, $\eta_{ABCD} = \dfrac{60}{4} = 15$
+        \item Therefore, $\eta_D = \eta_{ABCD} - \eta{ABC} = 2$
+    \end{itemize}
+\end{multicols}
+
+\begin{itemize}
+
+    \item For an efficiency $\eta_{ABCD} = 15$, workers are paid 15000 $\implies$ for 1 unit of efficiency, they would be paid $\dfrac{15000}{15} = 1000$
+
+    \item Since D has an efficiency of 2, he must have been paid 2000
+\end{itemize}
+
+\newpage
+\section{Efficiency and Time}
+
+Efficiency and Time are inversely proprotional $\eta \propto \dfrac{1}{T}$ : Higher the efficiency, less the time it will take to complete the work. So if we know the ratio of efficiency of two entities or more entities, we can find the ratio of the time taken 
+
+\begin{multicols}{2}
+    \textbf{Two values}    
+    \begin{align*}
+        \eta_A : \eta_B &= x : y \\
+        T_A : T_B &= \dfrac{1}{x} : \dfrac{1}{y} \\
+        &= y : x \tag{Multiply by $LCM(x,y)$}
+    \end{align*}
+
+    \columnbreak
+    \textbf{Three values}    
+    \begin{align*}
+        \eta_A : \eta_B : \eta_C &= x : y : z \\
+        T_A : T_B : T_C &= \dfrac{1}{x} : \dfrac{1}{y} : \dfrac{1}{z} \\
+        &= yz : xz : zy \tag{Multiply by $LCM(x,y,z)$}
+    \end{align*}
+    
+\end{multicols}
+
+\SampleQuestion{A is 20\% more efficient than B. If B takes 30 days to complete a work, find number of days A will take}
+
+\begin{align*}
+    \eta_A &= \dfrac{6}{5} \eta_B \tag{Provided in question} \\
+    \dfrac{\eta_A}{\eta_B} &= \dfrac{6}{5} \\
+    \dfrac{T_A}{T_B} &= \dfrac{5}{6} \tag{Efficiency and time are inversely proprotional} \\
+    T_A &= \dfrac{5 * 30}{6} \\
+    &= 25 
+\end{align*}
+
+\SampleQuestion{A is 50\% more efficient than B and together they can complete the work in 18 days. In how many days A and B would be individually able to finish the work? }
+
+\begin{align*}
+    \eta_A &= \dfrac{15}{10} \eta_B \\
+    \dfrac{\eta_A}{\eta_B} &= \dfrac{3}{2}
+\end{align*}
+
+Let us assume $\eta_A = 3, \eta_B = 2$ units. For 5 units of work, both A and B take 18 days to complete the work 
+
+\begin{itemize}
+    \item Since efficiency and time are inversely proprotional, we can see that if efficiency decreases, time will increase
+    \item If 5 units of work is done in 18 days, then 1 unit of work will be done in 18 * 5 = 90 days.
+    \item Therefore, A, which has an efficiency of 3 will be able to do the work by itself in $\dfrac{90}{3} = 30$ days
+    \item Therefore, B, which has an efficiency of 2 will be able to do the work by itself in $\dfrac{90}{2} = 45$ days
+\end{itemize}
