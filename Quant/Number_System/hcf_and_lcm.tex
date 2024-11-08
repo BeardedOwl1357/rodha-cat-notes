@@ -263,6 +263,7 @@ For two numbers composed of a digit $x$ repeated $m$ and $n$ times respectively,
 \end{itemize}
 
 \section{LCM (Lowest Common Multiple)}
+
 LCM of two numbers $a,b$ is defined as the value such that $a * n = b * m $ where $n,m$ are the least values that satisfy the above condition. For example
 \begin{itemize}
     \item 3,4
@@ -276,6 +277,41 @@ LCM of two numbers $a,b$ is defined as the value such that $a * n = b * m $ wher
         \item Least Common Multiple (LCM) = 32
     \end{itemize}
 \end{itemize}
+
+\begin{EXTRA-LEARNING}
+    A good method to find LCM is to take the common factor out until we get co-primes. For example, in 15 and 25, the common factor is 5. 
+
+    \begin{align*}
+        LCM(15,20) &= 5 * LCM(3,4) \\
+        &= 5 * 3 * 4 \tag{As 3 and 4 are co-prime} \\
+        &= 60
+    \end{align*}
+\end{EXTRA-LEARNING}
+
+\subsection{LCM of 3 or more numbers}
+
+If we want to find LCM of 3 numbers, we can take find LCM of 2 numbers and then use the result to find LCM. 
+
+\SampleQuestion{Find LCM of 21,18,10}
+\begin{align*}
+    LCM(21,18,10) &= LCM(10,21,18) \\
+    &= LCM(10,LCM(21,18)) \\
+    &= LCM(10,126) \tag{$3 * LCM(7,6) = 3 * 7 * 6 = 126$} \\
+    &= 630 \tag{$2 * LCM(5,63) = 630$}
+\end{align*}
+
+\subsection{LCM of fractions}
+
+LCM of fractions is derived as $\dfrac{LCM(\text{Numerator terms})}{HCF(\text{Denominator terms})}$. See the following example
+
+\SampleQuestion{Find LCM of $\dfrac{15}{8}, \dfrac{13}{2}, 20$}
+
+\begin{align*}
+    LCM(\dfrac{15}{8}, \dfrac{13}{2}, \dfrac{20}{1}) &= \dfrac{LCM(15,13,20)}{HCF(8,2,1)} \\
+    &= \dfrac{LCM(13,LCM(15,20))}{1} \\
+    &= LCM(13,60) \\
+    &= 780
+\end{align*}
 
 \subsection{Calculate LCM through HCF}
 If we recall, HCF of two numbers is the largest number which divides both the numbers. An interesting observation is that after we take HCF common from both the numbers, the remaining numbers are co-prime. For example, $HCF(18,21) = 3, 18 = 3 * 6, 21 = 3 * 7.$ We can see that 6 and 7 are co-prime to each other. \\
